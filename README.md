@@ -30,9 +30,28 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 
 * Puede hacerlo con el mouse o escribiendo el comando: `mkdir jhoan_carrero`
 
+
+## Paso 4
+
+### Se debe tener la siguiente estructura de carpetas:
+
+    ./jhoan_carrero
+       └── /lessons                 Se guardaran acá los apuntes del curso
+            ├── clase_0       
+            ├── clase_1                     Se organizaran por clase
+            ├── ...
+       └── project                  Se guardara acá el progreso de la aplicación
+            ├── backend_node
+            ├── frontend_angular    
+            └── frontend_react
+
+## Para hacerlo mas rapido podes ejecutar el siguiente comando, solo cambiando el nombre del estudiante jhoan_carrero
+`
+STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_0 $STUDENT/project/backend_node $STUDENT/project/frontend_react $STUDENT/project/frontend_angular 
+`
+
 <br>
 
 # Notas
 
-### El estudiante recibira instrucciones de que informacion sera guardada en esa carpeta a raiz que el profesor lo decida evaluar, cabe destacar que se espera que se cumplan todos estos requerimientos y se tenga una organizacion clara sobre el proyecto
-
+### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo.
