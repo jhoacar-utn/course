@@ -97,7 +97,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
      Para proceder a hacer un merge deberas asegurarte que te encuentras en tu rama de trabajo, ejemplo `jhoan_carrero`, luego
      ejecutas el comando `git pull origin tasks`,
      esto traera todas las tareas que haya dejado en esa rama.
-     El contenido se encuentra [aca](https://raw.githubusercontent.com/jhoacar-utn/course/tasks/tasks/clase_1/index.html).
+     El contenido se encuentra [aca](https://raw.githubusercontent.com/jhoacar-utn/course/tasks/tasks/lesson_1/index.html).
      * ) Para entregarlo debera estar guardado en la carpeta correspondiente a la clase, es decir, en `lessons/lesson_1` y se pedira una pull request atraves de `github` para que sea
      posteriormente corregido.
 
