@@ -36,9 +36,9 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 ### Se debe tener la siguiente estructura de carpetas:
 
     ./jhoan_carrero
-       └── /lessons                 Se guardaran acá los apuntes del curso
-            ├── clase_0       
-            ├── clase_1                     Se organizaran por clase
+       └── lessons                 Se guardaran acá los apuntes del curso
+            ├── clase_1       
+            ├── clase_2            Se organizaran por clase
             ├── ...
        └── project                  Se guardara acá el progreso de la aplicación
             ├── backend_node
@@ -47,7 +47,7 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 
 ## Para hacerlo mas rapido podes ejecutar el siguiente comando, solo cambiando el nombre del estudiante jhoan_carrero
 `
-STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_0 $STUDENT/project/backend_node $STUDENT/project/frontend_react $STUDENT/project/frontend_angular 
+STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backend_node $STUDENT/project/frontend_react $STUDENT/project/frontend_angular 
 `
 
 <br>
@@ -55,3 +55,32 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_0 $STUDENT/project/backen
 # Notas
 
 ### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo.
+
+# Clases (contenido para cada clase)
+
+## Clase 1
+
+ * Lenguajes de Programacion (Compilados e Interpretados)
+     * ) Metafora: Recetas de Cocina 
+ * Protocolos de Comunicación y Servicios:
+     * ) TCP (Protocolo de Control de Transmision)
+     * ) UDP (Protocolo de Datagramas de Usuario)
+     * ) IP (Protocolo de Internet, Ubicacion en la red de una maquina)
+     * ) Puertos (Servicios que brinda la maquina, ejemplo el puerto 80 es para servicio web)
+     * ) HTTP (Protocolo de Transferencia de HyperTexto)
+     * ) DNS (Servicios de Nombres de Dominio)
+ * Navegacion Web
+     * ) HTML,CSS,Javascript
+     * ) Conocimientos del DOM
+     * ) Funciones
+     * ) Objetos
+ * Trabajo Practico de Nivelacion
+     * ) Luego de clonado el repositorio debera realizar un merge con la rama `tasks` que 
+     contendra la informacion del primer TP
+     a realizar, no sera de caracter obligatorio.
+     Para proceder a hacer un merge deberas asegurarte que te encuentras en tu rama de trabajo, ejemplo `jhoan_carrero`, luego
+     ejecutas el comando `git pull origin tasks`,
+     esto traera todas las tareas que haya dejado en esa rama.
+     
+
+
