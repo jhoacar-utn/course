@@ -1,8 +1,9 @@
 # Curso Programacion Web FullStack
 
-### Repositorio con el codigo del curso de cada estudiante
+### Repositorio con el codigo de Jhoan Carrero
 
 <br>
 
-# Esta rama es para guardar la informacion con los trabajos practicos
+# Esta rama tiene mi informacion sobre el curso de programacion
+# Todos los apuntes los tengo en jhoan_carrero/lessons
 
