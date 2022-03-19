@@ -54,11 +54,27 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
 
 # Notas
 
-### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo.
+### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo. 
+
+<br>
+
+### Durante todo el curso estaremos usando [Visual Studio Code](https://code.visualstudio.com/download) como editor de codigo.
+
+<br>
+
+### Tambien es recomendable una [Git Bash](https://git-scm.com/downloads) para tener una consola interactiva de comandos y un desarrollo agil, donde pueda ver en todo momento la rama de trabajo.
+
+<br>
+
+### Si desea trabajar mucho mas comodo les recomiendo instalar [Docker](https://www.docker.com/get-started/) en su computadora y asi pueden levantar un entorno de desarrollo en segundos.
+
+<br>
+
+
 
 # Clases (contenido para cada clase)
 
-## Clase 1
+## Clase 1 (Nivelacion)
 
  * Lenguajes de Programacion (Compilados e Interpretados)
      * ) Metafora: Recetas de Cocina 
@@ -84,6 +100,166 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
      El contenido se encuentra [aca](https://raw.githubusercontent.com/jhoacar-utn/course/tasks/tasks/clase_1/index.html).
      * ) Para entregarlo debera estar guardado en la carpeta correspondiente a la clase, es decir, en `lessons/lesson_1` y se pedira una pull request atraves de `github` para que sea
      posteriormente corregido.
-     
+
+## Clase 2 (Introduccion a NodeJS)
+
+ * ¿Que es NodeJS? ¿Para que me puede servir?
+    * ) Motor V8 (Chrome's V8 JavaScript engine)
+    * ) Problemas de concurrencia
+    * ) Adaptabilidad en frontend y backend
+ * Instalacion de NodeJS
+    * ) [https://nodejs.org/es/download](https://nodejs.org/es/download/)
+ * Uso de Node JS
+    * ) Mi primer: `JEJEJE Aqui metiendome al backend`
+ * Modularizacion
+    * ) Mi primer: `JEJEJE Aqui imprimiendo algo de otro archivo`
+ * Eventos y Callbacks
+    * ) Jugando con `require('events')`
+    * ) Emitiendo un evento especifico llamado `mostrar_fecha` con la fecha actual y mostrarlo por consola cada 1 segundo.
+    * ) Levantando mi primer servidor HTTP y mostrando `Primer mensaje del backend`
+
+
+
+## Clase 3 (Introduccion a Express)
+
+ * ¿Que es Express? ¿Para que me puede servir?
+    * ) Framework para desarrollo web
+    * ) Flexibilidad de trabajo  
+ * Instalacion de Express ( `npm` )
+    * ) `npm install express`
+    * ) Gestor de Paquetes `package.json`
+ * Enrutamiento
+    * ) Verbos HTTP y Cabeceras
+      * ) Verbos: GET, POST, DELETE, PUT, ...
+      * ) Cabeceras: Content-Type, Server, User-Agent, ...
+    * ) Modularizacion de Rutas
+    * ) Crear endpoint `GET: task/lesson_1` donde la respuesta debera ser el primer TP del curso.
+ * Middlewares (Software que se pone en medio)
+    * ) Autenticar un usuario
+    * ) Proteger las rutas con los usuarios autenticados
+
+### Clase 4 ( Persistencia de la Informacion )
+
+ * ¿Porque guardarlo en Bases de Datos?
+    * ) Control de la informacion
+    * ) Control de Seguridad
+    * ) Flexibilidad y Rapidez en consultas
+ * Base de Datos Relaciones ( MySQL ) 
+    * ) Conexion a Base de Datos Remota
+        * ) [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) Visor de base de datos MySQL
+        * ) La base de datos se encontrara bajo el dominio `mysql.utn.jhoacar.me`
+        * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:
+        <br>
+        `usuario : jhoan_carrero`
+        <br>
+        ` contraseña: jhoan_carrero`   
+        * ) La base de datos sera el mismo nombre de la rama, ejemplo: `jhoan_carrero` 
+ * Express y MySQL
+    * ) `npm install mysql`
+    * ) Procesamiento de Variables de Entorno
+      * ) `npm install dotenv`
+    * ) Guardar la informacion de una peticion
+    * ) Guardar la sesion en la base de datos
+    * ) Hashear las contraseñas
+      * ) `npm install bcrypt`
+
+### Clase 5 ( Introduccion a API )
+
+ * ¿Que es una API? ¿Para que me puede servir?
+ * [PostMan](https://www.postman.com/downloads/) Herramienta para testear APIs
+ * JWT (JSON Web Tokens)
+   * ) `npm install jsonwebtoken`
+   * ) Registro en la base de datos
+   * ) Validacion de sesion
+   * ) Proteccion de rutas ( Middlewares, CORS )
+ * Modulos utiles
+   * ) Multer
+   * ) Formidable
+   * ) PDF
+   * ) ... 
+
+### Clase 6 ( Repaso de NodeJS )
+
+ * Hagamos una API
+
+### Clase 7 ( Introduccion a MongoDB )
+
+ * ¿Que es MongoDB? ¿Para que me puede servir?
+ * Base de Datos No Relaciones ( NoSQL ) 
+    * ) Conexion a Base de Datos Remota
+        * ) [MongoDB Compass](https://www.mongodb.com/try/download/compass) Visor de base de datos MongoDB
+        * ) La base de datos se encontrara bajo el dominio `mongo.utn.jhoacar.me`
+        * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:
+        <br>
+        `usuario : jhoan_carrero`
+        <br>
+        ` contraseña: jhoan_carrero`   
+        * ) La base de datos sera el mismo nombre de la rama, ejemplo: `jhoan_carrero`
+ 
+ * Colecciones
+ * Documentos
+ * CRUD (Create, Read, Update, Delete)
+
+### Clase 8 (Repaso y Conexion NodeJS con Mongo)
+
+* Express y MongoDB
+    * ) `npm install mongoose`
+    * ) Procesamiento de Variables de Entorno
+    * ) Guardar la informacion de una peticion
+    * ) Guardar la sesion en la base de datos
+    * ) Hashear las contraseñas
+
+### Clase 9 (Practica de MongoDB)
+
+* Usemos la API con Mongo
+
+### Clase 10 (Introduccion a Typescript)
+
+ * ¿Que es Typescript? ¿Para que me puede servir?
+   * ) Transpilador de Javascript
+   * ) Tipado Estatico
+ * Clases, Atributos y Objetos
+ * Constructor y Herencia de Clases
+ * Sintaxis
+
+### Clase 11 (NodeJS y Typescript)
+
+   * Creando una API con Typescript
+
+### Clase 12 (Introduccion a Angular)
+
+ * ¿Que es Angular? ¿Para que me puede servir?
+   * ) Framework de Frontend
+   * ) Tipado Estatico
+ * Angular CLI `npm install -g @angular/cli`
+ * `ng new my-app`
+ * Generacion de Componentes
+ * Variables Tipadas
+ * Eventos
+
+### Clase 13 (Servicios en Angular) 
+
+ * Generacion de Servicios
+ * Comunicacion entre componentes y servicios
+ * Comunicacion entre componentes
+
+### Clase 14 (Conexiones en Angular)
+ 
+ * Conexion entre Angular y NodeJS
+ * Procesamiento de JWT
+ * Generacion de modulos para verificacion de usuarios
+
+### Clase 15 (Practica de Angular)
+
+ * Creemos una interfaz con conexion a una API por JWT
+
+### Clase 16 (Introduccion a ReactJS)
+
+ * ¿Que es ReactJS? ¿Para que me puede servir?
+   * ) Framework de Frontend
+   * ) Adaptabilidad por JSX
+ * Componentes y JSX
+ * Ejemplos: `npx create-react-app my-app`
+
 
 
