@@ -138,7 +138,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
     * ) Autenticar un usuario
     * ) Proteger las rutas con los usuarios autenticados
 
-### Clase 4 ( Persistencia de la Informacion )
+## Clase 4 ( Persistencia de la Informacion )
 
  * ¿Porque guardarlo en Bases de Datos?
     * ) Control de la informacion
@@ -163,7 +163,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
     * ) Hashear las contraseñas
       * ) `npm install bcrypt`
 
-### Clase 5 ( Introduccion a API )
+## Clase 5 ( Introduccion a API )
 
  * ¿Que es una API? ¿Para que me puede servir?
  * [PostMan](https://www.postman.com/downloads/) Herramienta para testear APIs
@@ -178,11 +178,11 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
    * ) PDF
    * ) ... 
 
-### Clase 6 ( Repaso de NodeJS )
+## Clase 6 ( Repaso de NodeJS )
 
  * Hagamos una API
 
-### Clase 7 ( Introduccion a MongoDB )
+## Clase 7 ( Introduccion a MongoDB )
 
  * ¿Que es MongoDB? ¿Para que me puede servir?
  * Base de Datos No Relaciones ( NoSQL ) 
@@ -200,7 +200,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
  * Documentos
  * CRUD (Create, Read, Update, Delete)
 
-### Clase 8 (Repaso y Conexion NodeJS con Mongo)
+## Clase 8 (Repaso y Conexion NodeJS con Mongo)
 
 * Express y MongoDB
     * ) `npm install mongoose`
@@ -209,11 +209,11 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
     * ) Guardar la sesion en la base de datos
     * ) Hashear las contraseñas
 
-### Clase 9 (Practica de MongoDB)
+## Clase 9 (Practica de MongoDB)
 
 * Usemos la API con Mongo
 
-### Clase 10 (Introduccion a Typescript)
+## Clase 10 (Introduccion a Typescript)
 
  * ¿Que es Typescript? ¿Para que me puede servir?
    * ) Transpilador de Javascript
@@ -222,11 +222,11 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
  * Constructor y Herencia de Clases
  * Sintaxis
 
-### Clase 11 (NodeJS y Typescript)
+## Clase 11 (NodeJS y Typescript)
 
    * Creando una API con Typescript
 
-### Clase 12 (Introduccion a Angular)
+## Clase 12 (Introduccion a Angular)
 
  * ¿Que es Angular? ¿Para que me puede servir?
    * ) Framework de Frontend
@@ -237,23 +237,23 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
  * Variables Tipadas
  * Eventos
 
-### Clase 13 (Servicios en Angular) 
+## Clase 13 (Servicios en Angular) 
 
  * Generacion de Servicios
  * Comunicacion entre componentes y servicios
  * Comunicacion entre componentes
 
-### Clase 14 (Conexiones en Angular)
+## Clase 14 (Conexiones en Angular)
  
  * Conexion entre Angular y NodeJS
  * Procesamiento de JWT
  * Generacion de modulos para verificacion de usuarios
 
-### Clase 15 (Practica de Angular)
+## Clase 15 (Practica de Angular)
 
  * Creemos una interfaz con conexion a una API por JWT
 
-### Clase 16 (Introduccion a ReactJS)
+## Clase 16 (Introduccion a ReactJS)
 
  * ¿Que es ReactJS? ¿Para que me puede servir?
    * ) Framework de Frontend
