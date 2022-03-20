@@ -9,6 +9,10 @@
         "function": "welcome"
       },
       {
+        "source": "/jhoan_carrero/**",
+        "function": "jhoan_carrero"
+      },
+      {
         "source": "/jhoan_carrero",
         "function": "jhoan_carrero"
       }

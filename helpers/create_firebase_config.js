@@ -22,7 +22,11 @@ async function create_firebase_config() {
         firebase_config.hosting.rewrites.push({
             source: `/${student}`,
             function: student
-        });
+        }); //This is for root student
+        firebase_config.hosting.rewrites.push({
+            source: `/${student}/**`,
+            function: student
+        });//This is for child folders for student
     });
 
 
