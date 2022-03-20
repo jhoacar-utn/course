@@ -22,7 +22,7 @@ users.map(user => {
 
     db.welcome.insertOne(
         {
-        message: "Welcome to your database"
+        message: "Welcome to your database"+ user.split("_").join(" ")
         }
     );
 }); 
