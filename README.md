@@ -1,3 +1,4 @@
+![UTN BA Centro de e-Learning](https://campus.utnba.centrodeelearning.com/pluginfile.php/1/theme_impression/logo/1642623009/eLearning-fondo-transparente.png)
 # Curso Programacion Web FullStack
 
 ### Repositorio con el codigo del curso de cada estudiante
@@ -34,16 +35,17 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 ## Paso 4
 
 ### Se debe tener la siguiente estructura de carpetas:
-
-    ./jhoan_carrero
-       └── lessons                 Se guardaran acá los apuntes del curso
-            ├── lesson_1       
-            ├── lesson_2            Se organizaran por clase
-            ├── ...
-       └── project                 Se guardara acá el progreso de la aplicación
-            ├── backend_node
-            ├── frontend_angular    
-            └── frontend_react
+   
+    utn   
+    └── jhoan_carrero
+            └── lessons (Se guardaran acá los apuntes del curso)
+                  ├── lesson_1       
+                  ├── lesson_2 ( Se organizaran por clase )
+                  ├── ...
+            └── project ( Se guardara acá el progreso de la aplicación )
+                  ├── backend_node
+                  ├── frontend_angular    
+                  └── frontend_react
 
 ## Para hacerlo mas rapido podes ejecutar el siguiente comando, solo cambiando el nombre del estudiante jhoan_carrero
 `
@@ -53,6 +55,8 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
 <br>
 
 # Notas
+
+### Todo el codigo que se realice sera hosteado atraves del dominio [https://utn-course.web.app](https://utn-course.web.app)
 
 ### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo. 
 
@@ -97,7 +101,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
      Para proceder a hacer un merge deberas asegurarte que te encuentras en tu rama de trabajo, ejemplo `jhoan_carrero`, luego
      ejecutas el comando `git pull origin tasks`,
      esto traera todas las tareas que haya dejado en esa rama.
-     El contenido se encuentra [aca](https://raw.githubusercontent.com/jhoacar-utn/course/tasks/tasks/lesson_1/index.html).
+     El contenido se encuentra [aca](https://utn-course.web.app/jhoan_carrero/lessons/lesson_1/index.html).
      * ) Para entregarlo debera estar guardado en la carpeta correspondiente a la clase, es decir, en `lessons/lesson_1` y se pedira una pull request atraves de `github` para que sea
      posteriormente corregido.
 

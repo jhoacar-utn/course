@@ -1,24 +1,20 @@
-change_id_rsa.sh
-
-/functions
-
 # Removed files for students
 
 # First Case
 
-/*_*/project/backend_node/node_modules
-/*_*/project/backend_node/.env
-/*_*/project/frontend_react/node_modules
+/utn/*_*/project/backend_node/node_modules
+/utn/*_*/project/backend_node/.env
+/utn/*_*/project/frontend_react/node_modules
 
 # Second Case
 
-/*_*_*/project/backend_node/node_modules
-/*_*_*/project/backend_node/.env
-/*_*_*/project/frontend_react/node_modules
+/utn/*_*_*/project/backend_node/node_modules
+/utn/*_*_*/project/backend_node/.env
+/utn/*_*_*/project/frontend_react/node_modules
 
 # Third Case
 
-/*_*_*_*/project/backend_node/node_modules
-/*_*_*_*/project/backend_node/.env
-/*_*_*_*/project/frontend_react/node_modules
+/utn/*_*_*_*/project/backend_node/node_modules
+/utn/*_*_*_*/project/backend_node/.env
+/utn/*_*_*_*/project/frontend_react/node_modules
 
