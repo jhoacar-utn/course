@@ -2,20 +2,22 @@
 !.gitignore
 !README.md
 
+!/utn
+
 # First Case
 
-!/functions/*_*/
-!/functions/*_*/**
+!/utn/*_*/
+!/utn/*_*/**
 
 # Second Case
 
-!/functions/*_*_*/
-!/functions/*_*_*/**
+!/utn/*_*_*/
+!/utn/*_*_*/**
 
 # Third Case
 
-!/functions/*_*_*_*/
-!/functions/*_*_*_*/**
+!/utn/*_*_*_*/
+!/utn/*_*_*_*/**
 
 # Tasks
 
