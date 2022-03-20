@@ -30,7 +30,7 @@ users.map(user => {
 
     db.welcome.insertOne(
         {
-        message: "Welcome to your database"
+        message: "Welcome to your database" + user.split("_").join(" ")
         }
     );
 }); 
@@ -54,8 +54,8 @@ async function load_to_mysql() {
     students.map((student) => {
         content += `
 CREATE DATABASE IF NOT EXISTS ${student};
-CREATE TABLE IF NOT EXISTS ${student}.welcome (message VARCHAR(30));
-INSERT INTO ${student}.welcome (message) VALUES ('Welcome to your database'); 
+CREATE TABLE IF NOT EXISTS ${student}.welcome (message VARCHAR(100));
+INSERT INTO ${student}.welcome (message) VALUES ('Welcome to your database ${student.split("_").join(" ")}'); 
 CREATE USER ${student}@'%' IDENTIFIED BY '${student}';
 GRANT ALL ON ${student}.* TO ${student}@'%';
         `;
