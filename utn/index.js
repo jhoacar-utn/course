@@ -5,10 +5,15 @@ const path = require('path')
 
 const welcome = path.join(__dirname, 'public')
 
-app.use('/',express.static(welcome));
-
 app.get('/', (req, res) => {
-    res.sendFile('index.html');
+    res.sendFile(`${welcome}/index.html`);
+});
+
+
+// Handle 404 - Keep this as a last route
+app.use(function (req, res, next) {
+    res.status(404);
+    res.sendFile(`${welcome}/404.html`);
 });
 
 exports["welcome"] = functions.https.onRequest(app);
@@ -17,7 +22,7 @@ const extract_students = require('./helpers/extract_students');
 
 const students = extract_students();
 
-students.map(student=>{
+students.map(student => {
     const student_app = require(`./${student}/index.js`);
     exports[student] = functions.https.onRequest(student_app);
 });
