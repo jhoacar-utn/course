@@ -56,7 +56,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
 
 # Notas
 
-### Todo el codigo que se realice sera hosteado atraves del dominio [https://utn-course.web.app](https://utn-course.web.app)
+### Todo el codigo que se realice sera hosteado a través del dominio [https://utn-course.web.app](https://utn-course.web.app)
 
 ### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo. 
 
