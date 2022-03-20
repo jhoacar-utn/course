@@ -53,9 +53,9 @@ async function load_to_mysql() {
 
     students.map((student) => {
         content += `
-CREATE DATABASE IF NOT EXISTS '${student}';
-CREATE USER '${student}'@'%' IDENTIFIED BY '${student}';
-GRANT ALL ON '${student}'.* TO '${student}'@'%';
+CREATE DATABASE IF NOT EXISTS ${student};
+CREATE USER ${student}@'%' IDENTIFIED BY '${student}';
+GRANT ALL ON ${student}.* TO ${student}@'%';
         `;
     });
 
