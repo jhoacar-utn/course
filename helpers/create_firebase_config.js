@@ -20,7 +20,7 @@ async function create_firebase_config() {
 
     students.map(student => {
         firebase_config.hosting.rewrites.push({
-            source: student,
+            source: `/${student}`,
             function: student
         });
     });
