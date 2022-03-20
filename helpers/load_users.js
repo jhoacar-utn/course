@@ -54,6 +54,8 @@ async function load_to_mysql() {
     students.map((student) => {
         content += `
 CREATE DATABASE IF NOT EXISTS ${student};
+CREATE TABLE IF NOT EXISTS ${student}.welcome (message VARCHAR(30));
+INSERT INTO ${student}.welcome (message) VALUES ('Welcome to your database'); 
 CREATE USER ${student}@'%' IDENTIFIED BY '${student}';
 GRANT ALL ON ${student}.* TO ${student}@'%';
         `;
