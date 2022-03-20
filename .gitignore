@@ -1,20 +1,2 @@
-# Removed files for students
-
-# First Case
-
-/utn/*_*/project/backend_node/node_modules
-/utn/*_*/project/backend_node/.env
-/utn/*_*/project/frontend_react/node_modules
-
-# Second Case
-
-/utn/*_*_*/project/backend_node/node_modules
-/utn/*_*_*/project/backend_node/.env
-/utn/*_*_*/project/frontend_react/node_modules
-
-# Third Case
-
-/utn/*_*_*_*/project/backend_node/node_modules
-/utn/*_*_*_*/project/backend_node/.env
-/utn/*_*_*_*/project/frontend_react/node_modules
-
+/mongo/data
+/mysql/data
