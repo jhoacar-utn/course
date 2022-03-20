@@ -56,7 +56,10 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
 
 # Notas
 
-### Todo el codigo que se realice sera hosteado a través del dominio [https://utn-course.web.app](https://utn-course.web.app)
+<h2 align="center"> Todo el codigo que se realice sera hosteado a través del dominio</h2>
+<br> 
+<h1 align="center"><a href="https://utn-course.web.app">https://utn-course.web.app</a></h1>
+<br>
 
 ### Esta estructura es probable a cambios futuros, se debe cumplir al 100% ya que depende eso como es la forma de trabajo de cada uno y como cumple las normativas del equipo. 
 
@@ -101,7 +104,8 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
      Para proceder a hacer un merge deberas asegurarte que te encuentras en tu rama de trabajo, ejemplo `jhoan_carrero`, luego
      ejecutas el comando `git pull origin tasks`,
      esto traera todas las tareas que haya dejado en esa rama.
-     El contenido se encuentra [aca](https://utn-course.web.app/jhoan_carrero/lessons/lesson_1/index.html).
+     El contenido se encuentra aca: <br><h1 align="center" ><a href="https://utn-course.web.app/jhoan_carrero/lessons/lesson_1/index.html">https://utn-course.web.app/jhoan_carrero/lessons/lesson_1/index.html
+     </a></h1><br>
      * ) Para entregarlo debera estar guardado en la carpeta correspondiente a la clase, es decir, en `lessons/lesson_1` y se pedira una pull request atraves de `github` para que sea
      posteriormente corregido.
 
@@ -133,11 +137,12 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
     * ) `npm install express`
     * ) Gestor de Paquetes `package.json`
  * Enrutamiento
+    * ) Express Router
     * ) Verbos HTTP y Cabeceras
       * ) Verbos: GET, POST, DELETE, PUT, ...
       * ) Cabeceras: Content-Type, Server, User-Agent, ...
     * ) Modularizacion de Rutas
-    * ) Crear endpoint `GET: task/lesson_1` donde la respuesta debera ser el primer TP del curso.
+    * ) Crear endpoint `GET: lessons/lesson_1` donde la respuesta debera ser el primer TP del curso.
  * Middlewares (Software que se pone en medio)
     * ) Autenticar un usuario
     * ) Proteger las rutas con los usuarios autenticados
@@ -151,7 +156,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
  * Base de Datos Relaciones ( MySQL ) 
     * ) Conexion a Base de Datos Remota
         * ) [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) Visor de base de datos MySQL
-        * ) La base de datos se encontrara bajo el dominio `mysql.utn.jhoacar.me`
+        * ) La base de datos se encontrara bajo el dominio <br><h1><a href="https://mysql.utn.jhoacar.me">mysql.utn.jhoacar.me</a></h1>
         * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:
         <br>
         `usuario : jhoan_carrero`
@@ -192,14 +197,16 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
  * Base de Datos No Relaciones ( NoSQL ) 
     * ) Conexion a Base de Datos Remota
         * ) [MongoDB Compass](https://www.mongodb.com/try/download/compass) Visor de base de datos MongoDB
-        * ) La base de datos se encontrara bajo el dominio `mongo.utn.jhoacar.me`
+        * ) La base de datos se encontrara bajo el dominio <br><h1><a href="https://mongo.utn.jhoacar.me">mongo.utn.jhoacar.me</a></h1>
         * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:
         <br>
         `usuario : jhoan_carrero`
         <br>
         ` contraseña: jhoan_carrero`   
         * ) La base de datos sera el mismo nombre de la rama, ejemplo: `jhoan_carrero`
- 
+        <br>
+        `MONGO_URI=mongodb://jhoan_carrero:jhoan_carrero@mongo.utn.jhoacar.me:27017/jhoan_carrero`
+        <br>
  * Colecciones
  * Documentos
  * CRUD (Create, Read, Update, Delete)
