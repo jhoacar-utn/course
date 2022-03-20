@@ -49,7 +49,7 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 
 ## Para hacerlo mas rapido podes ejecutar el siguiente comando, solo cambiando el nombre del estudiante jhoan_carrero
 `
-STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backend_node $STUDENT/project/frontend_react $STUDENT/project/frontend_angular 
+STUDENT=jhoan_carrero; mkdir -p utn/$STUDENT/lessons/clase_1 utn/$STUDENT/project/backend_node utn/$STUDENT/project/frontend_react utn/$STUDENT/project/frontend_angular 
 `
 
 <br>
