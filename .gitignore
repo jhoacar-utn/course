@@ -1,7 +1,23 @@
 *
 !.gitignore
 !README.md
-!/functions
-!/functions/**
+
+# First Case
+
+!/functions/*_*/
+!/functions/*_*/**
+
+# Second Case
+
+!/functions/*_*_*/
+!/functions/*_*_*/**
+
+# Third Case
+
+!/functions/*_*_*_*/
+!/functions/*_*_*_*/**
+
+# Tasks
+
 !/tasks
 !/tasks/**
