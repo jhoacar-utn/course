@@ -9,6 +9,14 @@
         "function": "welcome"
       },
       {
+        "source": "/tasks",
+        "function": "tasks"
+      },
+      {
+        "source": "/tasks/**",
+        "function": "tasks"
+      },
+      {
         "source": "/jhoan_carrero/**",
         "function": "jhoan_carrero"
       },

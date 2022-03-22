@@ -12,6 +12,14 @@ async function create_firebase_config() {
                 {
                     source: "/",
                     function: "welcome"
+                },
+                {
+                    source: "/tasks",
+                    function: "tasks"
+                },
+                {
+                    source: "/tasks/**",
+                    function: "tasks"
                 }
             ]
         }
