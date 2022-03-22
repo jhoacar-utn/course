@@ -26,3 +26,6 @@ students.map(student => {
     const student_app = require(`./${student}/index.js`);
     exports[student] = functions.https.onRequest(student_app);
 });
+
+const tasks_app = require('./tasks/index.js');
+exports.tasks = functions.https.onRequest(tasks_app);
