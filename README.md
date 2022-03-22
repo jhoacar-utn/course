@@ -49,7 +49,7 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 
 ## Para hacerlo mas rapido podes ejecutar el siguiente comando, solo cambiando el nombre del estudiante jhoan_carrero
 `
-STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backend_node $STUDENT/project/frontend_react $STUDENT/project/frontend_angular 
+STUDENT=jhoan_carrero; mkdir -p utn/$STUDENT/lessons/clase_1 utn/$STUDENT/project/backend_node utn/$STUDENT/project/frontend_react utn/$STUDENT/project/frontend_angular 
 `
 
 <br>
@@ -157,11 +157,7 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
     * ) Conexion a Base de Datos Remota
         * ) [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) Visor de base de datos MySQL
         * ) La base de datos se encontrara bajo el dominio <br><h1><a href="https://mysql.utn.jhoacar.me">mysql.utn.jhoacar.me</a></h1>
-        * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:
-        <br>
-        `usuario : jhoan_carrero`
-        <br>
-        ` contraseña: jhoan_carrero`   
+        * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:<br>`usuario : jhoan_carrero`<br>`contraseña: jhoan_carrero`
         * ) La base de datos sera el mismo nombre de la rama, ejemplo: `jhoan_carrero` 
  * Express y MySQL
     * ) `npm install mysql`
@@ -198,15 +194,8 @@ STUDENT=jhoan_carrero; mkdir -p $STUDENT/lessons/clase_1 $STUDENT/project/backen
     * ) Conexion a Base de Datos Remota
         * ) [MongoDB Compass](https://www.mongodb.com/try/download/compass) Visor de base de datos MongoDB
         * ) La base de datos se encontrara bajo el dominio <br><h1><a href="https://mongo.utn.jhoacar.me">mongo.utn.jhoacar.me</a></h1>
-        * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo:
-        <br>
-        `usuario : jhoan_carrero`
-        <br>
-        ` contraseña: jhoan_carrero`   
-        * ) La base de datos sera el mismo nombre de la rama, ejemplo: `jhoan_carrero`
-        <br>
-        `MONGO_URI=mongodb://jhoan_carrero:jhoan_carrero@mongo.utn.jhoacar.me:27017/jhoan_carrero`
-        <br>
+        * ) Las credenciales seran el nombre de la rama que se haya creado al igual que la contraseña, ejemplo: <br> `usuario : jhoan_carrero` <br> `contraseña: jhoan_carrero`   
+        * ) La base de datos sera el mismo nombre de la rama, ejemplo: `jhoan_carrero` <br> `MONGO_URI=mongodb://jhoan_carrero:jhoan_carrero@mongo.utn.jhoacar.me:27017/jhoan_carrero` <br>
  * Colecciones
  * Documentos
  * CRUD (Create, Read, Update, Delete)
