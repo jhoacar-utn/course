@@ -50,8 +50,20 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
 
 ## Para hacerlo mas rapido podes realizar un merge con la rama jhoan_carrero y luego cambiar los directorios a tu nombre, ejecutando el siguiente comando, cambiando solo el valor de pedro_perez por el nombre correspondiente se configurara tu entorno con el de la rama jhoan_carrero:
 `
-STUDENT=pedro_perez;MERGED=jhoan_carrero; git checkout master; git checkout -b $STUDENT; git merge $MERGED;
+STUDENT=pedro_perez; 
+MERGED=jhoan_carrero; 
+git checkout master; 
+git checkout -b $STUDENT; 
+git merge $MERGED; 
+find ./utn -iname "$MERGED" | while read FILE; 
+   do 
+   NEW_FILE="$(sed -e "s/$MERGED/$STUDENT/" <<< $FILE)"; 
+   mv "${FILE}" "${NEW_FILE}" ; 
+   done; 
+find ./utn -type f -exec sed -i "s/$MERGED/$STUDENT/g" {} \;
 `
+
+## Tiene la opcion de crear un archivo, por ejemplo, script.sh y ejecutarlo atraves de la consola ./script.sh dandole previamente permisos de ejecucion con `chmod +x ./script.sh`
 
 <br>
 
