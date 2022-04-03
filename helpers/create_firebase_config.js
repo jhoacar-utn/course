@@ -8,6 +8,7 @@ async function create_firebase_config() {
             source: "utn"
         },
         hosting: {
+            public: "utn/welcome/public",
             rewrites: [
                 {
                     source: "/",

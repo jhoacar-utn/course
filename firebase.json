@@ -1,29 +1,30 @@
 {
-  "functions": {
-    "source": "utn"
-  },
-  "hosting": {
-    "rewrites": [
-      {
-        "source": "/",
-        "function": "welcome"
-      },
-      {
-        "source": "/tasks",
-        "function": "tasks"
-      },
-      {
-        "source": "/tasks/**",
-        "function": "tasks"
-      },
-      {
-        "source": "/jhoan_carrero/**",
-        "function": "jhoan_carrero"
-      },
-      {
-        "source": "/jhoan_carrero",
-        "function": "jhoan_carrero"
-      }
-    ]
-  }
+    "functions": {
+        "source": "utn"
+    },
+    "hosting": {
+        "public": "utn/welcome/public",
+        "rewrites": [
+            {
+                "source": "/",
+                "function": "welcome"
+            },
+            {
+                "source": "/tasks",
+                "function": "tasks"
+            },
+            {
+                "source": "/tasks/**",
+                "function": "tasks"
+            },
+            {
+                "source": "/jhoan_carrero",
+                "function": "jhoan_carrero"
+            },
+            {
+                "source": "/jhoan_carrero/**",
+                "function": "jhoan_carrero"
+            }
+        ]
+    }
 }
