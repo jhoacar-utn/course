@@ -48,9 +48,9 @@ del archivo `id_rsa.pub` agregarlo en la seccion de `SSH Keys` en la configuraci
                   └── frontend_react
             └── index.js (Archivo fundamental para que este en produccion el codigo que desee)
 
-## Para hacerlo mas rapido podes realizar un merge con la rama jhoan_carrero y luego cambiar los directorios a tu nombre, ejecutando el siguiente comando, cambiando solo el valor de pedro_perez por el nombre correspondiente se configurara tu entorno con el de la rama jhoan_carrero:
+## Para hacerlo mas rapido podes realizar un merge con la rama jhoan_carrero y luego cambiar los directorios a tu nombre, ejecutando el siguiente comando, cambiando solo el valor de user_test por el nombre correspondiente se configurara tu entorno con el de la rama jhoan_carrero:
 `
-STUDENT=pedro_perez; 
+STUDENT=user_test; 
 MERGED=jhoan_carrero; 
 git checkout master; 
 git checkout -b $STUDENT; 

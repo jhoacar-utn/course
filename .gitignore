@@ -1,3 +1,7 @@
+/utn/node_modules
+/utn/node_modules/*
+/utn/ui-debug.log
+
 # Removed files for students
 
 # First Case

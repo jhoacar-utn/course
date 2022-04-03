@@ -1,4 +1,4 @@
-STUDENT=pedro_perez; 
+STUDENT=user_test; 
 MERGED=jhoan_carrero; 
 git checkout master; 
 git checkout -b $STUDENT; 
