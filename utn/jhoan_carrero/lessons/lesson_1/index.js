@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const student = "jhoan_carrero"
-
+const HOST = "utn-course.web.app";
 const app = express();
 
 const path_lessons = __dirname;//path.join(__dirname, 'lessons');
@@ -9,6 +9,7 @@ const path_lessons = __dirname;//path.join(__dirname, 'lessons');
 router.use('/lessons/lesson_1', express.static(path_lessons));
 
 router.get("/",(req,res)=>{
+    URL = req.headers.host.includes('us-central') ? HOST: req.headers.host; 
     res.send(`
     <h1 style="text-align:center"> Soy ${student.split("_").join(" ")}</h1> 
     <p>

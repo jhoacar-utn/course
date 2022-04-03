@@ -170,12 +170,15 @@
         <h2>Salida</h2>
         <p>
             Al momento de oprimir el boton
-            de <strong>"Calcular"</strong> que tendra por id <strong>calculate</strong> Debera extraer, procesar y
+            de <strong>"Calcular"</strong> que tendra por id <strong>calculate</strong> 
+            Debera extraer, procesar y
             mostrar en
             cada input del div por id <strong>response</strong>
             donde cada uno tendra su correspondiente id, es decir,
             el id <strong>response_1</strong> se refiere al primer
-            numero de la respuesta. Nota: solo seran cuatro multiplicadores
+            numero de la respuesta, tambien teniendo en cuenta que en el input con id <strong>response_total</strong> sera
+            mostrado el maximo valor que se obtuvo de esa operacion. 
+            Nota: solo seran cuatro multiplicadores, por lo tanto cuatro numeros en la respuesta
         </p>
         <table>
             <tr>
@@ -189,12 +192,14 @@
             <tr>
                 <td>
                     <div class="coins">
+                        <span>coins:</span>
                         <input id="coin_1" type="number">
                         <input id="coin_2" type="number">
                         <input id="coin_3" type="number">
                         <input id="coin_4" type="number">
                     </div>
                     <div class="multipliers">
+                        <span>multipliers: </span>
                         <input id="multiplier_1" type="number">
                         <input id="multiplier_2" type="number">
                         <input id="multiplier_3" type="number">
@@ -203,10 +208,15 @@
                 </td>
                 <td>
                     <div class="response">
+                        <span>response: </span>
                         <input id="response_1" type="number">
                         <input id="response_2" type="number">
                         <input id="response_3" type="number">
                         <input id="response_4" type="number">
+                    </div>
+                    <div class="response">
+                        <span>result:</span>
+                        <input id="response_total" type="number" value="0">
                     </div>
                 </td>
             </tr>
