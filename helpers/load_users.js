@@ -1,5 +1,21 @@
 const fs = require('fs');
 const extract_students = require('./extract_git_students');
+const MONGO = "mongo";
+const MYSQL = "mysql";
+
+function get_name_user(name_user, database)
+{
+    switch(database)
+    {
+        case MONGO:
+            return `${name_user}.split("_").join(" ")`;
+        case MYSQL:
+            return name_user.split("_").join(" ");
+        default:
+            return 'user';
+    }
+}
+
 
 async function load_to_mongo() {
 
@@ -30,7 +46,7 @@ users.map(user => {
 
     db.welcome.insertOne(
         {
-        message: "Welcome to your database" + user.split("_").join(" ")
+        message: "Welcome to your database " + ${get_name_user("user",MONGO)}
         }
     );
 }); 
@@ -55,7 +71,7 @@ async function load_to_mysql() {
         content += `
 CREATE DATABASE IF NOT EXISTS ${student};
 CREATE TABLE IF NOT EXISTS ${student}.welcome (message VARCHAR(100));
-INSERT INTO ${student}.welcome (message) VALUES ('Welcome to your database ${student.split("_").join(" ")}'); 
+INSERT INTO ${student}.welcome (message) VALUES ('Welcome to your database ${get_name_user(student,MYSQL)}'); 
 CREATE USER ${student}@'%' IDENTIFIED BY '${student}';
 GRANT ALL ON ${student}.* TO ${student}@'%';
         `;
