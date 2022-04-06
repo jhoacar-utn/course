@@ -1,6 +1,6 @@
 # Curso Programacion Web FullStack
 
-### Repositorio con el codigo de jhoan_carrero
+### Repositorio con el codigo de mario_martinez_galarza
 
 <br>
 
