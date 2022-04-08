@@ -24,7 +24,7 @@ console.log(multiplicadores);
 monedas = monedas.sort((a,b)=>b-a)
 console.log(monedas);
 multiplicadores = multiplicadores.sort((a,b)=>b-a)
-let cont = 0;
+let cont = 0; 
 for(i=0;i<4;i++){
     let r1 = monedas[i] * multiplicadores[i];
     document.getElementById(`response_${i+1}`).value = r1;
