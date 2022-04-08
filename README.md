@@ -135,7 +135,7 @@ find . -iname "*README*" -exec sed -i "s/$EXISTING/$STUDENT/g" {} \;
  * Modularizacion
     * ) Mi primer: `JEJEJE Aqui imprimiendo algo de otro archivo`
  * Eventos y Callbacks
-    * ) Jugando con `require('events')`
+    * ) Jugando con `require('events')` [Documentacion](https://www.w3schools.com/nodejs/nodejs_events.asp)
     * ) Emitiendo un evento especifico llamado `mostrar_fecha` con la fecha actual y mostrarlo por consola cada 1 segundo.
     * ) Levantando mi primer servidor HTTP y mostrando `Primer mensaje del backend`
 
