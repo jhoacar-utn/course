@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "helloWorld" : "node -e \"console.log('JEJEJE Aqui metiendome al backend')\"",
     "executeFile": "node jpeg.js",
-    "dispatchEvent": "node events.js"
+    "dispatchEvent": "node events.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
