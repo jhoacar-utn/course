@@ -12,7 +12,7 @@ var mostrarFecha = function () {
 }
 
 //Assign the event handler to an event:
-eventEmitter.on('click', mostrarFecha);
+eventEmitter.on('show_date', mostrarFecha);
 
 //Fire the 'scream' event:
-eventEmitter.emit('click');
+setInterval(()=>eventEmitter.emit('show_date'),1000);
