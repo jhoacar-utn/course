@@ -1,3 +1,4 @@
+var hoy = new Date();
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 
@@ -11,7 +12,7 @@ var mostrarFecha = function () {
 }
 
 //Assign the event handler to an event:
-eventEmitter.on('click', myEventHandler);
+eventEmitter.on('click', mostrarFecha);
 
 //Fire the 'scream' event:
 eventEmitter.emit('click');
