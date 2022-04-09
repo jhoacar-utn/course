@@ -1,0 +1,19 @@
+{
+  "name": "lesson_2",
+  "version": "1.0.0",
+  "description": "Dayum.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhoacar-utn/course.git"
+  },
+  "author": "Liam Marin <liam.marin03926@protonmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhoacar-utn/course/issues"
+  },
+  "homepage": "https://github.com/jhoacar-utn/course#readme"
+}
