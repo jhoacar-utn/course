@@ -12,9 +12,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: utn
     volumes:
-      # - ./mysql/data:/var/lib/mysql
-      - mysql_utn:/var/lib/mysql
-      - ./mysql/init:/docker-entrypoint-initdb.d:ro
+      - ./mysql/data/course:/var/lib/mysql
+      - ./mysql/init/mysql_course-init.sql:/docker-entrypoint-initdb.d/mysql_course-init.sql:ro
 
       
   phpmyadmin_utn:
@@ -43,9 +42,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
-      # - ./mongo/data:/data/db
-      - mongo_utn:/data/db
-      - ./mongo/init:/docker-entrypoint-initdb.d:ro
+      - ./mongo/data/course:/data/db
+      - ./mongo/init/mongo_course-init.js:/docker-entrypoint-initdb.d/mongo_course-init.js:ro
 
   mongo_express_utn:
     image: mongo-express:1.0.0-alpha.4
@@ -61,10 +59,3 @@ services:
       LETSENCRYPT_EMAIL: jhoacar.utn@gmail.com
     depends_on:
       - mongo_utn
-
-#Use MOUNT volume because Mongo need permissions in the system NTFS
-volumes:
-  mongo_utn:
-    external: false 
-  mysql_utn:
-    external: false 
