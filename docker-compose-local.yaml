@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  mysql:
+  mysql_utn:
     image: mysql
     container_name: mysql_utn
     restart: always
@@ -13,23 +13,23 @@ services:
       MYSQL_ROOT_PASSWORD: utn
     volumes:
       # - ./mysql/data:/var/lib/mysql
-      - mysql:/var/lib/mysql
+      - mysql_utn:/var/lib/mysql
       - ./mysql/init:/docker-entrypoint-initdb.d:ro
 
       
-  phpmyadmin:
+  phpmyadmin_utn:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin_utn
     restart: always
     ports:
       - 3000:80
     environment:
-      PMA_HOST: mysql
+      PMA_HOST: mysql_utn
       PMA_PORT: 3306
     depends_on:
-      - mysql
+      - mysql_utn
 
-  mongo:
+  mongo_utn:
     image: mongo:4.4-focal
     container_name: mongo_utn
     restart: always
@@ -40,23 +40,23 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
       # - ./mongo/data:/data/db
-      - mongo:/data/db
+      - mongo_utn:/data/db
       - ./mongo/init:/docker-entrypoint-initdb.d:ro
 
-  mongo-express:
+  mongo_express_utn:
     image: mongo-express:1.0.0-alpha.4
     container_name: mongo_express_utn
     restart: always
     ports:
       - 3001:8081
     environment:
-      ME_CONFIG_MONGODB_URL: mongodb://root:root@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://root:root@mongo_utn:27017/
     depends_on:
-      - mongo
+      - mongo_utn
 
 #Use MOUNT volume because Mongo need permissions in the system NTFS
 volumes:
-  mongo:
+  mongo_utn:
     external: false 
-  mysql:
+  mysql_utn:
     external: false 
