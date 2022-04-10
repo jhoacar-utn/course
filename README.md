@@ -1,6 +1,7 @@
 ![UTN BA Centro de e-Learning](https://www.frba.utn.edu.ar/wp-content/uploads/2016/08/logo-utn.ba-horizontal-e1471367724904.jpg)
 # Curso Programacion Web FullStack
 
+<<<<<<< HEAD
 ### Repositorio con el codigo del curso de cada estudiante
 
 <br>
@@ -273,4 +274,12 @@ find . -iname "*README*" -exec sed -i "s/$EXISTING/$STUDENT/g" {} \;
    * ) Adaptabilidad por JSX
  * Componentes y JSX
  * Ejemplos: `npx create-react-app my-app`
+=======
+### Repositorio con el codigo de nicolas_maurizi
+
+<br>
+
+# Esta rama tiene mi informacion sobre el curso de programacion
+# Todos los apuntes los tengo en functions/nicolas_maurizi/lessons
+>>>>>>> origin/nicolas_maurizi
 
