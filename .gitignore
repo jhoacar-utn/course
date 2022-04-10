@@ -1,34 +1,11 @@
-<<<<<<< HEAD
-/utn/node_modules
-/utn/node_modules/*
-/utn/ui-debug.log
-=======
 *
 !.gitignore
 !README.md
->>>>>>> jhoan_carrero
 
 !/utn
 
 # First Case
 
-<<<<<<< HEAD
-/utn/*_*/project/backend_node/node_modules
-/utn/*_*/project/backend_node/.env
-/utn/*_*/project/frontend_react/node_modules
-
-# Second Case
-
-/utn/*_*_*/project/backend_node/node_modules
-/utn/*_*_*/project/backend_node/.env
-/utn/*_*_*/project/frontend_react/node_modules
-
-# Third Case
-
-/utn/*_*_*_*/project/backend_node/node_modules
-/utn/*_*_*_*/project/backend_node/.env
-/utn/*_*_*_*/project/frontend_react/node_modules
-=======
 !/utn/*_*/
 !/utn/*_*/**
 
@@ -41,7 +18,6 @@
 
 !/utn/*_*_*_*/
 !/utn/*_*_*_*/**
->>>>>>> jhoan_carrero
 
 # Tasks
 
