@@ -11,4 +11,4 @@
 
 ### comando para ejecutar el entorno
 
-    `docker-compose -f docker-compose-local.yaml up -d`
+    docker-compose -f docker-compose-local.yaml up -d
