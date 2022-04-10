@@ -1,4 +1,4 @@
-![UTN BA Centro de e-Learning](https://campus.utnba.centrodeelearning.com/pluginfile.php/1/theme_impression/logo/1642623009/eLearning-fondo-transparente.png)
+![UTN BA Centro de e-Learning](https://www.frba.utn.edu.ar/wp-content/uploads/2016/08/logo-utn.ba-horizontal-e1471367724904.jpg)
 # Curso Programacion Web FullStack
 
 ### Repositorio con el codigo del curso de cada estudiante
@@ -135,7 +135,7 @@ find . -iname "*README*" -exec sed -i "s/$EXISTING/$STUDENT/g" {} \;
  * Modularizacion
     * ) Mi primer: `JEJEJE Aqui imprimiendo algo de otro archivo`
  * Eventos y Callbacks
-    * ) Jugando con `require('events')`
+    * ) Jugando con `require('events')` [Documentacion](https://www.w3schools.com/nodejs/nodejs_events.asp)
     * ) Emitiendo un evento especifico llamado `mostrar_fecha` con la fecha actual y mostrarlo por consola cada 1 segundo.
     * ) Levantando mi primer servidor HTTP y mostrando `Primer mensaje del backend`
 
