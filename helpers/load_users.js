@@ -2,6 +2,8 @@ const fs = require('fs');
 const extract_students = require('./extract_git_students');
 const MONGO = "mongo";
 const MYSQL = "mysql";
+const MONGO_FILE = "mongo/init/mongo_course-init.js";
+const MYSQL_FILE = "mysql/init/mysql_course-init.sql";
 
 function get_name_user(name_user, database)
 {
@@ -51,13 +53,13 @@ users.map(user => {
     );
 }); 
     `;
-    const mongo_file = "mongo/init/mongo-init.js";
-    fs.writeFile(`${mongo_file}`, content, 'utf8', function (err) {
+    
+    fs.writeFile(`${MONGO_FILE}`, content, 'utf8', function (err) {
         if (err) {
-            console.log(`An error occured while writing Javascript to ${mongo_file}`);
+            console.log(`An error occured while writing Javascript to ${MONGO_FILE}`);
             return console.log(err);
         }
-        console.log(`${mongo_file} has been saved.`);
+        console.log(`${MONGO_FILE} has been saved.`);
     });
 
 }
@@ -77,14 +79,12 @@ GRANT ALL ON ${student}.* TO ${student}@'%';
         `;
     });
 
-    const mysql_file = "mysql/init/mysql-init.sql";
-
-    fs.writeFile(`${mysql_file}`, content, 'utf8', function (err) {
+    fs.writeFile(`${MYSQL_FILE}`, content, 'utf8', function (err) {
         if (err) {
-            console.log(`An error occured while writing SQL to ${mysql_file}`);
+            console.log(`An error occured while writing SQL to ${MYSQL_FILE}`);
             return console.log(err);
         }
-        console.log(`${mysql_file} has been saved.`);
+        console.log(`${MYSQL_FILE} has been saved.`);
     });
 
 }
