@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const student = "santiago_franchi";
+const student = "liam_marin"
+
 const app = express();
 
 const path_lessons = __dirname;//path.join(__dirname, 'lessons');
@@ -9,7 +10,7 @@ router.use('/lessons/lesson_1', express.static(path_lessons));
 
 router.get("/",(req,res)=>{
     res.send(`
-    <h1 style="text-align:center"> Soy ${student.split("_").join(" ")}</h1> 
+    <h1 style="text-align:center"> Soy ${student.split("_").join(" ")}</h1>
     <p>
         Aqui se encuentra mi primer TP
         <a href="${req.protocol}://${req.headers.host}/${student}/lessons/lesson_1/index.html">
