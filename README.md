@@ -28,3 +28,10 @@ https://us-central1-utn-course.cloudfunctions.net/pablo_defelitto <br>
 https://us-central1-utn-course.cloudfunctions.net/santiago_franchi <br>
 https://us-central1-utn-course.cloudfunctions.net/veronica_ferreyra <br>
 
+# Pasos para el deploy con firebase
+
+## Se necesita tener una cuenta en gcp (Google Cloud Platform) y en firebase para poder realizar un deploy en internet, pero para un deploy local se deben ejecutar los siguientes comandos
+
+<h3 align="center">cd utn</h3>
+<h3 align="center">npm install</h3>
+<h3 align="center">npm run serve</h3>
