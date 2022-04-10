@@ -1,63 +1,82 @@
-alert("Se debe crear la logica en el archivo script.js");
+const MAX_COINS = 4;
 
-function recargar(){
+//Estas lineas crean array con de 4 posiciones donde cada casilla tendra el string seguido del indice
 
-    // valor monedas
-    let coin1, coin2, coin3, coin4;
-    // valor multiplicadores
-    let multiplier1, multiplier2, multiplier3, multiplier4;
-    // valor respuesta
-    let response1, response2, response3, response4;
-    //
-    let responsetotal;
-    let monedas;
+const id_coins = [...Array(MAX_COINS)].map((value, index) => `coin_${index + 1}`);
+const id_multipliers = [...Array(MAX_COINS)].map((value, index) => `multiplier_${index + 1}`);
+const id_response = [...Array(MAX_COINS)].map((value, index) => `response_${index + 1}`);
 
-    coin1 = parseFloat(document.getElementById("coin_1").value);
-    coin2 = parseFloat(document.getElementById("coin_2").value);
-    coin3 = parseFloat(document.getElementById("coin_3").value);
-    coin4 = parseFloat(document.getElementById("coin_4").value);
-
-    monedas = [coin1, coin2, coin3, coin4];
-    monedas.sort(function(a, b){return a - b});
-
-    multiplier1 = parseFloat(document.getElementById("multiplier_1").value);
-    multiplier2 = parseFloat(document.getElementById("multiplier_2").value);
-    multiplier3 = parseFloat(document.getElementById("multiplier_3").value);
-    multiplier4 = parseFloat(document.getElementById("multiplier_4").value);
-
-    multiplicador = [multiplier1, multiplier2, multiplier3, multiplier4];
-    multiplicador = multiplicador.sort(function(a, b){return a - b});
-
-    response1 = monedas[0] * multiplicador[0];
-    response2 = monedas[1] * multiplicador[1];
-    response3 = monedas[2] * multiplicador[2];
-    response4 = monedas[3] * multiplicador[3];
-
-    responsetotal = response1 + response2 + response3 + response4;
-
-    document.getElementById("coin_1").value=monedas[0];
-    document.getElementById("coin_2").value=monedas[1];
-    document.getElementById("coin_3").value=monedas[2];
-    document.getElementById("coin_4").value=monedas[3];
-    document.getElementById("multiplier_1").value=multiplicador[0];
-    document.getElementById("multiplier_2").value=multiplicador[1];
-    document.getElementById("multiplier_3").value=multiplicador[2];
-    document.getElementById("multiplier_4").value=multiplicador[3];
-    document.getElementById("response_1").value=response1;
-    document.getElementById("response_2").value=response2;
-    document.getElementById("response_3").value=response3;
-    document.getElementById("response_4").value=response4;
-    document.getElementById("response_total").value=responsetotal;
-    
+const get_value_from_input = function (id) {
+    const input = document.getElementById(id);
+    return input && input.value ? parseInt(input.value) : NaN;
 }
 
 
+const load_response = function (id, value) {
+    const input = document.getElementById(id);
+    if (input) input.value = value;
+}
+
+const get_response_array = function (coins, multipliers) {
+
+    //.slice() realiza una copia exacta del vector original y no es mutado
+    copy_coins = coins.slice();
+    sorted_coins = coins.slice().sort((a,b)=>a-b); //ordenados de menor a mayor
+    sorted_multipliers = multipliers.slice().sort((a,b)=>a-b);
+
+    //Es necesario hacer un sort() con la funcion (a,b)=>a-b, para que considere los numeros
+    //porque sino los considera como strings y devolvera un ordenamiento
+    //como este: [1 , 10 , 2, 22, 3, 34, 4] en vez de [1, 2, 3, 4, 10, 22, 34]
+
+    response = [];
+
+    //Apartir de las monedas ordenadas asignamos el menor al menor y el mayor al mayor
+    
+    sorted_coins.map((coin, index_sorted) => {
+
+        const index_coin = copy_coins.indexOf(coin);
+
+        response[index_coin] = sorted_multipliers[index_sorted];
+
+        //Se borra la moneda que ya se evaluo para evitar colocar la misma
+        //por ejemplo si hay [5,5,5,5] siempre index_coin ( indexOf(5) ) valdra 0
+        delete copy_coins[index_coin];
+    });
+
+    return response;
+
+}
 
 
+const calculate = function () {
+
+    coins = id_coins.map(id => get_value_from_input(id)).filter(number => !isNaN(number));
+    multipliers = id_multipliers.map(id => get_value_from_input(id)).filter(number => !isNaN(number));
 
 
+    if (coins.length != MAX_COINS || multipliers.length != MAX_COINS) {
+        alert("Se debe ingresar informacion en las monedas y los multiplicadores")
+        return;
+    }
+
+    const response = get_response_array(coins, multipliers);
+
+    id_response.map((id, index) => load_response(id, response[index]));
+
+    const input_reponse = document.getElementById("response_total");
+
+    let response_total = 0;
+
+    coins.map((coin,index)=>response_total+=coin*response[index]);
+
+    if(input_reponse)
+        input_reponse.value = response_total;
+
+}
+
+const load_all = function () {
+    document.getElementById("calculate")?.addEventListener("click", calculate);
+}
 
 
-
-
-
+document.addEventListener("DOMContentLoaded", load_all);
