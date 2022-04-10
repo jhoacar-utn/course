@@ -18,12 +18,124 @@
                 "function": "tasks"
             },
             {
+                "source": "/agustin_ekkert_pazo",
+                "function": "agustin_ekkert_pazo"
+            },
+            {
+                "source": "/agustin_ekkert_pazo/**",
+                "function": "agustin_ekkert_pazo"
+            },
+            {
+                "source": "/cynthia_altmark",
+                "function": "cynthia_altmark"
+            },
+            {
+                "source": "/cynthia_altmark/**",
+                "function": "cynthia_altmark"
+            },
+            {
+                "source": "/evelyn_castillo",
+                "function": "evelyn_castillo"
+            },
+            {
+                "source": "/evelyn_castillo/**",
+                "function": "evelyn_castillo"
+            },
+            {
+                "source": "/federico_arabena",
+                "function": "federico_arabena"
+            },
+            {
+                "source": "/federico_arabena/**",
+                "function": "federico_arabena"
+            },
+            {
                 "source": "/jhoan_carrero",
                 "function": "jhoan_carrero"
             },
             {
                 "source": "/jhoan_carrero/**",
                 "function": "jhoan_carrero"
+            },
+            {
+                "source": "/jose_carballo",
+                "function": "jose_carballo"
+            },
+            {
+                "source": "/jose_carballo/**",
+                "function": "jose_carballo"
+            },
+            {
+                "source": "/lautaro_salazar_de_moya",
+                "function": "lautaro_salazar_de_moya"
+            },
+            {
+                "source": "/lautaro_salazar_de_moya/**",
+                "function": "lautaro_salazar_de_moya"
+            },
+            {
+                "source": "/liam_marin",
+                "function": "liam_marin"
+            },
+            {
+                "source": "/liam_marin/**",
+                "function": "liam_marin"
+            },
+            {
+                "source": "/mario_martinez_galarza",
+                "function": "mario_martinez_galarza"
+            },
+            {
+                "source": "/mario_martinez_galarza/**",
+                "function": "mario_martinez_galarza"
+            },
+            {
+                "source": "/matias_eckhardt",
+                "function": "matias_eckhardt"
+            },
+            {
+                "source": "/matias_eckhardt/**",
+                "function": "matias_eckhardt"
+            },
+            {
+                "source": "/maximiliano_vitti",
+                "function": "maximiliano_vitti"
+            },
+            {
+                "source": "/maximiliano_vitti/**",
+                "function": "maximiliano_vitti"
+            },
+            {
+                "source": "/nicolas_maurizi",
+                "function": "nicolas_maurizi"
+            },
+            {
+                "source": "/nicolas_maurizi/**",
+                "function": "nicolas_maurizi"
+            },
+            {
+                "source": "/pablo_defelitto",
+                "function": "pablo_defelitto"
+            },
+            {
+                "source": "/pablo_defelitto/**",
+                "function": "pablo_defelitto"
+            },
+            {
+                "source": "/santiago_franchi",
+                "function": "santiago_franchi"
+            },
+            {
+                "source": "/santiago_franchi/**",
+                "function": "santiago_franchi"
+            },
+            {
+                "source": "/veronica_ferreyra",
+                "function": "veronica_ferreyra"
+            },
+            {
+                "source": "/veronica_ferreyra/**",
+                "function": "veronica_ferreyra"
             }
         ]
     }
