@@ -4,27 +4,27 @@
 
 # Links principales:
 
-https://us-central1-utn-course.cloudfunctions.net/welcome
-https://us-central1-utn-course.cloudfunctions.net/tasks
+https://us-central1-utn-course.cloudfunctions.net/welcome <br>
+https://us-central1-utn-course.cloudfunctions.net/tasks <br>
 
 # Link de prueba:
 
-https://us-central1-utn-course.cloudfunctions.net/jhoan_carrero
+https://us-central1-utn-course.cloudfunctions.net/jhoan_carrero <br>
 
 # Links de cada estudiante:
 
-https://us-central1-utn-course.cloudfunctions.net/agustin_ekkert_pazo
-https://us-central1-utn-course.cloudfunctions.net/cynthia_altmark
-https://us-central1-utn-course.cloudfunctions.net/evelyn_castillo
-https://us-central1-utn-course.cloudfunctions.net/federico_arabena
-https://us-central1-utn-course.cloudfunctions.net/jose_carballo
-https://us-central1-utn-course.cloudfunctions.net/lautaro_salazar_de_moya
-https://us-central1-utn-course.cloudfunctions.net/liam_marin
-https://us-central1-utn-course.cloudfunctions.net/mario_martinez_galarza
-https://us-central1-utn-course.cloudfunctions.net/matias_eckhardt
-https://us-central1-utn-course.cloudfunctions.net/maximiliano_vitti
-https://us-central1-utn-course.cloudfunctions.net/nicolas_maurizi
-https://us-central1-utn-course.cloudfunctions.net/pablo_defelitto
-https://us-central1-utn-course.cloudfunctions.net/santiago_franchi
-https://us-central1-utn-course.cloudfunctions.net/veronica_ferreyra
+https://us-central1-utn-course.cloudfunctions.net/agustin_ekkert_pazo <br>
+https://us-central1-utn-course.cloudfunctions.net/cynthia_altmark <br>
+https://us-central1-utn-course.cloudfunctions.net/evelyn_castillo <br>
+https://us-central1-utn-course.cloudfunctions.net/federico_arabena <br>
+https://us-central1-utn-course.cloudfunctions.net/jose_carballo <br>
+https://us-central1-utn-course.cloudfunctions.net/lautaro_salazar_de_moya <br>
+https://us-central1-utn-course.cloudfunctions.net/liam_marin <br>
+https://us-central1-utn-course.cloudfunctions.net/mario_martinez_galarza <br>
+https://us-central1-utn-course.cloudfunctions.net/matias_eckhardt <br>
+https://us-central1-utn-course.cloudfunctions.net/maximiliano_vitti <br>
+https://us-central1-utn-course.cloudfunctions.net/nicolas_maurizi <br>
+https://us-central1-utn-course.cloudfunctions.net/pablo_defelitto <br>
+https://us-central1-utn-course.cloudfunctions.net/santiago_franchi <br>
+https://us-central1-utn-course.cloudfunctions.net/veronica_ferreyra <br>
 
