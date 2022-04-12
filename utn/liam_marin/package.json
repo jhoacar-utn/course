@@ -4,7 +4,8 @@
   "description": "Personal projects.",
   "main": "index.js",
   "scripts": {
-    "test": "npx nodemon index.js"
+    "nodemon": "npx nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
