@@ -1,0 +1,26 @@
+{
+  "name": "lesson_3",
+  "version": "0.1.0",
+  "description": "Dayum son.",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "npx nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhoacar-utn/course.git"
+  },
+  "author": "Liam Marin <liam.marin03926@protonmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhoacar-utn/course/issues"
+  },
+  "homepage": "https://github.com/jhoacar-utn/course#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
