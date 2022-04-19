@@ -1,0 +1,11 @@
+ls -> muestra los archivos de un directorio
+git fetch --all -> actualiza mi repo local con el remoto
+
+npm start -y -> Levanta un proyecto con las configuraciones por defecto
+
+backsticks -> ``````
+
+Ctrl + Shift + L -> ubica el cursor en cada coincidencia de la palabra seleccionada
+Ctrl + D -> ubica el cursor en solo la primera coincidencia de la palabra seleccionada
+Ctrl + K + C -> comenta el codigo seleccionado
+Ctrl + K + U -> descomenta el codigo seleccionado
