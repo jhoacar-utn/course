@@ -2,6 +2,7 @@ const MYSQL = require('mysql');
 
 const {mysql} = require("../config");
 
+
 const connection = MYSQL.createConnection(mysql);
 
 module.exports = {
@@ -16,14 +17,4 @@ module.exports = {
 
     }
 }
-
-/*
-function(err, rows, fields) {
-        
-            if (err) throw err;
-            
-            return rows;
-            console.log('The solution is: ', rows[0].solution);
-        }
-*/
 
