@@ -5,9 +5,15 @@ const users = [
 
 "cynthia_altmark",
 
+"emiliano_andino",
+
+"esteban_murphy",
+
 "evelyn_castillo",
 
 "federico_arabena",
+
+"gianfranco_hvalica",
 
 "jhoan_carrero",
 
@@ -18,6 +24,8 @@ const users = [
 "liam_marin",
 
 "mario_martinez_galarza",
+
+"martin_pereyra",
 
 "matias_eckhardt",
 
