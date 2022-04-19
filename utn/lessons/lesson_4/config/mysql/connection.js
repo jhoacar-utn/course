@@ -1,19 +1,29 @@
-const MYSQL = require('MYSQL');
+const MYSQL = require('mysql');
 
 const {mysql} = require("../config");
 
-const connection = MYSQL.createConnection({
-  host     : 'localhost',
-  user     : 'dbuser',
-  password : 's3kreee7'
-});
+const connection = MYSQL.createConnection(mysql);
 
-connection.connect();
+module.exports = {
 
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  if (err) throw err;
-  console.log('The solution is: ', rows[0].solution);
-});
+    executeQuery : function(query, callback){
 
-connection.end();
+        connection.connect();
+
+        connection.query(query, callback);
+
+        connection.end();
+
+    }
+}
+
+/*
+function(err, rows, fields) {
+        
+            if (err) throw err;
+            
+            return rows;
+            console.log('The solution is: ', rows[0].solution);
+        }
+*/
 
