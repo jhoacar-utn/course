@@ -8,7 +8,16 @@ const PORT = process.env.PORT;
 
 
 const handleRequest = (req,res,next)=>{
-    return res.send("Welcome to my app");
+
+    const query = "select message from welcome";
+
+    executeQuery( query,  function(err, rows, fields) {
+        if (err) throw err;
+
+        const message = rows[0].message;
+        return res.send(message);
+      });
+    
 }
 
 app.get("/",handleRequest);
@@ -16,8 +25,5 @@ app.get("/",handleRequest);
 
 app.listen(PORT,()=>{
     console.log("Server on port ",PORT);
-    executeQuery('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-        if (err) throw err;
-        console.log('The solution is: ', rows[0].solution);
-      });
+    
 });
