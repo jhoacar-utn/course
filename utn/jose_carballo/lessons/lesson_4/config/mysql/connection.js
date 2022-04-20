@@ -10,8 +10,8 @@ const connection = MYSQL.createConnection(mysql);
 
 module.exports = {
   executeQuery: (query, callback) => {
-    connection.connect();
+    // connection.connect(); removido por problemas en la version de mysql 
     connection.query(query, callback);
-    connection.end();
+    // connection.end();
   },
 };
