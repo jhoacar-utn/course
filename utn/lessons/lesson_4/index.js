@@ -20,7 +20,6 @@ app.listen(PORT,()=>{
     console.log("Server on port ",PORT);
 
     executeQuery("SELECT 1 + 1 AS solution",function(err, rows, fields) {
-        
         if (err) throw err;
 
         console.log("Connection enabled with mysql");
