@@ -35,6 +35,12 @@ INSERT INTO federico_arabena.welcome (message) VALUES ('Welcome to your database
 CREATE USER federico_arabena@'%' IDENTIFIED BY 'federico_arabena';
 GRANT ALL ON federico_arabena.* TO federico_arabena@'%';
         
+CREATE DATABASE IF NOT EXISTS gianfranco_hvalica;
+CREATE TABLE IF NOT EXISTS gianfranco_hvalica.welcome (message VARCHAR(100));
+INSERT INTO gianfranco_hvalica.welcome (message) VALUES ('Welcome to your database gianfranco hvalica'); 
+CREATE USER gianfranco_hvalica@'%' IDENTIFIED BY 'gianfranco_hvalica';
+GRANT ALL ON gianfranco_hvalica.* TO gianfranco_hvalica@'%';
+        
 CREATE DATABASE IF NOT EXISTS jhoan_carrero;
 CREATE TABLE IF NOT EXISTS jhoan_carrero.welcome (message VARCHAR(100));
 INSERT INTO jhoan_carrero.welcome (message) VALUES ('Welcome to your database jhoan carrero'); 
@@ -64,6 +70,12 @@ CREATE TABLE IF NOT EXISTS mario_martinez_galarza.welcome (message VARCHAR(100))
 INSERT INTO mario_martinez_galarza.welcome (message) VALUES ('Welcome to your database mario martinez galarza'); 
 CREATE USER mario_martinez_galarza@'%' IDENTIFIED BY 'mario_martinez_galarza';
 GRANT ALL ON mario_martinez_galarza.* TO mario_martinez_galarza@'%';
+        
+CREATE DATABASE IF NOT EXISTS martin_pereyra;
+CREATE TABLE IF NOT EXISTS martin_pereyra.welcome (message VARCHAR(100));
+INSERT INTO martin_pereyra.welcome (message) VALUES ('Welcome to your database martin pereyra'); 
+CREATE USER martin_pereyra@'%' IDENTIFIED BY 'martin_pereyra';
+GRANT ALL ON martin_pereyra.* TO martin_pereyra@'%';
         
 CREATE DATABASE IF NOT EXISTS matias_eckhardt;
 CREATE TABLE IF NOT EXISTS matias_eckhardt.welcome (message VARCHAR(100));

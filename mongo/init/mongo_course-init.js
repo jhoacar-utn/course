@@ -13,6 +13,8 @@ const users = [
 
 "federico_arabena",
 
+"gianfranco_hvalica",
+
 "jhoan_carrero",
 
 "jose_carballo",
@@ -22,6 +24,8 @@ const users = [
 "liam_marin",
 
 "mario_martinez_galarza",
+
+"martin_pereyra",
 
 "matias_eckhardt",
 
