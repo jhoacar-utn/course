@@ -33,17 +33,15 @@ const users = [
 
 db.auth('root', 'root');
 users.map(user => {
-    db.adminCommand(
-        {
-        createUser: user,
-        pwd: user,
-        roles: [
-            { role: "dbOwner", db: user }
-        ]
-        }
-    );
-
+    
     db = db.getSiblingDB(user);
+    db.createUser(
+        {
+            user: user,
+            pwd:  user,
+            roles: [ { role: "readWrite", db: user } ]
+        }
+    )
     db.createCollection('welcome');
 
     db.welcome.insertOne(

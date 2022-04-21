@@ -11,6 +11,18 @@ INSERT INTO cynthia_altmark.welcome (message) VALUES ('Welcome to your database 
 CREATE USER cynthia_altmark@'%' IDENTIFIED BY 'cynthia_altmark';
 GRANT ALL ON cynthia_altmark.* TO cynthia_altmark@'%';
         
+CREATE DATABASE IF NOT EXISTS emiliano_andino;
+CREATE TABLE IF NOT EXISTS emiliano_andino.welcome (message VARCHAR(100));
+INSERT INTO emiliano_andino.welcome (message) VALUES ('Welcome to your database emiliano andino'); 
+CREATE USER emiliano_andino@'%' IDENTIFIED BY 'emiliano_andino';
+GRANT ALL ON emiliano_andino.* TO emiliano_andino@'%';
+        
+CREATE DATABASE IF NOT EXISTS esteban_murphy;
+CREATE TABLE IF NOT EXISTS esteban_murphy.welcome (message VARCHAR(100));
+INSERT INTO esteban_murphy.welcome (message) VALUES ('Welcome to your database esteban murphy'); 
+CREATE USER esteban_murphy@'%' IDENTIFIED BY 'esteban_murphy';
+GRANT ALL ON esteban_murphy.* TO esteban_murphy@'%';
+        
 CREATE DATABASE IF NOT EXISTS evelyn_castillo;
 CREATE TABLE IF NOT EXISTS evelyn_castillo.welcome (message VARCHAR(100));
 INSERT INTO evelyn_castillo.welcome (message) VALUES ('Welcome to your database evelyn castillo'); 

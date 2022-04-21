@@ -5,6 +5,10 @@ const users = [
 
 "cynthia_altmark",
 
+"emiliano_andino",
+
+"esteban_murphy",
+
 "evelyn_castillo",
 
 "federico_arabena",
@@ -35,17 +39,15 @@ const users = [
 
 db.auth('root', 'root');
 users.map(user => {
-    db.adminCommand(
-        {
-        createUser: user,
-        pwd: user,
-        roles: [
-            { role: "dbOwner", db: user }
-        ]
-        }
-    );
-
+    
     db = db.getSiblingDB(user);
+    db.createUser(
+        {
+            user: user,
+            pwd:  user,
+            roles: [ { role: "readWrite", db: user } ]
+        }
+    )
     db.createCollection('welcome');
 
     db.welcome.insertOne(
