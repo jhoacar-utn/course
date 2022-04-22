@@ -3,7 +3,9 @@
 ### Repositorio con el codigo del curso de cada estudiante
 
 
+
 # [Link de Zoom](https://centrodeelearning.zoom.us/j/97754408352?pwd=QzdWVEVmMGQvaEhmaHIyZzdJR1lzdz09)
+# [Link -> Clase 22/04/2022](https://centrodeelearning.zoom.us/j/92944978748?pwd=STJxcGs0V2QwK0Vka0tqdnRMdytsdz09)
 
 <br>
 
