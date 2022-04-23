@@ -8,4 +8,12 @@ const getWelcomePage = (req,res,next)=>{
     return res.sendFile(pathFile);
 };
 
+
+const getRegisterPage = (req,res,next)=>{
+
+    const pathFile = path.resolve(__dirname+"/../views/register.html");
+    return res.sendFile(pathFile);
+};
+
 module.exports.getWelcomePage = getWelcomePage;
+module.exports.getRegisterPage = getRegisterPage;
