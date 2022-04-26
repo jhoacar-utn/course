@@ -8,3 +8,6 @@ const sequelize = new Sequelize(mysql.database, mysql.user, mysql.password, {
     port: mysql.port,
     dialect: 'mysql'
   });
+
+
+module.exports = sequelize;

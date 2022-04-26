@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require("express");
+const sequelize = require("./config/mysql/connection");
 
 const app = express();
 
@@ -20,4 +21,12 @@ const PORT = process.env.PORT || 4001 ;
 app.listen(PORT,()=>{
     
     console.log("Server on port ",PORT);
+
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database:', error);
+    }
+
 });
