@@ -1,8 +1,8 @@
-const sequelize = require("./config/mysql/connection");
+const sequelize = require("../config/mysql/connection");
 
-module.exports = async ()=>{
+const handleStartServer = async function(){
     
-    console.log("Server had been started");
+    console.log("Server had been started on port ",this.address().port);
 
     try {
         await sequelize.authenticate();
@@ -12,3 +12,5 @@ module.exports = async ()=>{
     }
 
 };
+
+module.exports = handleStartServer;
