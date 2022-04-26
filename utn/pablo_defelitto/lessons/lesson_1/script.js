@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const MAX_COINS = 4;
 
 //Estas lineas crean array con de 4 posiciones donde cada casilla tendra el string seguido del indice
@@ -80,3 +81,6 @@ const load_all = function () {
 
 
 document.addEventListener("DOMContentLoaded", load_all);
+=======
+alert("Se debe crear la logica en el archivo script.js");
+>>>>>>> 6d983a6214002a3507886cbfd9ddcf2f13f78b28
