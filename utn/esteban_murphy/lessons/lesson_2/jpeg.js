@@ -1,4 +1,5 @@
 
+
 const my_message = ()=>{ //arrow function
     console.log("Working with images JPEG")
     console.log(this.name);
@@ -13,12 +14,15 @@ const other_message = function(){
 const object = {
     "name" : "Example",
     "jpeg" : other_message
+
 }
 
 object.jpeg();
 
 const principal = {
+
     "logic" : "Logic Pure"
+
 }
 
 const extractImage = ()=>{

@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "helloWorld": "node -e \"console.log('Hello World')\"",
     "executeFile": "node jpeg.js",
     "dispatchEvent": "node events.js"
   },
   "keywords": [],
   "author": "Murphy",
+
   "license": "ISC"
 }
