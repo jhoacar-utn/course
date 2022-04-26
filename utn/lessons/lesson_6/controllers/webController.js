@@ -16,24 +16,28 @@ const getRegisterPage = (req,res,next)=>{
     return res.sendFile(pathFile);
 };
 
-const getYoutubePage = (req,res,next)=>{
+const getYoutubePage = async (req,res,next)=>{
 
-    const youtubeHTML = "HTML of youtube";
+    try{
 
-    fetch("https://youtube.com")
-    .then((response)=>{
-        return response.text()
-    })
-    .then((html)=>{
+        let youtubeHTML = "HTML of youtube";
+
+        const response = await fetch("https://youtube.com");
+
+        const html = await response.text();
+
         youtubeHTML = html;
-    })
-    .catch((error)=>{
-        console.log(error);
-    })
+        
+        console.log(youtubeHTML);
 
-    return res.send(youtubeHTML);
+        return res.send(youtubeHTML);
 
+    }catch(error){
 
+        res.status(500);
+
+        return res.json({error: error});
+    }
 }
 
 
