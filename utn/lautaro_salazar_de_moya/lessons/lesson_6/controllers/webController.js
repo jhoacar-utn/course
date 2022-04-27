@@ -11,35 +11,25 @@ const getWelcomePage = (req,res,next)=>{
 
 
 const getRegisterPage = (req,res,next)=>{
-
     const pathFile = path.resolve(__dirname+"/../views/register.html");
     return res.sendFile(pathFile);
 };
 
 const getYoutubePage = async (req,res,next)=>{
-
     try{
-
         let youtubeHTML = "HTML of youtube";
-
         const response = await fetch("https://youtube.com");
-
         const html = await response.text();
-
         youtubeHTML = html;
-        
         console.log(youtubeHTML);
 
         return res.send(youtubeHTML);
 
     }catch(error){
-
         res.status(500);
-
         return res.json({error: error});
     }
 }
-
 
 module.exports = {
     getWelcomePage,
