@@ -7,11 +7,18 @@
     <title>Register</title>
 </head>
 <body>
-   
+
+    <form method="POST" action="/api/user">
         <input type="text" name="name" placeholder="Insert your name" required>
         <input type="email" name="email" placeholder="Insert your email" required>
         <input type="password" name="password" placeholder="Insert your password" required>
-        <button onclick="sendUser()">Register</button>
+        <input type="submit" value="Register">
+    </form>
+   
+        <!--input type="text" name="name" placeholder="Insert your name" required>
+        <input type="email" name="email" placeholder="Insert your email" required>
+        <input type="password" name="password" placeholder="Insert your password" required>
+        <button onclick="sendUser()">Register</button-->
 </body>
 <script>
     function sendUser()

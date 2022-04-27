@@ -1,3 +1,5 @@
+const userModel = require("../models/userModel");
+
 
 const getUsers = (req,res,next)=>{
 
@@ -6,13 +8,23 @@ const getUsers = (req,res,next)=>{
     return res.json(userData);
 }
 
-const postUser = (req,res,next)=>{
+const postUser = async (req,res,next)=>{
     
-    const userData = req.body;
+    try{
 
-    console.log(userData);
+        const userData = req.body;
 
-    return res.json(userData);
+        console.log(userData);
+
+        const user = await userModel.create(userData);
+
+        return res.json({user:user});
+    
+    }catch(error)
+    {
+        res.status(500);
+        res.json({error:error});
+    }
 }
 
 module.exports.getUsers = getUsers;
