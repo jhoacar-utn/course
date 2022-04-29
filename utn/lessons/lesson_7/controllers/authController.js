@@ -1,5 +1,5 @@
 const userModel = require("../models/userModel");
-const comparePassword = require("../helpers/handlePassword");
+const {comparePassword} = require("../helpers/handlePassword");
 
 const handleLogin = async (req,res,next)=>{
     
@@ -20,6 +20,8 @@ const handleLogin = async (req,res,next)=>{
             res.status(401);
             return res.json({error:"User not authorized"});
         }
+
+        const token = getJsonWebToken();
 
         return res.json({user:"User authenticated"});
     
