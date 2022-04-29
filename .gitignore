@@ -1,24 +1,25 @@
-/utn/node_modules
-/utn/node_modules/*
-/utn/ui-debug.log
+*
+!.gitignore
+!README.md
 
-# Removed files for students
+!/utn
 
 # First Case
 
-/utn/*_*/project/backend_node/node_modules
-/utn/*_*/project/backend_node/.env
-/utn/*_*/project/frontend_react/node_modules
+!/utn/*_*/
+!/utn/*_*/**
 
 # Second Case
 
-/utn/*_*_*/project/backend_node/node_modules
-/utn/*_*_*/project/backend_node/.env
-/utn/*_*_*/project/frontend_react/node_modules
+!/utn/*_*_*/
+!/utn/*_*_*/**
 
 # Third Case
 
-/utn/*_*_*_*/project/backend_node/node_modules
-/utn/*_*_*_*/project/backend_node/.env
-/utn/*_*_*_*/project/frontend_react/node_modules
+!/utn/*_*_*_*/
+!/utn/*_*_*_*/**
 
+# Tasks
+
+!/utn/tasks
+!/utn/tasks/**
