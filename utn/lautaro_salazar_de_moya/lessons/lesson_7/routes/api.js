@@ -7,7 +7,6 @@ const {getDocApi} = require("../controllers/apiController");
 
 
 router.use("/user",userRouter);
-router.use("/login",userRouter);
 
 router.get("/",getDocApi);
 

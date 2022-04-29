@@ -1,25 +1,38 @@
+const userModel = require("../models/userModel");
+const {comparePassword} = require("../helpers/handlePassword");
 
-const authModel = require("../models/userModel");
-
-const { getHashedPassword } = require("../helpers/handlePassword");
-
-
-const postAuth = async (req,res,next)=>{
+const handleLogin = async (req,res,next)=>{
+    
     try{
-        const userData = req.body;
-        console.log(userData);
 
-        const email = await userModel.findOne({ where: { email:userData.email } });
-        console.log(email);
-        return res.json({user:email});
-    }
-    catch(error){
-        console.log(error)
+        const {email, password} = req.body;
+
+        const user = await userModel.findOne({ where: { email } });
+
+        if(!user){
+            res.status(401);
+            return res.json({error:"User not registered"});
+        }
+
+        const isAuthorized = comparePassword(password,user.password);
+
+        if(!isAuthorized){
+            res.status(401);
+            return res.json({error:"User not authorized"});
+        }
+
+        const token = getJsonWebToken();
+
+        return res.json({user:"User authenticated"});
+    
+    }catch(error)
+    {
+        console.log(error);
         res.status(500);
-        res.json({error:error});
+        return res.json({error});
     }
 }
 
-module.exports = {
-    postAuth
-};
+module.exports ={
+    handleLogin
+}
