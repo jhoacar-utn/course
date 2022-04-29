@@ -1,6 +1,7 @@
 const userModel = require("../models/userModel");
 const {comparePassword} = require("../helpers/handlePassword");
 const {getJsonWebToken} = require("../helpers/handleJWT");
+const { setCookie } = require("../helpers/handleCookie");
 
 const handleLogin = async (req,res,next)=>{
     
@@ -23,6 +24,8 @@ const handleLogin = async (req,res,next)=>{
         }
 
         const token = getJsonWebToken();
+
+        setCookie(token);
 
         return res.json({user:"User authenticated", token});
     

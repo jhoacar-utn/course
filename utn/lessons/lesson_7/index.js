@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieSession({name: nameCookie,maxAge: expireInCookie}));
+app.use(cookieSession({name: nameCookie,keys:[], maxAge: expireInCookie}));
 
 const routerApi = require("./routes/api");
 const routerWeb = require("./routes/web");
