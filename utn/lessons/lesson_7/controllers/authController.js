@@ -1,5 +1,6 @@
 const userModel = require("../models/userModel");
 const {comparePassword} = require("../helpers/handlePassword");
+const {getJsonWebToken} = require("../helpers/handleJWT");
 
 const handleLogin = async (req,res,next)=>{
     
@@ -23,7 +24,7 @@ const handleLogin = async (req,res,next)=>{
 
         const token = getJsonWebToken();
 
-        return res.json({user:"User authenticated"});
+        return res.json({user:"User authenticated", token});
     
     }catch(error)
     {
