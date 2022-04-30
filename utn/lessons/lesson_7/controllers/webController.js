@@ -23,6 +23,13 @@ const getLoginPage = (req,res,next)=>{
 };
 
 
+const getDashboardPage = (req,res,next)=>{
+
+    const pathFile = path.resolve(__dirname+"/../views/dashboard.html");
+    return res.sendFile(pathFile);
+};
+
+
 const getYoutubePage = async (req,res,next)=>{
 
     try{
@@ -53,4 +60,5 @@ module.exports = {
     getRegisterPage,
     getLoginPage,
     getYoutubePage,
+    getDashboardPage,
 };

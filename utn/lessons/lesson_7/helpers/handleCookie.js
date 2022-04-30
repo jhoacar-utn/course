@@ -1,6 +1,6 @@
 
 const setCookie = (request,token)=>{
-    request.session.mytoken = token;
+    request.session.userToken = token;
 }
 
 module.exports = {

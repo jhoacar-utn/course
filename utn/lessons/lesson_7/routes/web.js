@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const {getWelcomePage, getRegisterPage , getLoginPage ,getYoutubePage} = require("../controllers/webController");
+const {getWelcomePage, getRegisterPage , getLoginPage ,getYoutubePage, getDashboardPage} = require("../controllers/webController");
 
 const {handleLogin} = require("../controllers/authController");
 
@@ -13,5 +13,7 @@ router.post("/login",handleLogin);
 
 router.get("/register",getRegisterPage);
 router.get("/youtube",getYoutubePage);
+
+router.get("/dashboard",getDashboardPage);
 
 module.exports = router;

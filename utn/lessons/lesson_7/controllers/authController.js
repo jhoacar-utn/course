@@ -31,7 +31,7 @@ const handleLogin = async (req,res,next)=>{
 
         setCookie(req,token);
 
-        return res.json({user:"User authenticated"});
+        return res.redirect("/dashboard");
     
     }catch(error)
     {
