@@ -14,7 +14,7 @@
         <h2>Email: {{email}}</h2>
 
         <form method="POST" action="/api/user/avatar" enctype="multipart/form-data">
-            <input type="file" name="avatarFile">
+            <input type="file" name="avatarFile" accept="image/*">
             <input type="submit" value="Upload File">
         </form>
     </div>
