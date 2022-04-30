@@ -9,8 +9,14 @@
 <body>
     <h1>User</h1>
     <div>
+        <img src="{{avatar}}" alt="User Image Profile">
         <h2>Name: {{name}} </h2>
         <h2>Email: {{email}}</h2>
+
+        <form method="POST" action="/api/user/avatar" enctype="multipart/form-data">
+            <input type="file" name="avatarFile">
+            <input type="submit" value="Upload File">
+        </form>
     </div>
 </body>
 </html>

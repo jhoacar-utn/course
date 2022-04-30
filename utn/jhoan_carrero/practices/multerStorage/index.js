@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require("express");
+const path = require("path");
 const cookieSession = require('cookie-session');
 const hbs = require('express-hbs');
 const handleStartServer = require('./helpers/handleStartServer');
@@ -23,6 +24,9 @@ const routerWeb = require("./routes/web");
 
 app.use("/api",routerApi);
 app.use("/",routerWeb);
+
+app.use("/",express.static(path.resolve(__dirname+"/public")));
+app.use("/users",express.static(path.resolve(__dirname+"/storage")));
 
 const PORT = process.env.PORT || 4001 ;
 
