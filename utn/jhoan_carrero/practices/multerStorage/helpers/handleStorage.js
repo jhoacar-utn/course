@@ -10,4 +10,4 @@ switch(storageConnection){
         handler = "handleLocalStorage";break;
 }
 
-module.exports = require(handler);
+module.exports = require(`./${handler}`);

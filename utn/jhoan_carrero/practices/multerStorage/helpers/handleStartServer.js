@@ -8,7 +8,7 @@ const handleStartServer = async function(){
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
-        await sequelize.sync({ alter: true });
+        await sequelize.sync();
         console.log("All models were synchronized successfully.");
 
     } catch (error) {
