@@ -1,22 +1,26 @@
 const { getPayloadData } = require("../helpers/handleJWT");
+const userModel = require("../models/userModel");
 
-const authMiddleware = (req,res,next)=>{
+const authMiddleware = async (req, res, next) => {
 
     const token = req.session.userToken;
 
-    if(!token){
+    if (!token) {
         res.status(403);
-        return res.json({error:"Token is required"});
+        return res.json({ error: "Token is required" });
     }
 
     const userData = getPayloadData(token);
 
-    if(!userData){
+    if (!userData) {
         res.status(403);
-        return res.json({error:"Token is invalid"});
+        return res.json({ error: "Token is invalid" });
     }
 
-    req.user = userData;
+    const email = userData.email;
+    const user = await userModel.findOne({ where: { email } });
+
+    req.user = user;
 
     return next();
 

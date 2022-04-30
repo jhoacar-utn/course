@@ -26,7 +26,6 @@ const handleLogin = async (req,res,next)=>{
         const payload = {
             email: user.email,
             name: user.name,
-            avatar: user.avatar
         }
         const token = getJsonWebToken(payload);
 

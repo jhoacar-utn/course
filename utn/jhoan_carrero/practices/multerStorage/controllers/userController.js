@@ -1,6 +1,7 @@
 const userModel = require("../models/userModel");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
+const { response } = require("express");
 
 const getUsers = (req, res, next) => {
 
@@ -30,10 +31,25 @@ const postUser = async (req, res, next) => {
     }
 }
 
-const saveAvatar = (req, res, next) => {
+const saveAvatar = async (req, res, next) => {
 
+    try {
+        
+        const email = req.user.email;
+        const user = await userModel.findOne({ where: { email } });
 
+        const pathFile = req.file.filename;
+        const pathAvatar = `/users/${pathFile}`;
+        user.avatar = req.user.avatar = pathAvatar;
+        user.update();
 
+        return res.redirect("/dashboard");
+
+    } catch (error) {
+        console.log(error)
+        res.status(500);
+        res.json({ error: error });
+    }
 }
 
 module.exports = {
