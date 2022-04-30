@@ -16,6 +16,8 @@ const authMiddleware = (req,res,next)=>{
         return res.json({error:"Token is invalid"});
     }
 
+    req.user = userData;
+
     return next();
 
 }

@@ -25,8 +25,13 @@ const getLoginPage = (req,res,next)=>{
 
 const getDashboardPage = (req,res,next)=>{
 
-    const pathFile = path.resolve(__dirname+"/../views/dashboard.html");
-    return res.sendFile(pathFile);
+    const userEmail = req.user.email;
+    const userName = req.user.name;
+
+    res.render('dashboard', {
+        email: userEmail,
+        name: userName,
+      });
 };
 
 
