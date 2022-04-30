@@ -34,15 +34,17 @@ const postUser = async (req, res, next) => {
 const saveAvatar = async (req, res, next) => {
 
     try {
-        
+
         const email = req.user.email;
-        const user = await userModel.findOne({ where: { email } });
 
         const pathFile = req.file.filename;
         const pathAvatar = `/users/${pathFile}`;
-        user.avatar = req.user.avatar = pathAvatar;
-        user.update();
 
+        await userModel.update(
+            { avatar: pathAvatar },
+            { where: { email } }
+        )
+        
         return res.redirect("/dashboard");
 
     } catch (error) {

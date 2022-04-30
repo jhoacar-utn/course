@@ -27,10 +27,12 @@ const getDashboardPage = (req,res,next)=>{
 
     const userEmail = req.user.email;
     const userName = req.user.name;
+    const userAvatar = req.user.avatar;
 
     res.render('dashboard', {
         email: userEmail,
         name: userName,
+        avatar: userAvatar,
       });
 };
 

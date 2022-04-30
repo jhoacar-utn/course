@@ -17,10 +17,10 @@ const authMiddleware = async (req, res, next) => {
         return res.json({ error: "Token is invalid" });
     }
 
-    const email = userData.email;
-    const user = await userModel.findOne({ where: { email } });
+    // const email = userData.email;
+    // const user = await userModel.findOne({ where: { email } });
 
-    req.user = user;
+    req.user = userData;
 
     return next();
 
