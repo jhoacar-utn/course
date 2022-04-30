@@ -9,7 +9,7 @@ module.exports = {
         pathStorage: path.resolve(`${__dirname}/../${process.env.STORAGE_PATH || 'storage'}`),
     },
     storageGoogle : {
-
+        bucketName: process.env.GCLOUD_STORAGE_BUCKET || 'pwa6822',
     },
     storageAmazon :{
 

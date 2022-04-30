@@ -1,6 +1,6 @@
 const { format } = require('util');
 const multer = require('multer');
-const {uniqueFileName} = require("../config/storage");
+const {uniqueFileName, storageGoogle: config} = require("../config/storage");
 
 // By default, the client will authenticate using the service account file
 // specified by the GOOGLE_APPLICATION_CREDENTIALS environment variable and use
@@ -13,7 +13,7 @@ const { Storage } = require('@google-cloud/storage');
 const googleStorage = new Storage();
 
 // A bucket is a container for objects (files).
-const bucket = googleStorage.bucket(process.env.GCLOUD_STORAGE_BUCKET);
+const bucket = googleStorage.bucket(config.bucketName);
 
 const handleDestination = function (req, file, cb) {
     
