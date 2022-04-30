@@ -23,11 +23,15 @@ const handleLogin = async (req,res,next)=>{
             return res.json({error:"User not authorized"});
         }
 
-        const token = getJsonWebToken();
+        const payload = {
+            email: user.email,
+            name: user.name
+        }
+        const token = getJsonWebToken(payload);
 
-        setCookie(token);
+        setCookie(req,token);
 
-        return res.json({user:"User authenticated", token});
+        return res.json({user:"User authenticated"});
     
     }catch(error)
     {
