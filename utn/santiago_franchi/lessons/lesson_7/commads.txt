@@ -1,0 +1,14 @@
+git fetch --all
+git merge --abort
+
+//Lista todos los contenedores activos en la computadoras
+//Si no muestra nada o hay error es problema en docker
+docker ps
+
+//Esto levanta la configuracion de la base de datos, pero se necesita el archivo docker-compose-local.yaml 
+//que esta en la rama database
+docker-compose -f docker-compose-local.yaml up -d
+
+//API REST -> Viaja la informacion en formato json
+
+//API SOAP -> Viaja informacion en xml
