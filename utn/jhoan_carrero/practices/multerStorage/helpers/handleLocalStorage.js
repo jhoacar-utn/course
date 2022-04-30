@@ -1,6 +1,6 @@
 const multer = require("multer");
 
-const { storageLocal: config } = require("../config/storage");
+const { storageLocal: config, uniqueFileName } = require("../config/storage");
 
 
 const handleDestination = function (req, file, cb) {
@@ -9,7 +9,6 @@ const handleDestination = function (req, file, cb) {
 };
 
 const handleFileName = function (req, file, cb) {
-    const { uniqueFileName } = config;
 
     if (!uniqueFileName)
         return cb(null, file.originalname);
