@@ -11,8 +11,8 @@ const handleDestination = function (req, file, cb) {
 
 
 const handleFileName = function (req, file, cb) {
-    const fileName = `${configStorage.pathStorage}/${getFileName(file.originalname)}`;
-    const publicUrl = `${fileName}`;
+    const fileName = `${getFileName(file.originalname)}`;
+    const publicUrl = `/users/${fileName}`;
     req.avatarFile = publicUrl;
     return cb(null, fileName);
 }
@@ -24,5 +24,4 @@ const storage = multer.diskStorage({
 });
 
 module.exports = storage;
-module.exports.getFileName = getFileName;
 

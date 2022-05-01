@@ -1,7 +1,6 @@
 const userModel = require("../models/userModel");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
-const { response } = require("express");
 
 const getUsers = (req, res, next) => {
 
