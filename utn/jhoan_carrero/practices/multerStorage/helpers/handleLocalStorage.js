@@ -1,21 +1,17 @@
 const multer = require("multer");
 
-const { storageLocal: config, uniqueFileName } = require("../config/storage");
+const { storageLocal: configStorage } = require("../config/storage");
+const { getFileName } = require("./handleStorage");
 
 
 const handleDestination = function (req, file, cb) {
-    const { pathStorage } = config;
+    const { pathStorage } = configStorage;
     cb(null, pathStorage);
 };
 
+
 const handleFileName = function (req, file, cb) {
-
-    if (!uniqueFileName)
-        return cb(null, file.originalname);
-
-    const extension = file.originalname.split(".").pop();
-    const filename = `file-${Date.now()}.${extension}`;
-    cb(null, filename);
+    return cb(null, getFileName(file.originalName));
 }
 
 
@@ -25,4 +21,5 @@ const storage = multer.diskStorage({
 });
 
 module.exports = storage;
+module.exports.getFileName = getFileName;
 

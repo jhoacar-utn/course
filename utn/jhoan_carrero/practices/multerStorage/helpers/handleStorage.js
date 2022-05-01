@@ -1,4 +1,4 @@
-const {storageConnection,GOOGLE,AMAZON} = require("../config/storage");
+const {storageConnection,GOOGLE,AMAZON,uniqueFileName} = require("../config/storage");
 let handler = "handleLocalStorage";
 switch(storageConnection){
 
@@ -10,4 +10,13 @@ switch(storageConnection){
         handler = "handleLocalStorage";break;
 }
 
+const getFileName = function (originalName) {
+    if (!uniqueFileName)
+        return originalName;
+    const extension = originalName.split(".").pop();
+    const fileName = `file-${Date.now()}.${extension}`;
+    return fileName;
+}
+
 module.exports = require(`./${handler}`);
+module.exports.getFileName = getFileName;
