@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.81.0",
     "@google-cloud/storage": "^5.19.4",
     "bcrypt": "^5.0.1",
     "cookie-session": "^2.0.0",

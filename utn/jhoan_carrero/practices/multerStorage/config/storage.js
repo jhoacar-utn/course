@@ -14,6 +14,7 @@ module.exports = {
     },
     storageAmazon: {
         pathCredentials: process.env.AMAZON_APPLICATION_CREDENTIALS || 'amazonCredentials.json',
+        regionBucket: process.env.AWS_REGION_BUCKET || 'us-east-2',
         bucketName: process.env.AWS_STORAGE_BUCKET || 'pwa6822',
         pathStorage: process.env.STORAGE_PATH || 'storage',
     }
