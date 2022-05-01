@@ -4,7 +4,7 @@ module.exports = {
     GOOGLE: "google",
     AMAZON: 'aws',
     storageConnection: process.env.STORAGE_CONNECTION || 'local',
-    uniqueFileName: process.env.UNIQUE_FILE_NAME || true,
+    uniqueFileName: parseInt(process.env.UNIQUE_FILE_NAME) === 1,
     storageLocal: {
         pathStorage: path.resolve(`${__dirname}/../${process.env.STORAGE_PATH || 'storage'}`),
     },
