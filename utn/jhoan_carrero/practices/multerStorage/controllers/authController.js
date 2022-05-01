@@ -19,7 +19,7 @@ const handleLogin = async (req, res, next) => {
             return res.json({ error: "User not registered" });
         }
 
-        const isAuthorized = comparePassword(password, user.password);
+        const isAuthorized = await comparePassword(password, user.password);
 
         if (!isAuthorized) {
             res.status(401);
