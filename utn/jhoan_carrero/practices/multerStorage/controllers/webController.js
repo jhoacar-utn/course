@@ -24,10 +24,10 @@ const getLoginPage = (req, res, next) => {
 };
 
 
-const getDashboardPage = (req, res, next) => {
+const getDashboardPage = async (req, res, next) => {
 
     const email = req.user.email;
-    const user = userModel.findOne({ where: { email }, raw: true });
+    const user = await userModel.findOne({ where: { email }, raw: true });
 
     res.render('dashboard', user);
 };
