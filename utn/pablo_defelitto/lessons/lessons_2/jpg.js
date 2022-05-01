@@ -1,1 +1,0 @@
-console.log("trabajo con imagenes")
