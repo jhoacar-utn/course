@@ -34,7 +34,8 @@ const customHandleFile = function (req, file, cb) {
         .on("finish", () => {
             // All the data was written successfully
             const publicUrl = `https://storage.googleapis.com/${bucket.name}/${fileWriteStream.name}`;
-            cb(null, publicUrl); // Adding custom fields to file
+            req.avatarFile = publicUrl;
+            cb(null, fileWriteStream.name); // Adding custom fields to file
         });
 };
 

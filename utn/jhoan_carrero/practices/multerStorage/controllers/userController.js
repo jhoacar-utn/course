@@ -36,9 +36,8 @@ const saveAvatar = async (req, res, next) => {
     try {
 
         const email = req.user.email;
-
-        const pathFile = req.file.filename;
-        const pathAvatar = `/users/${pathFile}`;
+        
+        const pathAvatar = req.avatarFile;
 
         await userModel.update(
             { avatar: pathAvatar },

@@ -10,13 +10,15 @@ const s3 = new aws.S3();
 
 
 const handleMetaData = function (req, file, cb) {
-    cb(null, { fieldName: "TESTING_METADATA" });
+    cb(null, { fieldname: file.fieldname });
 };
 
 const handleFileName = function (req, file, cb) {
 
-    const publicUrl = `https://${configStorage.bucketName}.s3.${configStorage.regionBucket}.amazonaws.com/${getFileName(file.originalname)}`;
-    cb(null, publicUrl);
+    const fileName = `${configStorage.pathStorage}/${getFileName(file.originalname)}`;
+    const publicUrl = `https://${configStorage.bucketName}.s3.${configStorage.regionBucket}.amazonaws.com/${fileName}`;
+    req.avatarFile = publicUrl;
+    cb(null, fileName);
 };
 
 

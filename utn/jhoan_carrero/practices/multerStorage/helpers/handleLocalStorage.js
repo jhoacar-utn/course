@@ -11,7 +11,10 @@ const handleDestination = function (req, file, cb) {
 
 
 const handleFileName = function (req, file, cb) {
-    return cb(null, getFileName(file.originalName));
+    const fileName = `${configStorage.pathStorage}/${getFileName(file.originalname)}`;
+    const publicUrl = `${fileName}`;
+    req.avatarFile = publicUrl;
+    return cb(null, fileName);
 }
 
 
