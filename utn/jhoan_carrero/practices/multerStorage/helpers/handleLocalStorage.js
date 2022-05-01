@@ -1,7 +1,7 @@
 const multer = require("multer");
 
 const { storageLocal: configStorage } = require("../config/storage");
-const { getFileName } = require("./handleStorage");
+const { getFileName } = require("./handleFileName");
 
 
 const handleDestination = function (req, file, cb) {

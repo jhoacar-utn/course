@@ -3,3 +3,4 @@
 /storage/*
 !/storage/.gitkeep
 googleCredentials.json
+amazonCredentials.json

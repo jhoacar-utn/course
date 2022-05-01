@@ -2,7 +2,7 @@ const path = require("path");
 module.exports = {
     LOCAL: "local",
     GOOGLE: "google",
-    AMAZON: "aws",
+    AMAZON: 'aws',
     storageConnection: process.env.STORAGE_CONNECTION || 'local',
     uniqueFileName: process.env.UNIQUE_FILE_NAME || true,
     storageLocal: {
@@ -13,6 +13,8 @@ module.exports = {
         pathStorage: process.env.STORAGE_PATH || 'storage',
     },
     storageAmazon: {
-
+        pathCredentials: process.env.AMAZON_APPLICATION_CREDENTIALS || 'amazonCredentials.json',
+        bucketName: process.env.AWS_STORAGE_BUCKET || 'pwa6822',
+        pathStorage: process.env.STORAGE_PATH || 'storage',
     }
 }

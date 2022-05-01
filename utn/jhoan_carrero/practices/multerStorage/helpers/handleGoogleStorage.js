@@ -7,7 +7,7 @@ const { Storage } = require('@google-cloud/storage');
 const { storageGoogle: configStorage } = require("../config/storage");
 
 const storage = require("./handleLocalStorage");
-const { getFileName } = require("./handleStorage");
+const { getFileName } = require("./handleFileName");
 
 const customHandleFile = function (req, file, cb) {
 
@@ -39,5 +39,7 @@ const customHandleFile = function (req, file, cb) {
         });
 };
 
-storage.prototype._handleFile = customHandleFile;
+
+//storage.prototype._handleFile = customHandleFile;
+storage.getDestination = customHandleFile;
 module.exports = storage;
