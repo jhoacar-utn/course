@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel");
+const {userModel} = require("../models/index");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
 

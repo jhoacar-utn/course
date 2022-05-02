@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-const sequelize = require("../config/mysql/connection");
+const sequelize = require("../../config/mysql/connection");
 
 
 const User = sequelize.define('User', {
@@ -13,7 +13,7 @@ const User = sequelize.define('User', {
     allowNull: false,
     unique: true,
   },
-  password : {
+  password: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -21,10 +21,18 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
   }
 }, {
-    tableName: 'users'
+  tableName: 'users'
 });
 
+const customFindOne = async (objectQuery) => {
+  return await User.findOne({
+    where: { objectQuery },
+    raw: true,
+  });
+}
 
+User.prototype.first = customFindOne; //when new instance is created
+//User.first = customFindOne; //when is defined a function
 
 module.exports = User;
 

@@ -1,6 +1,6 @@
 const path = require("path");
 const fetch = require("node-fetch");
-const userModel = require("../models/userModel");
+const { userModel } = require("../models/index");
 
 const getWelcomePage = (req, res, next) => {
 
@@ -27,7 +27,7 @@ const getLoginPage = (req, res, next) => {
 const getDashboardPage = async (req, res, next) => {
 
     const email = req.user.email;
-    const user = await userModel.findOne({ where: { email }, raw: true });
+    const user = await userModel.first({ email });
 
     res.render('dashboard', user);
 };
