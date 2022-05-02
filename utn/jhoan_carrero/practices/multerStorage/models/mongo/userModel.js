@@ -12,7 +12,7 @@ const customFindOne = async (objectQuery) => {
 }
 
 const customUpdateOne = async (objectUpdate, objectQuery) => {
-    return await User.updateOne(objectUpdate, objectQuery);
+    return await User.updateOne(objectQuery, objectUpdate);
 }
 
 
