@@ -7,5 +7,6 @@ module.exports = {
         database: process.env.DB_DATABASE,
     },
     mongo:{
+        uri: process.env.DB_URI
     },
 }

@@ -1,20 +1,10 @@
-const sequelize = require("../config/mysql/connection");
-const userModel = require("../models/userModel");
+const { initDatabase } = require("../config/connection");
 
-const handleStartServer = async function(){
-    
-    console.log("Server had been started on port ",this.address().port);
+const handleStartServer = async function () {
 
-    try {
-        await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-        await sequelize.sync();
-        console.log("All models were synchronized successfully.");
+    console.log("Server had been started on port ", this.address().port);
 
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-
+    await initDatabase();
 };
 
 module.exports = handleStartServer;
