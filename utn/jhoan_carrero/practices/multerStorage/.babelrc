@@ -1,0 +1,33 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "17"
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./src"
+                ],
+                "alias": {
+                    "@config": "./src/config",
+                    "@controllers": "./src/controllers",
+                    "@utils": "./src/utils",
+                    "@middlewares": "./src/middlewares",
+                    "@models": "./src/models",
+                    "@routes": "./src/routes",
+                    "@views": "./src/views",
+                    "@storage": "./storage",
+                    "@public": "./public"
+                }
+            }
+        ]
+    ]
+}

@@ -2,11 +2,10 @@
   "name": "lesson_4",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "env-cmd node build",
+    "dev": "env-cmd -f .env nodemon",
+    "build": "babel src -d build -D --quiet --delete-dir-on-start"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +16,7 @@
     "bcrypt": "^5.0.1",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.0",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.3",
     "express-hbs": "^2.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -28,6 +28,10 @@
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "babel-plugin-module-resolver": "^4.1.0",
     "nodemon": "^2.0.15"
   }
 }

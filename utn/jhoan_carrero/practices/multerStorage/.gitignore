@@ -1,6 +1,8 @@
 /node_modules
+/build
 .env
 /storage/*
 !/storage/.gitkeep
+!/storage/index.js
 googleCredentials.json
 amazonCredentials.json
