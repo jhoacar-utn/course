@@ -38,7 +38,7 @@ const saveAvatar = async (req, res, next) => {
 
         const pathAvatar = req.avatarFile;
 
-        await userModel.updateFist(
+        await userModel.updateFirst(
             { avatar: pathAvatar },
             { email }
         );

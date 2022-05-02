@@ -25,7 +25,7 @@ const User = sequelize.define('User', {
 });
 
 const customFindOne = async (objectQuery) => {
-  return await User.findOne({ where: { objectQuery }, raw: true });
+  return await User.findOne({ where: objectQuery, raw: true });
 };
 
 const customUpdateOne = async (objectUpdate, objectQuery) => {

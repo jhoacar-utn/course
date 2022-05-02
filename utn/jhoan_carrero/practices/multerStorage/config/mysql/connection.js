@@ -10,7 +10,8 @@ const sequelize = new Sequelize(mysql.database, mysql.user, mysql.password, {
 });
 
 const handleStartDatabase = async () => {
-  require("../../models/userModel");
+
+  require("../../models");
 
   try {
 
