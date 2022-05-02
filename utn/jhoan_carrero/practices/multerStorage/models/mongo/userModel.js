@@ -8,11 +8,11 @@ const userSchema = new mongoose.Schema({
 });
 
 const customFindOne = async (objectQuery) => {
-    return await User.findOne(objectQuery).exec();
+    return await User.findOne(objectQuery).lean().exec();
 }
 
-userSchema.methods.first = customFindOne;
-
 const User = mongoose.model('User', userSchema);
+
+User.first = customFindOne;
 
 module.exports = User;

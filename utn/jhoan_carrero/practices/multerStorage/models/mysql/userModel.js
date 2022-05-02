@@ -31,8 +31,8 @@ const customFindOne = async (objectQuery) => {
   });
 }
 
-User.prototype.first = customFindOne; //when new instance is created
-//User.first = customFindOne; //when is defined a function
+//User.prototype.first = customFindOne; //when new instance is created
+User.first = customFindOne; //when is defined a function
 
 module.exports = User;
 
