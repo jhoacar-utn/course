@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "env-cmd node build",
+    "start": "env-cmd node dist",
     "dev": "env-cmd -f .env nodemon",
-    "build": "babel src -d build -D --quiet --delete-dir-on-start"
+    "build": "babel src -d dist -D --quiet --delete-dir-on-start"
   },
   "keywords": [],
   "author": "",

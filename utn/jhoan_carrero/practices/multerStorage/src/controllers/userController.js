@@ -17,6 +17,7 @@ const postUser = async (req, res, next) => {
         console.log(userData);
 
         userData.password = await getHashedPassword(userData.password);
+        userData.avatar = '/user/default.png';
 
         const user = await userModel.create(userData);
 
