@@ -15,14 +15,14 @@ const handleLogin = async (req, res, next) => {
 
         if (!user) {
             error = "User not registered";
-            return res.render('login',{error});
+            return res.render('login', { error });
         }
 
         const isAuthorized = await comparePassword(password, user.password);
 
         if (!isAuthorized) {
             error = "User not authorized";
-            return res.render('login',{error});
+            return res.render('login', { error });
         }
 
         const payload = user;
@@ -36,10 +36,17 @@ const handleLogin = async (req, res, next) => {
         console.log(error);
 
         error = error;
-        return res.render('login',{error});
+        return res.render('login', { error });
     }
 }
 
+const handleLogout = (req, res, next) => {
+
+    req.session = null;
+    return res.redirect("/");
+}
+
 module.exports = {
-    handleLogin
+    handleLogin,
+    handleLogout,
 }
