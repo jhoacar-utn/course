@@ -9,19 +9,20 @@ const handleLogin = async (req, res, next) => {
 
         const { email, password } = req.body;
 
-        const user = await userModel.first({email});
+        const user = await userModel.first({ email });
+
+        let error;
 
         if (!user) {
-            res.status(401);
-            return res.json({ error: "User not registered" });
+            error = "User not registered";
+            return res.render('login',{error});
         }
-        console.log(user);
 
         const isAuthorized = await comparePassword(password, user.password);
 
         if (!isAuthorized) {
-            res.status(401);
-            return res.json({ error: "User not authorized" });
+            error = "User not authorized";
+            return res.render('login',{error});
         }
 
         const payload = user;
@@ -29,12 +30,13 @@ const handleLogin = async (req, res, next) => {
 
         setCookie(req, token);
 
-        return res.redirect("/dashboard");
+        return res.redirect('/dashboard');
 
     } catch (error) {
         console.log(error);
-        res.status(500);
-        return res.json({ error });
+
+        error = error;
+        return res.render('login',{error});
     }
 }
 

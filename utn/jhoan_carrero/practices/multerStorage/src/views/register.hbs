@@ -1,51 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
+{{> head}}
+
 <body>
+    {{> navbar}}
+    <form class="m-3" method="POST" action="/api/user">
+        <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="Insert your name"
+                required>
 
-    <form method="POST" action="/api/user">
-        <input type="text" name="name" placeholder="Insert your name" required>
-        <input type="email" name="email" placeholder="Insert your email" required>
-        <input type="password" name="password" placeholder="Insert your password" required>
-        <input type="submit" value="Register">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Insert your email"
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword"
+                placeholder="Insert your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-   
-        <!--input type="text" name="name" placeholder="Insert your name" required>
-        <input type="email" name="email" placeholder="Insert your email" required>
-        <input type="password" name="password" placeholder="Insert your password" required>
-        <button onclick="sendUser()">Register</button-->
-</body>
-<script>
-    function sendUser()
-    {
-        const name = document.getElementsByName("name")[0].value;
-        const email = document.getElementsByName("email")[0].value;
-        const password = document.getElementsByName("password")[0].value;
-        const data = {
-            name: name,
-            email: email,
-            password: password
-        }
-        
 
-        fetch("/api/user",{
-            method: "POST",
-            body: JSON.stringify(data),
-        })
-        .then((response)=>{
-            return response.json();
-        })
-        .then((dataJson)=>{
-            console.log(dataJson);
-        })
-        .catch((error)=>{
-            console.log("Error",error);
-        })
-    }
-</script>
-</html>
+</body>

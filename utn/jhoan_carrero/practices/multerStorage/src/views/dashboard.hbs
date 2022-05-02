@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1>User</h1>
-    <div>
-        <img src="{{avatar}}" alt="User Image Profile" height="300">
-        <h2>Name: {{name}} </h2>
-        <h2>Email: {{email}}</h2>
+{{> head}}
 
-        <form method="POST" action="/api/user/avatar" enctype="multipart/form-data">
-            <input type="file" name="avatarFile" accept="image/*">
-            <input type="submit" value="Upload File">
-        </form>
+<body>
+    {{> navbar}}
+    <div class="card m-3">
+        <img src="{{user.avatar}}" class="m-1" alt="User Profile Image" style="height: 300px;object-fit: contain;">
+        <div class="card-body text-center">
+            <h5>Name: {{user.name}} </h5>
+            <h5>Email: {{user.email}}</h5>
+            <form id="avatarForm" class="text-center" method="POST" action="/api/user/avatar"
+                enctype="multipart/form-data">
+                <label class="btn btn-primary text-center" for="avatar">Upload File</label>
+                <input id="avatar" type="file" class="d-none" name="avatarFile" accept="image/*"
+                    onchange="avatarForm.submit()">
+            </form>
+        </div>
+    </div>
+
+
     </div>
 </body>
-</html>

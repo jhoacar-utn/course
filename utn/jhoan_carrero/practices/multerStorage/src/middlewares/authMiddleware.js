@@ -5,16 +5,18 @@ const authMiddleware = async (req, res, next) => {
     try {
         const token = req.session.userToken;
 
+        req.auth = {};
+
         if (!token) {
-            res.status(403);
-            return res.json({ error: "Token is required" });
+            req.auth.error = "Token is required";
+            return next();
         }
 
         const userData = getPayloadData(token);
 
         if (!userData) {
-            res.status(403);
-            return res.json({ error: "Token is invalid" });
+            req.auth.error = "Token is invalid";
+            return next();
         }
 
         req.user = userData;
@@ -22,7 +24,8 @@ const authMiddleware = async (req, res, next) => {
         return next();
 
     } catch (error) {
-        return res.redirect("/login");
+        req.auth.error = error;
+        return next();
     }
 
 }

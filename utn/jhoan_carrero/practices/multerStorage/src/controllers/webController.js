@@ -3,27 +3,73 @@ const { userModel } = require("@models/index");
 
 const getWelcomePage = (req, res, next) => {
 
-    return res.render('welcome');
+    const isAuthorized = typeof req.auth.error === 'undefined';
+
+    if(isAuthorized)
+        return res.redirect('dashboard');
+
+    const context = {
+        title: 'My App',
+        hasButtonNav: true,
+        isAuthorized,
+        error: req.auth.error
+    }
+    return res.render('welcome', context);
 };
 
 
 const getRegisterPage = (req, res, next) => {
 
-    return res.render('register');
+    const isAuthorized = typeof req.auth.error === 'undefined';
+
+    if (isAuthorized)
+        return res.redirect('dashboard');
+
+    const context = {
+        title: 'Register',
+        hasButtonNav: false,
+        isAuthorized,
+        error: req.auth.error
+    }
+    return res.render('register', context);
 };
 
 const getLoginPage = (req, res, next) => {
 
-    return res.render('login');
+    const isAuthorized = typeof req.auth.error === 'undefined';
+
+    if (isAuthorized)
+        return res.redirect('dashboard');
+
+    const context = {
+        title: 'Login',
+        hasButtonNav: false,
+        isAuthorized,
+        error: req.auth.error
+    }
+    return res.render('login', context);
 };
 
 
 const getDashboardPage = async (req, res, next) => {
 
+    const isAuthorized = typeof req.auth.error === 'undefined';
+
+    if (!isAuthorized)
+        return res.redirect('login');
+
     const email = req.user.email;
     const user = await userModel.first({ email });
 
-    return res.render('dashboard', user);
+    const context = {
+        title: 'Dashboard',
+        user,
+        hasButtonNav: true,
+        isAuthorized,
+        error: req.auth.error
+    }
+
+    return res.render('dashboard', context);
 };
 
 
