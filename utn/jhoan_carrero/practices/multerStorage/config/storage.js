@@ -5,6 +5,7 @@ module.exports = {
     AMAZON: 'aws',
     storageConnection: process.env.STORAGE_CONNECTION || 'local',
     uniqueFileName: parseInt(process.env.UNIQUE_FILE_NAME) === 1,
+    maxFileSize: parseInt(process.env.MAX_FILE_SIZE || 5 * 1024 * 1024),// Default no larger than 5mb
     storageLocal: {
         pathStorage: path.resolve(`${__dirname}/../${process.env.STORAGE_PATH || 'storage'}`),
     },
