@@ -1,4 +1,4 @@
-const {userModel} = require("../models/index");
+const { userModel } = require("../models/index");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
 
@@ -35,14 +35,14 @@ const saveAvatar = async (req, res, next) => {
     try {
 
         const email = req.user.email;
-        
+
         const pathAvatar = req.avatarFile;
 
-        await userModel.update(
+        await userModel.updateFist(
             { avatar: pathAvatar },
-            { where: { email } }
-        )
-        
+            { email }
+        );
+
         return res.redirect("/dashboard");
 
     } catch (error) {

@@ -11,8 +11,14 @@ const customFindOne = async (objectQuery) => {
     return await User.findOne(objectQuery).lean().exec();
 }
 
+const customUpdateOne = async (objectUpdate, objectQuery) => {
+    return await User.updateOne(objectUpdate, objectQuery);
+}
+
+
 const User = mongoose.model('User', userSchema);
 
 User.first = customFindOne;
+User.updateFist = customUpdateOne;
 
 module.exports = User;

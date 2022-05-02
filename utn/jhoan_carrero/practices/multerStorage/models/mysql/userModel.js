@@ -29,10 +29,18 @@ const customFindOne = async (objectQuery) => {
     where: { objectQuery },
     raw: true,
   });
+};
+
+const customUpdateOne = async (objectUpdate, objectQuery) => {
+  return await User.update(
+    objectUpdate,
+    { where: objectQuery }
+  );
 }
 
 //User.prototype.first = customFindOne; //when new instance is created
 User.first = customFindOne; //when is defined a function
+User.updateFirst = customUpdateOne;
 
 module.exports = User;
 
