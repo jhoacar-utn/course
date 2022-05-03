@@ -35,7 +35,8 @@ const putAvatar = async (req, res, next) => {
 
     try {
 
-        const avatarFile = "asdasd";
+        
+        const avatarFile = req.avatarPath;
         const userEmail = req.user.email;
 
         await userModel.update({ avatar: avatarFile }, {

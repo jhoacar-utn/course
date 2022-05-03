@@ -13,6 +13,8 @@ const handleFileName = function (req, file, cb) {
     const filename = file.originalname;
     const extension = filename.split(".").pop();
     const newName =  'filename-' + uniqueSuffix + "." + extension;
+
+    req.avatarPath = "/users/"+newName;
     
     return cb(null, newName);
 }
