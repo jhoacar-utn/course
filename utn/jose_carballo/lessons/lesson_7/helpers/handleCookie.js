@@ -1,8 +1,4 @@
 
-const setCookie = (request,token)=>{
+exports.setCookie = (request,token)=>{
     request.session.userToken = token;
-}
-
-module.exports = {
-    setCookie
 }

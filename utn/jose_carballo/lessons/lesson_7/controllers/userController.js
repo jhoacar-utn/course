@@ -2,14 +2,14 @@ const userModel = require("../models/userModel");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
 
-const getUsers = (req,res,next)=>{
+exports.getUsers = (req,res,next)=>{
 
     const userData = req.query;
 
     return res.json(userData);
 }
 
-const postUser = async (req,res,next)=>{
+exports.postUser = async (req,res,next)=>{
     
     try{
 
@@ -30,6 +30,3 @@ const postUser = async (req,res,next)=>{
         res.json({error:error});
     }
 }
-
-module.exports.getUsers = getUsers;
-module.exports.postUser = postUser;

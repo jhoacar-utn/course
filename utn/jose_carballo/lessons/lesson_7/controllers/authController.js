@@ -3,7 +3,7 @@ const {comparePassword} = require("../helpers/handlePassword");
 const {getJsonWebToken} = require("../helpers/handleJWT");
 const { setCookie } = require("../helpers/handleCookie");
 
-const handleLogin = async (req,res,next)=>{
+exports.handleLogin = async (req,res,next)=>{
     
     try{
 
@@ -39,8 +39,4 @@ const handleLogin = async (req,res,next)=>{
         res.status(500);
         return res.json({error});
     }
-}
-
-module.exports ={
-    handleLogin
 }

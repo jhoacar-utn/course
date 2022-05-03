@@ -1,7 +1,7 @@
 const path = require("path");
 const fetch = require("node-fetch");
 
-const getWelcomePage = (req,res,next)=>{
+exports.getWelcomePage = (req,res,next)=>{
 
     //Para express en la version ^4.17.3 no enviara el archivo si la ruta tiene /../
     // Para resolver el /../ se utiliza la funcion resolve de el modulo path!!!!
@@ -10,20 +10,20 @@ const getWelcomePage = (req,res,next)=>{
 };
 
 
-const getRegisterPage = (req,res,next)=>{
+exports.getRegisterPage = (req,res,next)=>{
 
     const pathFile = path.resolve(__dirname+"/../views/register.html");
     return res.sendFile(pathFile);
 };
 
-const getLoginPage = (req,res,next)=>{
+exports.getLoginPage = (req,res,next)=>{
 
     const pathFile = path.resolve(__dirname+"/../views/login.html");
     return res.sendFile(pathFile);
 };
 
 
-const getDashboardPage = (req,res,next)=>{
+exports.getDashboardPage = (req,res,next)=>{
 
     const userEmail = req.user.email;
     const userName = req.user.name;
@@ -35,7 +35,7 @@ const getDashboardPage = (req,res,next)=>{
 };
 
 
-const getYoutubePage = async (req,res,next)=>{
+exports.getYoutubePage = async (req,res,next)=>{
 
     try{
 
@@ -58,12 +58,3 @@ const getYoutubePage = async (req,res,next)=>{
         return res.json({error: error});
     }
 }
-
-
-module.exports = {
-    getWelcomePage,
-    getRegisterPage,
-    getLoginPage,
-    getYoutubePage,
-    getDashboardPage,
-};
