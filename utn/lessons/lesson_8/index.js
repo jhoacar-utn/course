@@ -23,6 +23,7 @@ const routerWeb = require("./routes/web");
 
 app.use("/api",routerApi);
 app.use("/",routerWeb);
+app.use("/users",express.static(__dirname+"/storage"));
 
 const PORT = process.env.PORT || 4001 ;
 
