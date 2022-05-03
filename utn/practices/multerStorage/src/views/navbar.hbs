@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">My App</a>
+        {{#if error}}
+        <p class="w-100 text-center text-danger">
+            {{error}}
+        </p>
+        {{/if}}
+        {{#if message}}
+        <p class="w-100 text-center text-success">
+            {{message}}
+        </p>
+        {{/if}}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {{#if hasButtonNav}}
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                {{#if isAuthorized}}
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard">{{user.name}}</a>
+                </li>
+                <li class="nav-item">
+                    <form method="POST" action="/logout">
+                        <label class="btn btn-primary text-center" for="logout">Logout</label>
+                        <input id="logout" type="submit" class="d-none">
+                    </form>
+                </li>
+                {{else }}
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register">Register</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+        {{/if}}
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+{{> head}}
+
+<body>
+    {{> navbar}}
+    <form class="m-3" method="POST" action="/api/user">
+        <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="Insert your name"
+                required>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Insert your email"
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword"
+                placeholder="Insert your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
