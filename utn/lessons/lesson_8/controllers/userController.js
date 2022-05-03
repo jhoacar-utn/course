@@ -44,7 +44,7 @@ const putAvatar = async (req, res, next) => {
             }
         });
 
-        return res.redirect("dashboard");
+        return res.redirect("/dashboard");
 
     } catch (error) {
         console.log(error)

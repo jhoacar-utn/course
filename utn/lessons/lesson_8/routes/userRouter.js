@@ -10,6 +10,6 @@ const uploadMiddleware = require("../middlewares/uploadMiddleware");
 router.get("/",getUsers);
 router.post("/",postUser);
 
-router.put("/avatar",authMiddleware,uploadMiddleware,putAvatar);
+router.post("/avatar",authMiddleware,uploadMiddleware,putAvatar);
 
 module.exports = router;
