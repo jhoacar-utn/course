@@ -23,6 +23,18 @@ const getLoginPage = (req,res,next)=>{
 };
 
 
+const getDashboardPage = (req,res,next)=>{
+
+    const userEmail = req.user.email;
+    const userName = req.user.name;
+
+    res.render('dashboard', {
+        email: userEmail,
+        name: userName,
+      });
+};
+
+
 const getYoutubePage = async (req,res,next)=>{
 
     try{
@@ -53,4 +65,5 @@ module.exports = {
     getRegisterPage,
     getLoginPage,
     getYoutubePage,
+    getDashboardPage,
 };

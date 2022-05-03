@@ -1,5 +1,7 @@
 const userModel = require("../models/userModel");
 const {comparePassword} = require("../helpers/handlePassword");
+const {getJsonWebToken} = require("../helpers/handleJWT");
+const { setCookie } = require("../helpers/handleCookie");
 
 const handleLogin = async (req,res,next)=>{
     
@@ -21,9 +23,15 @@ const handleLogin = async (req,res,next)=>{
             return res.json({error:"User not authorized"});
         }
 
-        const token = getJsonWebToken();
+        const payload = {
+            email: user.email,
+            name: user.name
+        }
+        const token = getJsonWebToken(payload);
 
-        return res.json({user:"User authenticated"});
+        setCookie(req,token);
+
+        return res.redirect("/dashboard");
     
     }catch(error)
     {
