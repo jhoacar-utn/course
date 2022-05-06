@@ -3,7 +3,7 @@ const express = require("express");
 const cookieSession = require('cookie-session');
 const hbs = require('express-hbs');
 const handleStartServer = require('./helpers/handleStartServer');
-const {nameCookie,expireInCookie,cookieSecretKey} = require("./config/config");
+const {nameCookie,expireInCookie,cookieSecretKey} = require("./config/hash");
 
 const app = express();
 
