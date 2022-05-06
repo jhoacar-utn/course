@@ -22,6 +22,8 @@ const UserSchema = {
 
 };
 
+console.log("Using model user with mysql");
+
 const User = sequelize.define('User', UserSchema, { tableName: 'users' });
 
 const customFindOne = async (objectToFind) => {

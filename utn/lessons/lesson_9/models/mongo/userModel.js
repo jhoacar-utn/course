@@ -7,6 +7,8 @@ const UserSchema = new mongoose.Schema({
     avatar: String
 });
 
+console.log("Using model user with mongodb");
+
 const User = mongoose.model('User', UserSchema);
 
 const customFindOne = async (objectToFind) => {
