@@ -2,8 +2,7 @@ const { DataTypes } = require('sequelize');
 
 const sequelize = require("../../config/mysql/connection");
 
-
-const User = sequelize.define('User', {
+const UserSchema = {
   // Model attributes are defined here
   name: {
     type: DataTypes.STRING,
@@ -13,18 +12,35 @@ const User = sequelize.define('User', {
     allowNull: false,
     unique: true,
   },
-  password : {
+  password: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  avatar : {
+  avatar: {
     type: DataTypes.STRING,
   },
 
-}, {
-    tableName: 'users'
-});
+};
 
+console.log("Using model user with mysql");
+
+const User = sequelize.define('User', UserSchema, { tableName: 'users' });
+
+const customFindOne = async (objectToFind) => {
+  return await User.findOne({ where: objectToFind });
+};
+
+const customCreate = async (objectToCreate) => {
+  return await User.create(objectToCreate);
+};
+
+const customUpdate = async (dataToUpdate, objectToFind) => {
+  return await User.update(dataToUpdate, { where: objectToFind });
+};
+
+User.customFindOne = customFindOne;
+User.customCreate = customCreate;
+User.customUpdate = customUpdate;
 
 
 module.exports = User;

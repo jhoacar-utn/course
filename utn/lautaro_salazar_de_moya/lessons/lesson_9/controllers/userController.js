@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel");
+const { userModel } = require("../models");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
 
@@ -15,11 +15,10 @@ const postUser = async (req, res, next) => {
 
         const userData = req.body;
 
-        console.log(userData);
-
         userData.password = await getHashedPassword(userData.password);
+        userData.avatar = "/users/default.png";
 
-        const user = await userModel.create(userData);
+        const user = await userModel.customCreate(userData);
 
         return res.json({ user: user });
 
@@ -35,15 +34,11 @@ const putAvatar = async (req, res, next) => {
 
     try {
 
-        
+
         const avatarFile = req.avatarPath;
         const userEmail = req.user.email;
 
-        await userModel.update({ avatar: avatarFile }, {
-            where: {
-                email: userEmail
-            }
-        });
+        await userModel.customUpdate({ avatar: avatarFile }, { email: userEmail });
 
         return res.redirect("/dashboard");
 

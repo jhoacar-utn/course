@@ -1,26 +1,26 @@
-const userModel = require("../models/userModel");
-const {comparePassword} = require("../helpers/handlePassword");
-const {getJsonWebToken} = require("../helpers/handleJWT");
+const { userModel } = require("../models");
+const { comparePassword } = require("../helpers/handlePassword");
+const { getJsonWebToken } = require("../helpers/handleJWT");
 const { setCookie } = require("../helpers/handleCookie");
 
-const handleLogin = async (req,res,next)=>{
-    
-    try{
+const handleLogin = async (req, res, next) => {
 
-        const {email, password} = req.body;
+    try {
 
-        const user = await userModel.findOne({ where: { email } });
+        const { email, password } = req.body;
 
-        if(!user){
+        const user = await userModel.customFindOne( { email } );
+
+        if (!user) {
             res.status(401);
-            return res.json({error:"User not registered"});
+            return res.json({ error: "User not registered" });
         }
 
-        const isAuthorized = comparePassword(password,user.password);
+        const isAuthorized = comparePassword(password, user.password);
 
-        if(!isAuthorized){
+        if (!isAuthorized) {
             res.status(401);
-            return res.json({error:"User not authorized"});
+            return res.json({ error: "User not authorized" });
         }
 
         const payload = {
@@ -29,18 +29,17 @@ const handleLogin = async (req,res,next)=>{
         }
         const token = getJsonWebToken(payload);
 
-        setCookie(req,token);
+        setCookie(req, token);
 
         return res.redirect("/dashboard");
-    
-    }catch(error)
-    {
+
+    } catch (error) {
         console.log(error);
         res.status(500);
-        return res.json({error});
+        return res.json({ error });
     }
 }
 
-module.exports ={
+module.exports = {
     handleLogin
 }
