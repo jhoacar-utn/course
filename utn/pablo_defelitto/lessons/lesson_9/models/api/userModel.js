@@ -20,7 +20,8 @@ const customCreate = async (objectToCreate) => {
     return await response.json();
 };
 
-
+customFindOne = ()=>{};
+customUpdate = ()=>{};
 
 User.customFindOne = customFindOne;
 User.customCreate = customCreate;
