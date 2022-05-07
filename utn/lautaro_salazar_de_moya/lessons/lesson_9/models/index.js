@@ -1,4 +1,4 @@
-const { dbConnection, MYSQL, MONGO } = require("../config/database");
+const { dbConnection, MYSQL, MONGO, API } = require("../config/database");
 
 let userModel;
 
@@ -7,8 +7,10 @@ switch (dbConnection) {
         userModel = require("./mysql/userModel"); break;
     case MONGO:
         userModel = require("./mongo/userModel"); break;
+    case API:
+        userModel = require("./api/userModel"); break;
     default:
-        throw `Must be specified DB_CONNECTION environment variable, and can be: ${MYSQL} or ${MONGO}`
+        throw `Must be specified DB_CONNECTION environment variable, and can be: ${MYSQL}, ${MONGO} or ${API}`;
 }
 
 module.exports = {
