@@ -1,1 +1,35 @@
+<<<<<<< HEAD
 /**/node_modules
+=======
+*
+!.gitignore
+!README.md
+
+!/utn
+
+# First Case
+
+!/utn/*_*/
+!/utn/*_*/**
+
+# Second Case
+
+!/utn/*_*_*/
+!/utn/*_*_*/**
+
+# Third Case
+
+!/utn/*_*_*_*/
+!/utn/*_*_*_*/**
+
+# Tasks
+
+!/utn/tasks
+!/utn/tasks/**
+
+# Removing files innecessary
+/**/node_modules/
+/**/ui-debug.log
+
+
+>>>>>>> 1ba831872d43dae7d6962a2866a23b28e550bdb5
