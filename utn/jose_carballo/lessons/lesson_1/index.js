@@ -10,7 +10,7 @@ router.use('/lessons/lesson_1', express.static(path_lessons));
 
 router.get("/",(req,res)=>{
     res.send(`
-    <h1 style="text-align:center"> Soy ${student.split("_").join(" ")}</h1>
+    <h1 style="text-align:center"> Soy ${student.split("_").join(" ")}</h1> 
     <p>
         Aqui se encuentra mi primer TP
         <a href="${req.protocol}://${req.headers.host}/${student}/lessons/lesson_1/index.html">
@@ -34,5 +34,4 @@ app.use(function (req, res, next) {
     res.status(404);
     res.send({error:'Not found'});
 });
-
 module.exports = app;

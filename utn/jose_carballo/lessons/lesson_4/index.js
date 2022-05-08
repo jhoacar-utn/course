@@ -7,7 +7,12 @@ const PORT = process.env.PORT || 4001;
 
 
 const getRequetInit = (req,res,next) =>{
-    return res.send("welcome to my app");
+    const queryWelcomeMessage = 'SELECT message from welcome';
+    executeQuery(queryWelcomeMessage, function (err, rows, fields) {
+        if (err) throw err;
+        const message =  rows[0].message;
+        return res.send(message);
+      })
 }
 
 server.get('/',getRequetInit);
