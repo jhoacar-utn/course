@@ -34,5 +34,4 @@ app.use(function (req, res, next) {
     res.status(404);
     res.send({error:'Not found'});
 });
-
 module.exports = app;
