@@ -1,9 +1,9 @@
-const isConnectedApi = require('./connection')
+const fetchAPI = require('./connection')
 
 const initDatabase = async () => {
 
     try {
-        const response = await isConnectedApi();
+        const response = await fetchAPI();
         
         if(response.status === 200)
             console.log("Connection with api enabled");
