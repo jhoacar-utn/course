@@ -1,0 +1,32 @@
+git status -> estado del repo
+
+git add . -> agrega todo el proyecto, o el directorio
+
+git restore . -> desahace todos los cambios que se hicieron
+
+git commit -m "mensaje de lo que agregue" -> commitea los cambios
+
+git push origin master -> lo sube al repo en remoto
+
+git pull origin master -> extrae los cambios del repo
+
+git branch -> manipula las ramas
+
+
+    ( d -> la elimina pero si no hay errores)
+    (D -> la elimina si o si)
+    git branch -d o -D test -> borra una rama
+    git branch -a -> lista todas las ramas del repo
+
+git checkout -b nueva_rama -> para moverme entre ramas 
+
+        (Los archivos que apareceran si es nueva la rama seran en donde estaba antes)
+
+(Ctrl + L -> se limpia la pantalla de la consola)
+(Ctrl + C -> se sale o mata un proceso o un programa)
+
+(Elimina los commits, opciones --soft, --hard)
+git reset <hash-commit>  e5423e1d38aa9f5e31b287aa2e4fabd4cf678e69
+git reset HEAD~2  (Elimina los dos ultimos commits)
+
+git log ( Ver el historial de commits)
