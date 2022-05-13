@@ -3,7 +3,7 @@ const {api} = require("../database");
 const {url} = api;
 
 const isConnectedApi = async ()=>{
-    await fetch(url);
+  return  await fetch(url);
 }
 
 module.exports = isConnectedApi;
