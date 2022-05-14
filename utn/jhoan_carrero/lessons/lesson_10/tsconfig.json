@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "outDir": "dist",
+        "module": "commonjs"
+    },
+    "files": [
+        "index.ts"
+    ]
+}
