@@ -8,7 +8,8 @@
 
     "helloWorld": "node -e \"console.log('Hello World')\"",
     "executeFile": "node jpeg.js",
-    "dispatchEvent": "node events.js"
+    "dispatchEvent": "node events.js",
+    "start" : "node server.js"
   },
   "keywords": [],
   "author": "Murphy",

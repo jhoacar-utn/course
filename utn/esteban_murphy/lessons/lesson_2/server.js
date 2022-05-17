@@ -3,7 +3,7 @@ const http = require("http");
 const host = 'localhost';
 const port = 8000;
 
-const requestListener = function (request, response) {
+const requestListener = function (request, response) { //request manda el cliente, response mando al cliente
     response.writeHead(200);
     response.end("My first server!");
 };
