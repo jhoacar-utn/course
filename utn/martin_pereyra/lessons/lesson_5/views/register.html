@@ -11,8 +11,9 @@
         <input type="text" name="name" placeholder="Insert your name" required>
         <input type="email" name="email" placeholder="Insert your email" required>
         <input type="password" name="password" placeholder="Insert your password" required>
-        <input type="submit" value="Register" onclick="sendUser()">
+        <button onclick="sendUser()">Register</button>>
 </body>
+
 <script>
     function sendUser()
     {
@@ -29,8 +30,12 @@
             body: JSON.stringify(data)
         })
         .then((response)=>{
-            console.log(response);
+            return response.json();
         })
+        .then((dataJson)=>{
+            console.log(dataJson);
+        })
+
         .catch((error)=>{
             console.log(error);
         })
