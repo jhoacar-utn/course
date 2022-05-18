@@ -27,4 +27,5 @@ app.use("/users",express.static(__dirname+"/storage"));
 
 const PORT = process.env.PORT || 4001 ;
 
-app.listen(PORT,handleStartServer);
+//app.listen(PORT,handleStartServer);
+module.export = app;
