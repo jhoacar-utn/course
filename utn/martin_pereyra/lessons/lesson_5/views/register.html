@@ -11,9 +11,8 @@
         <input type="text" name="name" placeholder="Insert your name" required>
         <input type="email" name="email" placeholder="Insert your email" required>
         <input type="password" name="password" placeholder="Insert your password" required>
-        <button onclick="sendUser()">Register</button>>
+        <button onclick="sendUser()">Register</button>
 </body>
-
 <script>
     function sendUser()
     {
@@ -25,6 +24,7 @@
             email: email,
             password: password
         }
+
         fetch("/api/user",{
             method: "POST",
             body: JSON.stringify(data)
@@ -35,9 +35,8 @@
         .then((dataJson)=>{
             console.log(dataJson);
         })
-
         .catch((error)=>{
-            console.log(error);
+            console.log("Error",error);
         })
     }
 </script>
