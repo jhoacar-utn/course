@@ -1,0 +1,13 @@
+{
+  "name": "lesson_13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-client":"npm start --prefix client",
+    "start-server":"npm start --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
