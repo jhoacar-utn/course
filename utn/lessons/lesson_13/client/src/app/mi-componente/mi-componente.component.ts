@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getPokemons, Pokemon } from 'src/services/api';
 
 @Component({
   selector: 'app-mi-componente',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiComponenteComponent implements OnInit {
 
-  constructor() { }
+  
+  public pokemon:Pokemon[];
+
+  constructor() { 
+
+      this.pokemon = [];
+
+      getPokemons()
+      .then((pokemonArray:Array<Pokemon> )=>{
+        this.pokemon = pokemonArray;
+
+        console.log(this.pokemon);
+      })
+      .catch(error=>console.log(error))
+
+  }
 
   ngOnInit(): void {
+
+
   }
 
 }
