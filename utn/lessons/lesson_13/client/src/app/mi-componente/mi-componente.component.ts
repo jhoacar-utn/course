@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { getPokemons, Pokemon } from 'src/services/api';
 
 @Component({
@@ -6,28 +6,31 @@ import { getPokemons, Pokemon } from 'src/services/api';
   templateUrl: './mi-componente.component.html',
   styleUrls: ['./mi-componente.component.css']
 })
-export class MiComponenteComponent implements OnInit {
+export class MiComponenteComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
 
   
-  public pokemon:Pokemon[];
+  public pokemons:Pokemon[];
 
   constructor() { 
-
-      this.pokemon = [];
-
-      getPokemons()
-      .then((pokemonArray:Array<Pokemon> )=>{
-        this.pokemon = pokemonArray;
-
-        console.log(this.pokemon);
-      })
-      .catch(error=>console.log(error))
-
+    this.pokemons = [];
   }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
+  async ngOnInit(): Promise<void> {
 
+    this.pokemons = await getPokemons();
+    console.log(this.pokemons);
+  }
+
+  ngAfterViewInit(): void {
+    
+  }
+
+  ngOnDestroy(): void {
+    
   }
 
 }
