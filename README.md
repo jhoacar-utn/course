@@ -243,7 +243,14 @@ find . -iname "*README*" -exec sed -i "s/$EXISTING/$STUDENT/g" {} \;
 
    * Creando una API con Typescript
 
-## Clase 12 (Introduccion a Angular)
+## Clase 12 (Typescript y Angular)
+ 
+ * Namespaces
+ * Decoradores
+ * Tipo de dato genericos
+ * Sobrecarga de metodos (toString)
+
+## Clase 13 (Introduccion a Angular)
 
  * ¿Que es Angular? ¿Para que me puede servir?
    * ) Framework de Frontend
@@ -254,27 +261,31 @@ find . -iname "*README*" -exec sed -i "s/$EXISTING/$STUDENT/g" {} \;
  * Variables Tipadas
  * Eventos
 
-## Clase 13 (Servicios en Angular) 
+## Clase 14 (Componentes en Angular) 
 
- * Generacion de Servicios
- * Comunicacion entre componentes y servicios
- * Comunicacion entre componentes
+ * Ciclo de Vida de Componentes (ngOnChange, ngOnInit, ngAfterViewInit, ngOnDestroy) 
+ * Rutas (Modulo de Router y <router-outlet>
+ * Directivas en Angular (*ngIf, *ngFor, (click), ... )
 
-## Clase 14 (Conexiones en Angular)
- 
- * Conexion entre Angular y NodeJS
- * Procesamiento de JWT
- * Generacion de modulos para verificacion de usuarios
-
-## Clase 15 (Practica de Angular)
-
- * Creemos una interfaz con conexion a una API por JWT
-
-## Clase 16 (Introduccion a ReactJS)
+## Clase 15 (Introduccion a ReactJS)
 
  * ¿Que es ReactJS? ¿Para que me puede servir?
    * ) Framework de Frontend
    * ) Adaptabilidad por JSX
  * Componentes y JSX
  * Ejemplos: `npx create-react-app my-app`
+ * Conexion de react con nodejs
+ * Creacion del primer componente
+ * Componente usando Class y usando Functions
+ * Manejo del estado
+   
+## Clase 16 (Layouts y Bootstrap en ReactJS)
+   
+   * Creacion de nuestro primer layout principal (NavBar, Main, Footer components)
+   * Renderizado de componentes de bootstrap
+   * Concepto de modulos en css y scss (clases hasheadas)
+
+   
+   
+   
 
