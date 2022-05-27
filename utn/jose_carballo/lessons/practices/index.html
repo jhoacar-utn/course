@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    
+    
+    <div class="contenedor">
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Datos de la persona</legend>
+            <label for="txtNombre">Nombre</label>
+            <input type="text" name="txtNombre" class=""  id="txtNombre">
+            <button type="button"class="" id="" onclick="agregarDatos()">Agregar</button>
+            <button type="button"class="" id="abrir" onclick="abrirModal()">Abrir modal</button>
+        </fieldset>
+        </form>
+
+        <div class="modal-contenedor" id="miModal" >
+            <div class="modal" >
+                <header class="header-modal">
+                    <h3>Modal</h3>
+                    <button type="button" id="boton-cerrar" onclick="cerrarModal()">X</button>
+                </header>
+                <div class="imagen">
+                    <img src="img/avatar-svgrepo-com.svg" alt="" width="200px">
+                </div>
+                <div id="datos" class="datos">
+                </div>
+                <footer>
+                    <p>Ir a perfil</p>
+                </footer>
+                <div class="botones">
+                    <button>Aceptar</button>
+                    <button>Cerrar</button>
+                </div>
+            </div>
+
+            <div class="circulo c1"></div>
+            <div class="circulo c2"></div>
+            <div class="circulo c3"></div>
+            <div class="circulo c4"></div>
+            <div class="circulo c5"></div>
+        </div>
+    </div>
+
+
+
+    <script src= "js/main.js">
+        
+    </script>
+</body>
+</html>
