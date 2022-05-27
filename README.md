@@ -2,7 +2,7 @@
 # Curso Programacion Web FullStack
 ### Repositorio con el codigo del curso de cada estudiante
 
-
+# [Proyecto Final](Final_Project_Pokemon.pdf)
 
 # [Link de Zoom](https://centrodeelearning.zoom.us/j/97754408352?pwd=QzdWVEVmMGQvaEhmaHIyZzdJR1lzdz09)
 ## [Telegram](https://t.me/+IWWB9oaQ26pkMTgx)
