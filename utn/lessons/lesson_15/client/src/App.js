@@ -1,12 +1,14 @@
-import Componente from "./components/Componente";
-import MiComponente from "./components/MiComponente";
+import ComponenteClase from "./components/ComponenteClase";
+import ComponenteFuncion from "./components/ComponenteFuncion";
+import ComponentePokemons from "./components/Pokemons";
 
 function App() {
   return (
     <div>
       Mi App
-      <Componente></Componente>
-      <MiComponente name="Juan"></MiComponente>
+      <ComponenteClase></ComponenteClase>
+      <ComponenteFuncion name="Juan"></ComponenteFuncion>
+      <ComponentePokemons></ComponentePokemons>
     </div>
   );
 }
