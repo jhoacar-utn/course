@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { getPokemons } from '../services/api';
 
 function ComponentePokemons() {
-    const [pokemons, setPokemons] = useState([]);
+    let [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
 
+        pokemons = ["pikachu"];
+
         getPokemons().then(result=>{
-            console.log(result);
+            setPokemons(result);
         })
 
     }, []);
