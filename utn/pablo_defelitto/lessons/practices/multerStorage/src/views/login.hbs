@@ -1,0 +1,20 @@
+{{> head}}
+
+<body>
+    {{> navbar}}
+    <form class="m-3" method="POST" action="/login">
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                placeholder="Insert your email" required>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword"
+                placeholder="Insert your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
