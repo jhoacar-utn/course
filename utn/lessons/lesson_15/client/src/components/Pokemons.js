@@ -2,21 +2,31 @@ import { useEffect, useState } from 'react';
 import { getPokemons } from '../services/api';
 
 function ComponentePokemons() {
-    let [pokemons, setPokemons] = useState([]);
+    const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
 
-        pokemons = ["pikachu"];
+        getPokemons().then(result => {
 
-        getPokemons().then(result=>{
             setPokemons(result);
+
+            console.log(result)
         })
 
     }, []);
 
     return (
+
         <div style={{ marginTop: '100px' }}>
-            Pokemones
+            Pokemones:
+            <ul>
+                {pokemons.map((element) =>
+                    <li>
+                        <span>{element.name}</span>
+                        <img src={element.image} alt={element.name}></img>
+                    </li>
+                )}
+            </ul>
         </div>
     )
 }
