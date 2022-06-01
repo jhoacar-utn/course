@@ -7,6 +7,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
+import styles from "./index.module.css";
+
 function NavBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -25,17 +27,17 @@ function NavBar() {
                         My App
                     </Typography>
 
-                    <Link to="/login">
+                    <Link className={styles['nav-link']} to="/login">
                         <Button color="inherit">
                             Login
                         </Button>
                     </Link>
-                    <Link to="/register">
+                    <Link className={styles['nav-link']} to="/register">
                         <Button color="inherit">
                             Register
                         </Button>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link className={styles['nav-link']} to="/dashboard">
                         <Button color="inherit">
                             Dashboard
                         </Button>
