@@ -1,11 +1,13 @@
 
+import Layout from '../components/Layout';
 
-function Home (){
+
+function Home() {
 
     return (
-        <div>
+        <Layout>
             Estoy en home
-        </div>
+        </Layout>
     )
 }
 

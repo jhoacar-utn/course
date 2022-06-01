@@ -1,11 +1,12 @@
+import Layout from "../components/Layout";
 
 
 function NotFound (){
 
     return (
-        <div>
+        <Layout>
             Estoy en una ruta que no existe
-        </div>
+        </Layout>
     )
 }
 

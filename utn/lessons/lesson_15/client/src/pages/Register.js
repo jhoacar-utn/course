@@ -1,11 +1,12 @@
+import Layout from "../components/Layout";
 
 
 function Register (){
 
     return (
-        <div>
+        <Layout>
             Estoy en el register
-        </div>
+        </Layout>
     )
 }
 

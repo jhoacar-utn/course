@@ -1,11 +1,12 @@
+import Layout from "../components/Layout";
 
 
 function Dashboard (){
 
     return (
-        <div>
+        <Layout>
             Estoy en el dashboard
-        </div>
+        </Layout>
     )
 }
 

@@ -1,11 +1,12 @@
+import Layout from "../components/Layout";
 
 
 function Login (){
 
     return (
-        <div>
+        <Layout>
             Estoy en el login
-        </div>
+        </Layout>
     )
 }
 
