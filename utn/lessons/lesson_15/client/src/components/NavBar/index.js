@@ -24,7 +24,9 @@ function NavBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        My App
+                        <Link className={styles['nav-link']} to="/">
+                            My App
+                        </Link>
                     </Typography>
 
                     <Link className={styles['nav-link']} to="/login">
