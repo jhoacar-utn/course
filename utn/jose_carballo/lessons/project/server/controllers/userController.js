@@ -2,18 +2,18 @@ const {userModel} = require("../models");
 
 const { getHashedPassword } = require("../helpers/handlePassword");
 
-exports.getUsers = (req,res,next)=>{
+exports.getUsers = async(req,res,next)=>{
 
-    const userData = req.query;
-    return res.json(userData);
+    const userData = await userModel.customFind();
+    return res.json({msg:'get user',userData});
 }
 
-exports.postUser = async (req,res,next)=>{
+exports.createUser = async (req,res,next)=>{
     try{
         const userData = req.body;
         userData.password = await getHashedPassword(userData.password);
         const user = await userModel.customCreate(userData);
-        return res.json({user:user});
+        return res.json({msg:'user create',user:user});
     }catch(error)
     {
         console.log(error)

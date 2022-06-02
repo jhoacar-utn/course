@@ -29,6 +29,9 @@ const User = sequelize.define('User', UserSchema, { tableName: 'users' });
 const customFindOne = async (objectToFind) => {
   return await User.findOne({ where: objectToFind });
 };
+const customFind = async () => {
+  return await User.findAll();
+};
 
 const customCreate = async (objectToCreate) => {
   return await User.create(objectToCreate);
@@ -38,9 +41,10 @@ const customUpdate = async (dataToUpdate, objectToFind) => {
   return await User.update(dataToUpdate, { where: objectToFind });
 };
 
+User.customFind    = customFind;
 User.customFindOne = customFindOne;
-User.customCreate = customCreate;
-User.customUpdate = customUpdate;
+User.customCreate  = customCreate;
+User.customUpdate  = customUpdate;
 
 
 module.exports = User;
