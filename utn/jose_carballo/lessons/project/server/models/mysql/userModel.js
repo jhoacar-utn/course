@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 const sequelize = require("../../config/mysql/connection");
 
@@ -18,19 +18,30 @@ const UserSchema = {
   },
   avatar: {
     type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
   },
-
+  image: {
+    type: DataTypes.STRING,
+  },
 };
 
 console.log("Using model user with mysql");
 
-const User = sequelize.define('User', UserSchema, { tableName: 'users' });
+const User = sequelize.define("User", UserSchema, { tableName: "users" });
 
 const customFindOne = async (objectToFind) => {
-  return await User.findOne({ where: objectToFind });
+  return await User.findOne({ where: { email: objectToFind } });
 };
 const customFind = async () => {
   return await User.findAll();
+};
+const customFindById = async (id) => {
+  return await User.findByPk(id);
+};
+
+const customFindAllName = async (obj) => {
+  return await User.findAll({ where: { name: obj } });
 };
 
 const customCreate = async (objectToCreate) => {
@@ -41,10 +52,11 @@ const customUpdate = async (dataToUpdate, objectToFind) => {
   return await User.update(dataToUpdate, { where: objectToFind });
 };
 
-User.customFind    = customFind;
+User.customFind = customFind;
+User.customFindById = customFindById;
 User.customFindOne = customFindOne;
-User.customCreate  = customCreate;
-User.customUpdate  = customUpdate;
-
+User.customFindAllName = customFindAllName;
+User.customCreate = customCreate;
+User.customUpdate = customUpdate;
 
 module.exports = User;
