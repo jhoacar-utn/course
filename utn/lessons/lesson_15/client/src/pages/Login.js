@@ -1,74 +1,93 @@
-import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
+import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputLabel, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import Layout from "../components/Layout";
-
+import { handleLogin } from "../services/authorization";
 
 function Login() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [hasErrorLogin, setHasErrorLogin] = useState(false);
+    const [errorMessageLogin, setErrorMessageLogin] = useState("");
 
     const handleSubmit = (event) => {
 
-        console.log("Enviar formulario")
-    }
+        event.preventDefault();
+        const elementForms = event.target.elements;
+        const email = elementForms.email.value;
+        const password = elementForms.password.value;
 
-    const handleChangeEmail = (event) => {
-        setEmail(event.target.value);
-    }
+        const responseLogin = handleLogin(email, password);
 
-    const handleChangePassword = (event) => {
-        setPassword(event.target.value);
+        if (responseLogin.error) {
+            setHasErrorLogin(true);
+            setErrorMessageLogin(responseLogin.error);
+        }
+        else {
+            setIsLoggedIn(true);
+        }
+
+        console.log(email, password);
+
     }
 
     return (
-        <Layout>
-            <Card sx={{
-                minHeight: 400,
-                minWidth: 400,
-                bgcolor: 'info.main'
-            }} >
-                <form onSubmit={handleSubmit}>
-                    <CardContent sx={{
-                        minHeight: 400,
-                        minWidth: 400,
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "50px"
-                    }}>
-                        <Box>
-                            <FormControl>
-                                <InputLabel htmlFor="email">Email Address</InputLabel>
-                                <Input id="email" name="email" aria-describedby="email-helper" />
-                                <FormHelperText id="email-helper">We'll never share your email.</FormHelperText>
-                            </FormControl>
-                        </Box>
-                        <Box>
-                            <FormControl>
-                                <InputLabel htmlFor="email">Password</InputLabel>
-                                <Input id="password" name="password" aria-describedby="password-helper" />
-                                <FormHelperText id="password-helper">Please type your password.</FormHelperText>
-                            </FormControl>
-                        </Box>
-                        <Box sx={{
-                            marginTop: "10px",
+        <>
+            {isLoggedIn && <Navigate to="/dashboard" replace={true} />}
+            <Layout>
+                <Card sx={{
+                    minHeight: 400,
+                    minWidth: 400,
+                    bgcolor: 'info.main'
+                }} >
+                    <form onSubmit={handleSubmit}>
+                        <CardContent sx={{
+                            minHeight: 400,
+                            minWidth: 400,
+                            display: "flex",
+                            flexDirection: "column",
                             alignItems: "center",
                             justifyContent: "center",
-                            display: "flex"
+                            gap: "50px"
                         }}>
-                            <Button sx={{
-                                color: 'text.primary'
+                            <Box>
+                                <FormControl>
+                                    <InputLabel htmlFor="email">Email Address</InputLabel>
+                                    <Input type="email" id="email" name="email" aria-describedby="email-helper" />
+                                    <FormHelperText id="email-helper">We'll never share your email.</FormHelperText>
+                                </FormControl>
+                            </Box>
+                            <Box>
+                                <FormControl>
+                                    <InputLabel htmlFor="email">Password</InputLabel>
+                                    <Input type="password" id="password" name="password" aria-describedby="password-helper" />
+                                    <FormHelperText id="password-helper">Please type your password.</FormHelperText>
+                                </FormControl>
+                            </Box>
+                            <Box sx={{
+                                marginTop: "10px",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                display: "flex"
                             }}>
-                                <Input type="submit" value="Log In" />
-                            </Button>
-                        </Box>
-                    </CardContent>
-                </form>
-            </Card>
-        </Layout>
+                                <Button sx={{
+                                    color: 'text.primary',
+                                }}>
+                                    <Input type="submit" value="Log In" />
+                                </Button>
+                            </Box>
+                            {hasErrorLogin &&
+                                <Typography color="error">
+                                    {errorMessageLogin}
+                                </Typography>
+                            }
+                        </CardContent>
+                    </form>
+
+                </Card>
+            </Layout>
+        </>
     )
 }
 
