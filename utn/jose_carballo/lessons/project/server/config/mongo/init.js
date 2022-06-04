@@ -1,7 +1,9 @@
+const mongoConection = require('./connection');
+
 const initDatabase = async () => {
 
     try {
-        await require("./connection");
+        await mongoConection;
         console.log("Connection with mongo enabled");
     } catch (error) {
         console.log("Error connection", error);

@@ -1,7 +1,8 @@
 require('dotenv').config();
 const express = require("express");
 const cookieSession = require('cookie-session');
-const handleStartServer = require('./helpers/handleStartServer');
+// const handleStartServer = require('./helpers/handleStartServer');
+const connection = require('./config/initDatabase');
 const routes = require('./routes');
 const {nameCookie,expireInCookie,cookieSecretKey} = require("./config/hash");
 
@@ -14,4 +15,4 @@ app.use(cookieSession({name: nameCookie,keys:[cookieSecretKey], maxAge: expireIn
 
 
 app.use('/', routes());
-app.listen(PORT,handleStartServer);
+app.listen(PORT,connection);

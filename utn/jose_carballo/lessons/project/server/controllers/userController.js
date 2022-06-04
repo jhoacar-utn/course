@@ -40,14 +40,16 @@ exports.getProfile = async(req,res,next) => {
 exports.createUser = async (req,res,next)=>{
     try{
         const userData = req.body;
-        const {name} = req.body
-        // const nameData = await userModel.customFindAllName(name);
-        // if(nameData){
-        //   return  res.status(401).json({error:'El Personaje ya se encuentra registrado'})
-        // }
+        const avatarName = await userModel.customFindNameAvatar(userData.avatar);
+        const email = await userModel.customFindEmail(userData.email);
+        if(avatarName){
+          return  res.status(401).json({error:`El Personaje ${userData.avatar} ya se encuentra registrado`})
+        }else if(email){
+          return  res.status(401).json({error:`El emial ${userData.email} ya se encuentra registrado`})
+        }
         userData.password = await getHashedPassword(userData.password);
         const user = await userModel.customCreate(userData);
-        res.json({msg:'Creado satisfactoriamente',body:user});
+        res.json({message:'Creado satisfactoriamente',body:user});
         next()
     }catch(error)
     {
