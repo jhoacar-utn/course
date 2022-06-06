@@ -15,7 +15,7 @@ export const RoutersPokemon = () => {
       <Route path="/" element={<HomePokemons />}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="profile" element={<Profiler />} />
+          <Route path="profiler" element={<Profiler />} />
       </Route>
     </Routes>
   </BrowserRouter>

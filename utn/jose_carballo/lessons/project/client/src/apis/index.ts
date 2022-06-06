@@ -1,15 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
+
+const URL_BASE = "https://pokeapi.co/api/v2/pokemon";
 
 
-const URL_BASE= 'https://pokeapi.co/api/v2/pokemon';
-export const getPokemons = async() => {
+export const getPokemonInfo = async(url: any) => {
+    try {
+        const response = await axios(url);
+        return response;
+      } catch (error) {
+        console.log(error, "Hubo un error en la consulta");
+      }
+}
 
-try {
-    const {data} = await axios(URL_BASE);
+export const getPokemons = async () => {
+  try {
+    const { data } = await axios(URL_BASE);
     return data;
-} catch (error) {
-    console.log(error,'Hubo un error en la consulta')
-}
-
-
-}
+  } catch (error) {
+    console.log(error, "Hubo un error en la consulta");
+  }
+};
