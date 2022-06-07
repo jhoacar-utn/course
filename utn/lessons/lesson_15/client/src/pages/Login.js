@@ -2,6 +2,7 @@ import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputLab
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { toast } from 'react-hot-toast';
 import Layout from "../components/Layout";
 import { handleLogin } from "../services/authorization";
 
@@ -25,18 +26,17 @@ function Login() {
     const handleSubmit = (event) => {
 
         event.preventDefault();
-        const responseLogin = handleLogin(email, password);
+        
 
-        if (responseLogin.error) {
-            setHasErrorLogin(true);
-            setErrorMessageLogin(responseLogin.error);
-        }
-        else {
-            setIsLoggedIn(true);
-        }
-
-        console.log(email, password);
-
+        handleLogin(email, password)
+        .then((response)=>{
+            console.log(response);
+            toast.success("Logged successfully");
+        })
+        .catch((error)=>{
+            console.log(error);
+            toast.error("An error has ocurred in the login");
+        })
     }
 
     return (
