@@ -17,7 +17,7 @@ export const handleLogin = async (email, password) => {
     const jsonData = await response.json();
 
     if(jsonData.error)
-        return jsonData.error;
+        throw jsonData.error;
 
     const body = jsonData.body;
 

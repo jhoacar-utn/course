@@ -30,7 +30,7 @@ function Login() {
 
         handleLogin(email, password)
         .then((response)=>{
-            console.log(response);
+            setIsLoggedIn(true);
             toast.success("Logged successfully");
         })
         .catch((error)=>{
