@@ -1,4 +1,4 @@
-const API_URL = "https://pokeapi.co/api/v2"; // /pokemon
+const API_URL = process.env.REACT_APP_POKEAPI_URL || "https://pokeapi.co/api/v2"; // /pokemon
 
 export const getPokemons = async function(){
 

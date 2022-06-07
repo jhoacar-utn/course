@@ -1,14 +1,25 @@
+const API_URL = process.env.REACT_APP_API_URL || "/api/v1";
+const API_AUTH_URL = API_URL + "/auth";
 
+export const handleLogin = async (email, password) => {
 
+    const data = { email, password };
 
-export const handleLogin =  (email,password)=>{
+    const response = await fetch(API_AUTH_URL + "/login", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
 
-    // return {
-    //     error: "mensaje del error"
-    // }
+    const jsonData = await response.json();
 
+    if(jsonData.error)
+        return jsonData.error;
 
-    return {
-        message: "Usuario autenticado",
-    }
+    const body = jsonData.body;
+
+    return jsonData.message;
 }
