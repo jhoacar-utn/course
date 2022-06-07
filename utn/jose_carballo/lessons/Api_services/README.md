@@ -4,12 +4,13 @@
 # WebService CRUD
 
 ### Este es un *BackEnd* que te permite realizar todas las funsionalidades de un *CRUD* 
-El mismo cuenta con algunos endpoins donde podrar inicias sesion para realizar las operaciones necesarias
+El mismo cuenta con algunos endpoins donde podrar realizar las operaciones necesarias para el registro modificaciones de cLientes
 ##
-#### GET  http://localhost:5000/clients  te mostrara los usuarios registrados
-#### POST http://localhost:5000/clients   crear usuarios 
-#### PUT  http://localhost:5000/client/:id Actualizar el usuario y sus favoritos
-#### DELETE  http://localhost:5000/client/:id Eliminar el usuario
+#### POST http://localhost:5000/clients   Crear un CLiente
+#### GET  http://localhost:5000/clients  Muestra todos los CLientes registrados
+#### GET  http://localhost:5000/clients/:id Obtener CLiente por ID
+#### PUT  http://localhost:5000/clients/:id Actualizar el Cliente
+#### DELETE  http://localhost:5000/clients/:id Eliminar el cliente
 
 
 * Recuerden que deben ejecutar ```npm install``` para reconstruir los modulos de Node.

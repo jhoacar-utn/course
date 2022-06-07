@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "date": "2017-01-01",
+        "weather": "rainy",
+        "visibility": "poor",
+        "comment": " Pretty scary flight, I'm glad I'm alive"
+    },
+    {
+        "id":2,
+        "date": "2017-04-05",
+        "weather": "sunny",
+        "visibility": "good",
+        "comment": " Pretty scary flight, I'm glad I'm alive"
+    },
+    {
+        "id":3,
+        "date": "2022-01-12",
+        "weather": "windy",
+        "visibility": "good",
+        "comment": " Pretty scary flight, I'm glad I'm alive"
+    },
+    {
+        "id":4,
+        "date": "2020-01-03",
+        "weather": "cloudy",
+        "visibility": "good",
+        "comment": " Pretty scary flight, I'm glad I'm alive"
+    }
+]
