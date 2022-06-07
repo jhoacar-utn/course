@@ -11,13 +11,20 @@ function Login() {
     const [hasErrorLogin, setHasErrorLogin] = useState(false);
     const [errorMessageLogin, setErrorMessageLogin] = useState("");
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleChangeEmail = (event)=>{
+        setEmail(event.target.value);
+    }
+
+    const handleChangePassword = (event)=>{
+        setPassword(event.target.value);
+    }
+
     const handleSubmit = (event) => {
 
         event.preventDefault();
-        const elementForms = event.target.elements;
-        const email = elementForms.email.value;
-        const password = elementForms.password.value;
-
         const responseLogin = handleLogin(email, password);
 
         if (responseLogin.error) {
@@ -52,16 +59,16 @@ function Login() {
                         }}>
                             <Box>
                                 <FormControl>
-                                    <InputLabel htmlFor="email">Email Address</InputLabel>
-                                    <Input type="email" id="email" name="email" aria-describedby="email-helper" />
-                                    <FormHelperText id="email-helper">We'll never share your email.</FormHelperText>
+                                    <InputLabel>Email Address</InputLabel>
+                                    <Input type="email" value={email} onChange={handleChangeEmail}/>
+                                    <FormHelperText>We'll never share your email.</FormHelperText>
                                 </FormControl>
                             </Box>
                             <Box>
                                 <FormControl>
-                                    <InputLabel htmlFor="email">Password</InputLabel>
-                                    <Input type="password" id="password" name="password" aria-describedby="password-helper" />
-                                    <FormHelperText id="password-helper">Please type your password.</FormHelperText>
+                                    <InputLabel>Password</InputLabel>
+                                    <Input type="password" value={password} onChange={handleChangePassword}/>
+                                    <FormHelperText>Please type your password.</FormHelperText>
                                 </FormControl>
                             </Box>
                             <Box sx={{
