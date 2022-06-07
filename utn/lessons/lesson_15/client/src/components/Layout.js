@@ -11,7 +11,8 @@ function Layout({ children }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                minHeight:"80vh"
+                minHeight:"80vh",
+                backgroundColor: "white"
             }}>
                 {children}
             </Card>

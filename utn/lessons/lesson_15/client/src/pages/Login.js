@@ -39,7 +39,6 @@ function Login() {
                 <Card sx={{
                     minHeight: 400,
                     minWidth: 400,
-                    bgcolor: 'info.main'
                 }} >
                     <form onSubmit={handleSubmit}>
                         <CardContent sx={{
@@ -71,10 +70,10 @@ function Login() {
                                 justifyContent: "center",
                                 display: "flex"
                             }}>
-                                <Button sx={{
-                                    color: 'text.primary',
+                                <Button type="submit" sx={{
+                                    padding:'10px 20px'
                                 }}>
-                                    <Input type="submit" value="Log In" />
+                                    Log In
                                 </Button>
                             </Box>
                             {hasErrorLogin &&
