@@ -8,8 +8,19 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 import styles from "./index.module.css";
+import { useContext } from 'react';
+import { AuthorizationContext } from '../../context/authorization';
+import {saveToken} from '../../services/authorization';
 
 function NavBar() {
+
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthorizationContext);
+
+    const handleLogout = ()=>{
+        setIsLoggedIn(false);
+        saveToken("");
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -29,24 +40,34 @@ function NavBar() {
                         </Link>
                     </Typography>
 
-                    <Link className={styles['nav-link']} to="/login">
-                        <Button color="inherit">
-                            Login
-                        </Button>
-                    </Link>
-                    <Link className={styles['nav-link']} to="/register">
-                        <Button color="inherit">
-                            Register
-                        </Button>
-                    </Link>
-                    <Link className={styles['nav-link']} to="/dashboard">
-                        <Button color="inherit">
-                            Dashboard
-                        </Button>
-                    </Link>
-                    <Button color="inherit">
-                        Logout
-                    </Button>
+                    {
+
+                        !isLoggedIn && <>
+                            <Link className={styles['nav-link']} to="/login">
+                                <Button color="inherit">
+                                    Login
+                                </Button>
+                            </Link>
+                            <Link className={styles['nav-link']} to="/register">
+                                <Button color="inherit">
+                                    Register
+                                </Button>
+                            </Link>
+                        </>
+                    }
+
+                    {
+                        isLoggedIn && <>
+                            <Link className={styles['nav-link']} to="/dashboard">
+                                <Button color="inherit">
+                                    Dashboard
+                                </Button>
+                            </Link>
+                            <Button onClick={handleLogout} color="inherit">
+                                Logout
+                            </Button>
+                        </>
+                    }
 
                 </Toolbar>
             </AppBar>
