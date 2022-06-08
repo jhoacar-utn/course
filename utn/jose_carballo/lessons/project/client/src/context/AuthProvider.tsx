@@ -1,16 +1,17 @@
 import { useState,  createContext, useEffect} from 'react';
 import { getPokemonInfo, getPokemons } from '../apis';
+import { getAvatarBD } from '../services';
 
 export interface INITIAL_STATE{
     token:'';
-    user:{};
+    users:{};
     // pokemons: ResponsePokemons;
     pokemons: any;
 }
 
 const initialState: INITIAL_STATE ={
     token:'',
-    user:{},
+    users:{},
     pokemons:[]
 }
 
@@ -25,21 +26,23 @@ const AuthProvider = ({children}:Props) => {
     const [state, setState] = useState(initialState);
     const fetchPokemons = async() => {
         try {
-            const data = await getPokemons()
+            const data = await getPokemons();
+            const users =  await getAvatarBD();
           const promise = data.results.map(async(pokemon: any) => {
               return await getPokemonInfo(pokemon.url)
           })
           const results = await Promise.all(promise)
            setState({
                ...state,
-               pokemons: results
+               pokemons: results,
+               users: users.data
            })
         } catch (error) {
             console.log(error)
         }
     }
     useEffect(() => {
-        fetchPokemons()
+        fetchPokemons();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     return(

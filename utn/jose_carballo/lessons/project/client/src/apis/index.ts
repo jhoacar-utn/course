@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL_BASE = "https://pokeapi.co/api/v2/pokemon";
+const URL_BASE = process.env.REACT_APP_POKEAPI_URL || 'https://pokeapi.co/api/v2/pokemon';
 
 
 export const getPokemonInfo = async(url: any) => {

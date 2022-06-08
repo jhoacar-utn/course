@@ -1,0 +1,23 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run production-client && npm run production-server",
+    "production-client": "npm run build-client",
+    "production-server": "npm run build-server && npm run start-server",
+    "start-client": "env-cmd -f client.env npm start --prefix=client",
+    "build-client": "env-cmd -f client.env npm run build --prefix=client",
+    "start-server": "env-cmd -f server.env npm start --prefix=server",
+    "build-server": "env-cmd -f server.env npm run build --prefix=server",
+    "dev-server": "npm run dev --prefix=server",
+    "watch-server": "npm run watch --prefix=server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}

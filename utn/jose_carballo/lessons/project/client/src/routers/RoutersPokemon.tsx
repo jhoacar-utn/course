@@ -6,7 +6,7 @@ import {
 import { HomePokemons } from "../layouts/HomePokemons"
 import { Login } from "../pages/Login"
 import { Profiler } from "../pages/Profiler"
-import Register from "../pages/Register"
+import {Register} from "../pages/Register"
 
 export const RoutersPokemon = () => {
   return (

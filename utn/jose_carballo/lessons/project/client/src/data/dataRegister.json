@@ -1,0 +1,79 @@
+[
+    {
+        "type": "input",
+        "name": "name",
+        "placeholder": "Ingresa tu Nombre",
+        "label": "Nombre",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "minLength",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "correo@google.com",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "email"
+            }
+        ]
+    },
+    {
+        "type": "password",
+        "name": "password",
+        "placeholder": "Contraseña",
+        "label": "Contraseña",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "password"
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "avatar",
+        "placeholder": "Nombre del avatar",
+        "label": "Avatar",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "image",
+        "placeholder": "Imagen del avatar",
+        "label": "Imagen avatar",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "text"
+            }
+        ]
+    }
+   
+]

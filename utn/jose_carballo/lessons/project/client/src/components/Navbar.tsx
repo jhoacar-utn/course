@@ -9,9 +9,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
-import { pages, settings } from '../utils';
+import { logo_pokeApi, pages, settings } from '../utils';
 import { Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { sx_stiles_movile, sx_stiles_desktop } from './const';
 
 
 
@@ -29,11 +30,12 @@ const Navbar = () => {
 
   const handleCloseNavMenu = (page:string) => {
     setAnchorElNav(null);
-    navigate(`${page}`)
+    navigate(`${page.toLocaleLowerCase()}`)
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (page:string) => {
     setAnchorElUser(null);
+    navigate(`${page.toLocaleLowerCase()}`)
   };
 
   return (
@@ -45,17 +47,9 @@ const Navbar = () => {
             noWrap
             component="a"
             href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 500,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
+            sx={sx_stiles_desktop}
           >
-            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="logo" width={150}/>
+            <img src={logo_pokeApi} alt="logo" width={150}/>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -99,19 +93,10 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
+            href="/"
+            sx={sx_stiles_movile}
           >
-         <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="logo" width={150}/>
+          <img src={logo_pokeApi} alt="logo" width={150}/>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -127,7 +112,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="logo_image" src="https://ichef.bbci.co.uk/news/1024/branded_mundo/5BC3/production/_90319432_poke5.png" />
+                <Avatar alt="logo_image" src={logo_pokeApi} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -147,7 +132,7 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

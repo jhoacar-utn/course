@@ -1,0 +1,33 @@
+[
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "correo@google.com",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "email"
+            }
+        ]
+    },
+    {
+        "type": "password",
+        "name": "password",
+        "placeholder": "Contraseña",
+        "label": "Contraseña",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "password"
+            }
+        ]
+    }
+   
+]

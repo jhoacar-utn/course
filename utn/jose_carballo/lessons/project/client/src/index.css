@@ -1,6 +1,6 @@
 
 body {
-
+background-color: #bac8c8;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,7 +12,7 @@ body {
 
 .title_main{
   color: #ffcb05;
-  font-weight: 800;
+  font-weight: 900;
   -webkit-text-stroke: 3px cadetblue;
   font-style: italic;
   font-size: 40px;

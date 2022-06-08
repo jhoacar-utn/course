@@ -1,26 +1,50 @@
-import { TextField, Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
+import { Form, Formik } from "formik";
+import dataRegister from "../data/dataRegister.json";
+import {
+  initialValues,
+  validationSchema,
+} from "../validations/validationSchemaRegister";
+import { CustomInputText } from "./CustomInputText";
+import './styles.scss'
 
-
-const Register = () => {
+export const Register = () => {
   return (
-    <div className="form_container">
-    <h1 className="title_login">Datos de registro</h1>
-    <Box
-    component="form"
-    sx={{
-      "& > :not(style)": { m: .5, width: "20ch"},
-    }}
-    noValidate
-    autoComplete="off"
-  >
-    <TextField id="outlined-basic" label="Nombre" variant="outlined" />
-    <TextField id="outlined-basic" label="Email" variant="outlined" />
-    <TextField id="outlined-basic" label="Avatar" variant="outlined" />
-    <TextField id="filled-basic" label="password" variant="outlined" />
-    <Button variant="contained">Ingresar</Button>
-  </Box>
-  </div>
-  )
-}
-
-export default Register
+    <>
+      <h1>
+        Registro de usuario
+      </h1>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        {(formik) => (
+          <Form
+          className="form_container"
+          noValidate
+          autoComplete="off"
+        >
+            {dataRegister.map(({ type, name, placeholder, label }) => {
+              if (type === "input" || type === "password" || type === "email") {
+                return (
+                  <CustomInputText
+                    key={name}
+                    type={type as any}
+                    name={name}
+                    label={label}
+                    placeholder={placeholder}
+                  />
+                );
+              }
+              throw new Error(`El type: ${type}, no es soportado`);
+            })}
+           <Button variant="contained" type="submit">Registrar</Button>
+          </Form>
+        )}
+      </Formik>
+    </>
+  );
+};
