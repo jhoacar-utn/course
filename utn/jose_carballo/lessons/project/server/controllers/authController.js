@@ -23,8 +23,12 @@ exports.authLogin = async (req, res, next) => {
     setCookie(req, token);
     res
       .status(201)
-      .json({ message: "Logueado satisfactoriamente", body: { token: token } });
-    return res.redirect("/dashboard");
+      .json({ message: "Logueado satisfactoriamente", body: { token: token }, user:{
+        name: user.name,
+        avatar: user.avatar,
+        image: user.image,
+        email: user.email
+      } });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error });

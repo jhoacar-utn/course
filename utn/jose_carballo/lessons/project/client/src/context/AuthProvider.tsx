@@ -1,59 +1,74 @@
-import { useState,  createContext, useEffect} from 'react';
-import { getPokemonInfo, getPokemons } from '../apis';
-import { getAvatarBD } from '../services';
+import { useState, useEffect } from "react";
+import { getPokemonInfo, getPokemons } from "../apis";
+import { authLogin } from "../services";
+import { AuthContext } from "./AuthContext";
+import { toast } from "react-hot-toast";
 
-export interface INITIAL_STATE{
-    token:'';
-    users:{};
-    // pokemons: ResponsePokemons;
-    pokemons: any;
+
+export interface INITIAL_STATE {
+  token: any;
+  user: any;
+  pokemons: any;
+  isLogin: boolean;
 }
 
-const initialState: INITIAL_STATE ={
-    token:'',
-    users:{},
-    pokemons:[]
-}
-
-export const AuthContext = createContext<INITIAL_STATE>({} as INITIAL_STATE);
-
+export const initialState: INITIAL_STATE = {
+  token: "",
+  user: {},
+  pokemons: [],
+  isLogin: false
+};
 interface Props {
-    children: JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[];
 }
 
-
-const AuthProvider = ({children}:Props) => {
-    const [state, setState] = useState(initialState);
-    const fetchPokemons = async() => {
-        try {
-            const data = await getPokemons();
-            const users =  await getAvatarBD();
-          const promise = data.results.map(async(pokemon: any) => {
-              return await getPokemonInfo(pokemon.url)
-          })
-          const results = await Promise.all(promise)
-           setState({
-               ...state,
-               pokemons: results,
-               users: users.data
-           })
-        } catch (error) {
-            console.log(error)
-        }
+export const AuthProvider = ({ children }: Props) => {
+  const [state, setState] = useState(initialState);
+  const fetchPokemons = async () => {
+    try {
+      const data = await getPokemons();
+      const promise = data.results.map(async (pokemon: any) => {
+        return await getPokemonInfo(pokemon.url);
+      });
+      const results = await Promise.all(promise);
+      setState({
+        ...state,
+        pokemons: results,
+      });
+    } catch (error) {
+      console.log(error);
     }
-    useEffect(() => {
-        fetchPokemons();
+  };
+  const loginSubmit = (values: any) => {
+    authLogin(values)
+      .then((response) => {
+        console.log(response)
+        setState({
+            ...state,
+            user: response.data.user,
+            token: response.data.body.token,
+            isLogin: true
+        })
+        toast.success("Logeado Satisfactoriamente");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Hubo un error en las credenciales");
+      });
+  };
+  useEffect(() => {
+    fetchPokemons();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
-    return(
-        <AuthContext.Provider value={{
-            ...state
-        }}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
-
-export {
-    AuthProvider
-}
+  }, []);
+  return (
+    <AuthContext.Provider
+      value={{
+        ...state,
+        setState,
+        loginSubmit
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};

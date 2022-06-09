@@ -1,42 +1,34 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuIcon from '@mui/icons-material/Menu';
-import { logo_pokeApi, pages, settings } from '../utils';
-import { Menu, MenuItem } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { sx_stiles_movile, sx_stiles_desktop } from './const';
-
-
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuIcon from "@mui/icons-material/Menu";
+import { logo_pokeApi, pages, settings } from "../utils";
+import { Menu, MenuItem } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { sx_stiles_movile, sx_stiles_desktop } from "./const";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>( null);
+  const {isLogin}= React.useContext(AuthContext)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
-  const handleCloseNavMenu = (page:string) => {
+  const handleCloseNavMenu = (page: string) => {
     setAnchorElNav(null);
-    navigate(`${page.toLocaleLowerCase()}`)
+    navigate(`${page.toLocaleLowerCase()}`);
   };
 
-  const handleCloseUserMenu = (page:string) => {
-    setAnchorElUser(null);
-    navigate(`${page.toLocaleLowerCase()}`)
-  };
 
   return (
     <AppBar position="static">
@@ -49,10 +41,10 @@ const Navbar = () => {
             href="/"
             sx={sx_stiles_desktop}
           >
-            <img src={logo_pokeApi} alt="logo" width={150}/>
+            <img src={logo_pokeApi} alt="logo" width={150} />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -61,32 +53,32 @@ const Navbar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-          <MenuIcon />
+              <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                  <MenuItem key={page} onClick={ () => handleCloseNavMenu(page)}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                )
-              )}
+              <MenuItem  onClick={ () => handleCloseNavMenu('login')}>
+                <Typography textAlign="center">Login</Typography>
+              </MenuItem>
+              <MenuItem  onClick={ () => handleCloseNavMenu('register')}>
+                <Typography textAlign="center">Register</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -96,47 +88,36 @@ const Navbar = () => {
             href="/"
             sx={sx_stiles_movile}
           >
-          <img src={logo_pokeApi} alt="logo" width={150}/>
+            <img src={logo_pokeApi} alt="logo" width={150} />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {!isLogin ?  pages.map((page) => (
               <Button
                 key={page}
                 onClick={() => handleCloseNavMenu(page)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
               </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="logo_image" src={logo_pokeApi} />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            )) : 
+            <>
+            <Button
+                // onClick={() => handleCloseNavMenu(page)}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Logout
+              </Button>
+            <Button
+                onClick={() => handleCloseNavMenu('profiler')}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Profiler
+              </Button>
+            
+            </>
+            
+            }
+           
           </Box>
         </Toolbar>
       </Container>

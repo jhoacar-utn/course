@@ -46,7 +46,7 @@
         ]
     },
     {
-        "type": "input",
+        "type": "select",
         "name": "avatar",
         "placeholder": "Nombre del avatar",
         "label": "Avatar",
@@ -75,5 +75,6 @@
             }
         ]
     }
+    
    
 ]

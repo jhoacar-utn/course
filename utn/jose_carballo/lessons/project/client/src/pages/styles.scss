@@ -1,7 +1,7 @@
 .form_container{
     background-color: #f8fcf7;
     min-height: 200px;
-    width: 40%;
+    width: 35%;
     height: auto;
     margin: auto;
     padding: 10px;
@@ -26,4 +26,10 @@
   color: rgb(248, 68, 68);
   font-weight: bold;
 
+}
+
+.center{
+  display: flex;
+  width: 40%;
+  margin: auto;
 }

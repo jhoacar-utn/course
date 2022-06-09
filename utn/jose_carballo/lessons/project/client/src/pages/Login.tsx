@@ -5,32 +5,31 @@ import {
   initialValues,
   validationSchema,
 } from "../validations/validationSchemaLogin";
-import { CustomInputText } from "./CustomInputText";
-import './styles.scss'
+import { CustomInputText } from "../components/CustomInputText";
+import "./styles.scss";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+
+
 
 export const Login = () => {
-  const loginSubmit = (values:any) => {
-      console.log(values);
-
-  }
+  const {loginSubmit,isLogin} = useContext(AuthContext)
+  
+const handleSubmit = (obj:any) => {
+  loginSubmit(obj);
+}
   return (
     <>
-      <h1>
-        Inicia Sesión
-      </h1>
+    {isLogin && <Navigate to="/dashboard" replace={true} />}
+      <h1 className="title_login">Inicia Sesión</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          loginSubmit(values)
-        }}
+        onSubmit={(values) => handleSubmit(values)}
       >
         {(formik) => (
-          <Form
-          className="form_container"
-          noValidate
-          autoComplete="off"
-        >
+          <Form className="form_container" noValidate autoComplete="off">
             {dataLogin.map(({ type, name, placeholder, label }) => {
               if (type === "input" || type === "password" || type === "email") {
                 return (
@@ -45,7 +44,9 @@ export const Login = () => {
               }
               throw new Error(`El type: ${type}, no es soportado`);
             })}
-           <Button variant="contained" type="submit">Iniciar sesión</Button>
+            <Button variant="contained" type="submit">
+              Iniciar sesión
+            </Button>
           </Form>
         )}
       </Formik>

@@ -24,3 +24,12 @@ background-color: #bac8c8;
   width: 90%;
   justify-content: space-between;
 }
+
+.select{
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  color: #636571;
+  background-color: inherit;
+  border-color: #bfc2be;
+}
