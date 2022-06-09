@@ -3,6 +3,7 @@ import {
     Routes,
     Route,
   } from "react-router-dom"
+import Navbar from "../components/Navbar"
 import { HomePokemons } from "../layouts/HomePokemons"
 import { Dashboard } from "../pages/Dashboard"
 import { Login } from "../pages/Login"
@@ -12,6 +13,7 @@ import {Register} from "../pages/Register"
 export const RoutersPokemon = () => {
   return (
     <BrowserRouter>
+    <Navbar />
     <Routes>
       <Route path="/" element={<HomePokemons />}>
           <Route path="dashboard" element={<Dashboard />} />

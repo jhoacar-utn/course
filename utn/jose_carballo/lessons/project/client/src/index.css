@@ -32,4 +32,10 @@ background-color: #bac8c8;
   color: #636571;
   background-color: inherit;
   border-color: #bfc2be;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.select:hover{
+  border-color: black;
 }

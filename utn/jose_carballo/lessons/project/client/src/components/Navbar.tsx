@@ -5,11 +5,9 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuIcon from "@mui/icons-material/Menu";
-import { logo_pokeApi, pages, settings } from "../utils";
+import { logo_pokeApi, pages } from "../utils";
 import { Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { sx_stiles_movile, sx_stiles_desktop } from "./const";
@@ -17,8 +15,10 @@ import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>( null);
-  const {isLogin}= React.useContext(AuthContext)
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const { isLogin } = React.useContext(AuthContext);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -28,7 +28,6 @@ const Navbar = () => {
     setAnchorElNav(null);
     navigate(`${page.toLocaleLowerCase()}`);
   };
-
 
   return (
     <AppBar position="static">
@@ -73,12 +72,27 @@ const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem  onClick={ () => handleCloseNavMenu('login')}>
-                <Typography textAlign="center">Login</Typography>
-              </MenuItem>
-              <MenuItem  onClick={ () => handleCloseNavMenu('register')}>
-                <Typography textAlign="center">Register</Typography>
-              </MenuItem>
+             {!isLogin ? 
+            <>
+             <MenuItem onClick={() => handleCloseNavMenu("login")}>
+             <Typography textAlign="center">Login</Typography>
+           </MenuItem>
+           <MenuItem onClick={() => handleCloseNavMenu("register")}>
+             <Typography textAlign="center">Register</Typography>
+           </MenuItem> 
+            </>
+            :
+           <>
+            <MenuItem 
+            // onClick={() => handleCloseNavMenu("login")}
+            >
+            <Typography textAlign="center">Logout</Typography>
+          </MenuItem>
+          <MenuItem onClick={() => handleCloseNavMenu("profiler")}>
+            <Typography textAlign="center">Profiler</Typography>
+          </MenuItem>
+           </>
+            }
             </Menu>
           </Box>
           <Typography
@@ -91,33 +105,32 @@ const Navbar = () => {
             <img src={logo_pokeApi} alt="logo" width={150} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {!isLogin ?  pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => handleCloseNavMenu(page)}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            )) : 
-            <>
-            <Button
-                // onClick={() => handleCloseNavMenu(page)}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Logout
-              </Button>
-            <Button
-                onClick={() => handleCloseNavMenu('profiler')}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Profiler
-              </Button>
-            
-            </>
-            
-            }
-           
+            {!isLogin ? (
+              pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={() => handleCloseNavMenu(page)}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page}
+                </Button>
+              ))
+            ) : (
+              <>
+                <Button
+                  // onClick={() => handleCloseNavMenu(page)}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Logout
+                </Button>
+                <Button
+                  onClick={() => handleCloseNavMenu("profiler")}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Profiler
+                </Button>
+              </>
+            )}
           </Box>
         </Toolbar>
       </Container>

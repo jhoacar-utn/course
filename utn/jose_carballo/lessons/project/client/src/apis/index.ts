@@ -11,6 +11,14 @@ export const getPokemonInfo = async(url: any) => {
         console.log(error, "Hubo un error en la consulta");
       }
 }
+export const getPokemon = async(name:any) => {
+    try {
+        const pokemon = await axios(`${URL_BASE}/${name}`);
+        return pokemon;
+      } catch (error) {
+        console.log(error, "Hubo un error en la consulta");
+      }
+}
 
 export const getPokemons = async () => {
   try {

@@ -42,7 +42,6 @@ export const AuthProvider = ({ children }: Props) => {
   const loginSubmit = (values: any) => {
     authLogin(values)
       .then((response) => {
-        console.log(response)
         setState({
             ...state,
             user: response.data.user,

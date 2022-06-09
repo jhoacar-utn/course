@@ -1,9 +1,8 @@
 .form_container{
     background-color: #f8fcf7;
     min-height: 200px;
-    width: 35%;
+    width: 40%;
     height: auto;
-    margin: auto;
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px
@@ -32,4 +31,10 @@
   display: flex;
   width: 40%;
   margin: auto;
+}
+.container_register{
+  display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
 }

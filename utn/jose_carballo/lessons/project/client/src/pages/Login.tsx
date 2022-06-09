@@ -20,9 +20,9 @@ const handleSubmit = (obj:any) => {
   loginSubmit(obj);
 }
   return (
-    <>
+    <div className="container_register">
     {isLogin && <Navigate to="/dashboard" replace={true} />}
-      <h1 className="title_login">Inicia Sesión</h1>
+     
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -30,6 +30,7 @@ const handleSubmit = (obj:any) => {
       >
         {(formik) => (
           <Form className="form_container" noValidate autoComplete="off">
+             <h1 className="title_login">Inicia Sesión</h1>
             {dataLogin.map(({ type, name, placeholder, label }) => {
               if (type === "input" || type === "password" || type === "email") {
                 return (
@@ -50,6 +51,6 @@ const handleSubmit = (obj:any) => {
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 };
