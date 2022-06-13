@@ -9,12 +9,14 @@ export interface INITIAL_STATE {
   token: any;
   user: any;
   pokemons: any;
+  pokemon: any;
   isLogin: boolean;
 }
 
 export const initialState: INITIAL_STATE = {
   token: "",
   user: {},
+  pokemon:{},
   pokemons: [],
   isLogin: false
 };

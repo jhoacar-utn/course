@@ -39,3 +39,8 @@ background-color: #bac8c8;
 .select:hover{
   border-color: black;
 }
+
+.card_image{
+  max-width: 500px;
+  border-radius: 10px;
+}

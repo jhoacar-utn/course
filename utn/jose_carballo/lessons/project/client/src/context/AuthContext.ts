@@ -7,6 +7,7 @@ export interface InitialStateContex{
     isLogin: boolean;
     setState: Function;
     pokemons: any;
+    pokemon: any;
     loginSubmit: Function;
 }
 

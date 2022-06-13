@@ -17,7 +17,7 @@ export const Profiler = () => {
         <CardMedia
           component="img"
           height="140"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
+          image={user.avatar}
           alt={user.avatar}
         />
         <CardContent>

@@ -73,16 +73,16 @@ const Navbar = () => {
               }}
             >
              {!isLogin ? 
-            <>
+            <div>
              <MenuItem onClick={() => handleCloseNavMenu("login")}>
              <Typography textAlign="center">Login</Typography>
            </MenuItem>
            <MenuItem onClick={() => handleCloseNavMenu("register")}>
              <Typography textAlign="center">Register</Typography>
            </MenuItem> 
-            </>
+            </div>
             :
-           <>
+           <div>
             <MenuItem 
             // onClick={() => handleCloseNavMenu("login")}
             >
@@ -91,7 +91,7 @@ const Navbar = () => {
           <MenuItem onClick={() => handleCloseNavMenu("profiler")}>
             <Typography textAlign="center">Profiler</Typography>
           </MenuItem>
-           </>
+           </div>
             }
             </Menu>
           </Box>
