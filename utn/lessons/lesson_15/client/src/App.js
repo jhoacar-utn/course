@@ -4,7 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Register from "./pages/Register";
+import Register from "./pages/register";
 import { AuthorizationContext } from './context/authorization';
 import { useState } from 'react';
 import AuthMiddleware from './middlewares/auth/AuthMiddleware';
