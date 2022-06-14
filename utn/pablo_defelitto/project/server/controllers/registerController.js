@@ -1,7 +1,9 @@
-const response =(req,res,next)=>{
-    console.log("funciona");
-    return res.send("funciona");
-       
-}
+const postUser = (req,res,next)=>{
+    
+    const userData = req.body;
 
-module.exports = response;
+    console.log(userData)
+
+    return res.json(userData);
+}
+module.exports.postUser = postUser;
