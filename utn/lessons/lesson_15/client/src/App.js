@@ -5,8 +5,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
-import { AuthorizationContext, defaultAuthorization } from './context/authorization';
+import { AuthorizationContext } from './context/authorization';
 import { useState } from 'react';
+import AuthMiddleware from './middlewares/auth/AuthMiddleware';
 
 
 const darkTheme = createTheme({
@@ -17,7 +18,7 @@ const darkTheme = createTheme({
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(defaultAuthorization.isLoggedIn);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <AuthorizationContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
@@ -25,7 +26,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={
+              <AuthMiddleware element={<Dashboard />} />
+            } />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />

@@ -1,7 +1,3 @@
-import React from 'react';
+import { createContext } from 'react';
 
-export const defaultAuthorization = {
-    isLoggedIn: false
-};
-
-export const AuthorizationContext = React.createContext();
+export const AuthorizationContext = createContext();
