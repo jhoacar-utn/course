@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { HomePokemons } from "../layouts/HomePokemons";
 import { Dashboard } from "../pages/Dashboard";
+import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Profiler } from "../pages/Profiler";
 import { Register } from "../pages/Register";
@@ -13,6 +14,7 @@ export const RoutersPokemon = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePokemons />}>
+          <Route index element={<Home />} />
           <Route
             path="dashboard"
             element={

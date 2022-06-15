@@ -7,10 +7,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
-import { logo_pokeApi, pages } from "../utils";
+import { images, pages } from "../assets/utils";
 import { Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { sx_stiles_movile, sx_stiles_desktop } from "./const";
+import { sx_stiles_movile, sx_stiles_desktop } from "../assets/const";
 import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const handleProfiler = (page:string) => {
             href="/"
             sx={sx_stiles_desktop}
           >
-            <img src={logo_pokeApi} alt="logo" width={150} />
+            <img src={images.logoPokeApi} alt="logo" width={150} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -105,7 +105,7 @@ const handleProfiler = (page:string) => {
             href="/"
             sx={sx_stiles_movile}
           >
-            <img src={logo_pokeApi} alt="logo" width={150} />
+            <img src={images.logoPokeApi} alt="logo" width={150} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {!isLogin ? (

@@ -14,7 +14,7 @@ import { AuthContext } from "../context/AuthContext";
 import { getPokemon } from "../apis";
 import { CardPokemon } from "../components/CardPokemon";
 import { CardImage } from "../components/CardImage";
-import { logo_pokemons } from "../utils";
+import { images } from "../assets/utils";
 
 export const Register = () => {
   const { pokemons } = useContext(AuthContext);
@@ -77,7 +77,7 @@ useEffect(() => {
           )
         }}
       </Formik>
-        {!valor ?  <CardImage image={logo_pokemons} name="pokemons"/> : <CardPokemon {...search} />}
+        {!valor ?  <CardImage image={images.Pokemons} name="pokemons"/> : <CardPokemon {...search} />}
     </div>
   );
 };

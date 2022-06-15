@@ -3,12 +3,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Box } from '@mui/material';
+import { sx_custom_card } from '../assets/const';
 
 export const CustomCard = (pokemon: any) =>{
   const {pokemon: pokemonData} = pokemon;
   const {name, sprites} = pokemonData
   return (
-    <Card sx={{margin:2, minWidth: 200, display: 'flex' }}>
+    <Card sx={sx_custom_card}>
        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <CardActionArea>
         <CardContent>
@@ -20,7 +21,7 @@ export const CustomCard = (pokemon: any) =>{
       </Box>
       <CardMedia
           component="img"
-          height="80"
+          height="120"
           image={sprites?.front_default}
           alt={name}
         />

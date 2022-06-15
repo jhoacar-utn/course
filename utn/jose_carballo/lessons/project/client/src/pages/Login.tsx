@@ -11,7 +11,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { CardImage } from "../components/CardImage";
-import { logo_pikachu } from "../utils";
+import { images } from "../assets/utils";
 
 
 
@@ -53,7 +53,7 @@ const handleSubmit = (obj:any) => {
           </Form>
         )}
       </Formik>
-      <CardImage image={logo_pikachu} name="logo pikachu" />
+      <CardImage image={images.Pikachu} name="logo pikachu" />
     </div>
   );
 };

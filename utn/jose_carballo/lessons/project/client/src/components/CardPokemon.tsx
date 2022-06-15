@@ -2,12 +2,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { sx_card_pokemon } from "../assets/const";
 
 export const CardPokemon = (props: any) => {
   return (
     <div>
       
-      <Card sx={{ margin: 2, minWidth: 200, maxWidth:400, height: 400 }}>
+      <Card sx={sx_card_pokemon}>
       <h1>Pokemon</h1>
         <CardMedia
           component="img"

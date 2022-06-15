@@ -6,13 +6,14 @@ import {
   Typography,
 } from "@mui/material";
 import { useContext } from "react";
+import { sx_card_pokemon } from "../assets/const";
 import { AuthContext } from "../context/AuthContext";
 
 export const Profiler = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="center">
-      <Card sx={{ maxWidth: 400 }}>
+      <Card sx={sx_card_pokemon}>
       <CardActionArea>
         <CardMedia
           component="img"
