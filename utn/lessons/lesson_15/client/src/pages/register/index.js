@@ -1,13 +1,14 @@
-import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputLabel, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { useContext, useState } from "react";
+import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { AuthorizationContext } from "../../context/authorization";
-
+import { getPokemons } from "../../services/api";
+import styles from "./styles.module.css";
 
 function Register() {
 
+    const [avatars, setAvatars] = useState([]);
     const { isLoggedIn } = useContext(AuthorizationContext);
 
     const [registerState, setRegisterState] = useState({
@@ -17,6 +18,24 @@ function Register() {
         avatar: "",
         image: ""
     });
+
+    // El primer parametro sera la callback a ejecutar y el segundo parametro sera un array de las dependencias
+    // Estas dependencias seran las variables que le diran al useEffect que cuando cambian se volvera a disparar dicha callback
+    useEffect(() => {
+
+        const fetchingData = async () => {
+            try {
+                const result = await getPokemons();
+                setAvatars(result);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchingData();
+
+    }, []);
 
     const { name, email, password, avatar, image } = registerState;
 
@@ -28,6 +47,7 @@ function Register() {
 
         setRegisterState({
             ...registerState, // El spread operator coloca en una linea todos los atributos del objeto
+            // name:"", email: "", ....
             email: event.target.value,
         })
     }
@@ -51,9 +71,16 @@ function Register() {
 
     const handleChangeAvatar = (event) => {
 
+        const newAvatar = event.target.value;
+        const avatarObject = avatars.find((element)=>{
+            return element.name == newAvatar;
+        });
+        const newImage = avatarObject.image;
+
         setRegisterState({
             ...registerState,
-            avatar: event.target.value,
+            avatar: newAvatar,
+            image: newImage,
         })
     }
 
@@ -80,6 +107,7 @@ function Register() {
                             <FormControl sx={{ width: "50%" }}>
                                 <InputLabel>User Name</InputLabel>
                                 <Input type="text" value={name} onChange={handleChangeName} />
+                                <FormHelperText>Please type your user name.</FormHelperText>
                             </FormControl>
 
                             <FormControl sx={{ width: "50%" }}>
@@ -93,7 +121,26 @@ function Register() {
                                 <Input type="password" value={password} onChange={handleChangePassword} />
                                 <FormHelperText>Please type your password.</FormHelperText>
                             </FormControl>
-
+                            <FormControl sx={{ width: "70%" }}>
+                                <InputLabel id="avatar">User Avatar</InputLabel>
+                                <Select
+                                    className={styles.select}
+                                    labelId="avatar"
+                                    value={avatar}
+                                    label="User Avatar"
+                                    onChange={handleChangeAvatar}
+                                >
+                                    {avatars.map(element=>{
+                                        return (
+                                            <MenuItem sx={{textTransform:'capitalize'}} value={element.name}>
+                                                <Typography component="span">{element.name}</Typography>
+                                                <img src={element.image} alt={element.name} width={50} height={50} />
+                                            </MenuItem>
+                                        )
+                                    })}
+                                </Select>
+                                <FormHelperText>Please select your avatar.</FormHelperText>
+                            </FormControl>
                             <FormControl sx={{
                                 marginTop: "10px",
                                 alignItems: "center",
