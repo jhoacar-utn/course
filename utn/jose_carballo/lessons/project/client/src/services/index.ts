@@ -17,3 +17,24 @@ export const authLogin = async(obj: any) => {
         throw new Error('Usuario no registrado')
     }
 }
+
+export const sendProfiler = async(token:any) =>{
+    try {
+        await axios.post(`${url}/user/profiler`,{
+            header:{
+                token
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const addTokenCredential = (token:any) => localStorage.setItem('token',token);
+
+
+export const getTokenCredencial = () => localStorage.getItem('token');
+
+export const logoutTokenCredential = () => localStorage.removeItem("token");
+  
+
+

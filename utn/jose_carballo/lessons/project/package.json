@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run production-client && npm run production-server",
+    "dev": "concurrently \"npm:dev-*\"",
     "production-client": "npm run build-client",
     "production-server": "npm run build-server && npm run start-server",
-    "start-client": "env-cmd -f client.env npm start --prefix=client",
+    "dev-client": "env-cmd -f client.env npm start --prefix=client",
     "build-client": "env-cmd -f client.env npm run build --prefix=client",
-    "start-server": "env-cmd -f server.env npm start --prefix=server",
+    "dev-server": "env-cmd -f server.env npm run dev --prefix=server",
     "build-server": "env-cmd -f server.env npm run build --prefix=server",
-    "dev-server": "npm run dev --prefix=server",
     "watch-server": "npm run watch --prefix=server"
   },
   "keywords": [],
@@ -19,5 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "env-cmd": "^10.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2"
   }
 }

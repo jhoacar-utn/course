@@ -12,17 +12,17 @@ export const Profiler = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="center">
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 400 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image={user.avatar}
+          height="300"
+          image={user.image}
           alt={user.avatar}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {user.avatar}
+           Avatar: {user.avatar}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Nombre: {user.name}

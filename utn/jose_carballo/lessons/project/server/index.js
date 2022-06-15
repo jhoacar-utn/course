@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require("express");
 const cookieSession = require('cookie-session');
-// const handleStartServer = require('./helpers/handleStartServer');
 const connection = require('./config/initDatabase');
 const routes = require('./routes');
 const cors = require('cors');
@@ -16,4 +15,7 @@ app.use(cookieSession({name: nameCookie,keys:[cookieSecretKey], maxAge: expireIn
 
 
 app.use('/', routes());
-app.listen(PORT,connection);
+app.listen(PORT,() =>{
+    connection
+    console.log(`Server corriendo en el puerto ${PORT}`)
+});

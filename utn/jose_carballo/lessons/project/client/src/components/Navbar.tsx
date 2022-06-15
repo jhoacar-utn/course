@@ -18,8 +18,7 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const { isLogin } = React.useContext(AuthContext);
-
+  const { isLogin, handleLogout } = React.useContext(AuthContext);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -28,6 +27,10 @@ const Navbar = () => {
     setAnchorElNav(null);
     navigate(`${page.toLocaleLowerCase()}`);
   };
+const handleProfiler = (page:string) => {
+  setAnchorElNav(null);
+  navigate(`${page.toLocaleLowerCase()}`);
+}
 
   return (
     <AppBar position="static">
@@ -88,7 +91,7 @@ const Navbar = () => {
             >
             <Typography textAlign="center">Logout</Typography>
           </MenuItem>
-          <MenuItem onClick={() => handleCloseNavMenu("profiler")}>
+          <MenuItem onClick={() => handleProfiler("profiler")}>
             <Typography textAlign="center">Profiler</Typography>
           </MenuItem>
            </div>
@@ -118,7 +121,7 @@ const Navbar = () => {
             ) : (
               <>
                 <Button
-                  // onClick={() => handleCloseNavMenu(page)}
+                  onClick={() => handleLogout()}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Logout

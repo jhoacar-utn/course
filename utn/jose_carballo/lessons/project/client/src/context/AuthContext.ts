@@ -9,6 +9,7 @@ export interface InitialStateContex{
     pokemons: any;
     pokemon: any;
     loginSubmit: Function;
+    handleLogout: Function;
 }
 
 export const AuthContext = createContext<InitialStateContex>({} as InitialStateContex);
