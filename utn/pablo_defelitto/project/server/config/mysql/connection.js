@@ -9,3 +9,5 @@ const sequelize = new Sequelize(mysql.database, mysql.user, mysql.password, {
     dialect: 'mysql'
   });
 
+  module.exports = sequelize; 
+
