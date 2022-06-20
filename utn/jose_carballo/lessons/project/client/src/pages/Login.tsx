@@ -6,12 +6,11 @@ import {
   validationSchema,
 } from "../validations/validationSchemaLogin";
 import { CustomInputText } from "../components/CustomInputText";
-import "./styles.scss";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { CardImage } from "../components/CardImage";
-import { images } from "../assets/utils";
+import "./styles.scss";
+
 
 
 
@@ -53,7 +52,6 @@ const handleSubmit = (obj:any) => {
           </Form>
         )}
       </Formik>
-      <CardImage image={images.Pikachu} name="logo pikachu" />
     </div>
   );
 };

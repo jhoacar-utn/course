@@ -9,8 +9,9 @@
 
 .form_container{
     background-color: #f8fcf7;
+    width: 50%;
     min-height: 300px;
-    width: 40%;
+    margin: auto;
     height: auto;
     padding: 10px;
     border-radius: 10px;
@@ -76,4 +77,45 @@
   max-width: 500px;
   border-radius: 10px;
   min-height: 500px;
+}
+
+.img_center{
+  width: 100%;
+  text-align: center;
+  img{
+    width: 50%;
+  }
+  @media (max-width: 600px) {
+    img{
+      width: 100%;
+    }
+  }
+}
+
+.img_pokebola{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 10%;
+  min-height: 150px;
+  background-color: rgb(0 0 0 / 40%);
+  
+}
+.item_pokebola{
+    width: 100px;
+    margin: auto;
+}
+.btn_access {
+  border-style: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 10px;
+  margin: 0 10px 10px;
+  position: relative;
+  padding: 0;
+ 
+}
+.btn_access:hover{
+  box-shadow: #ed5565 2px 2px 14px;
 }

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { getPokemonInfo, getPokemons } from "../apis";
+import axios from 'axios';
+// import { getPokemonInfo, getPokemons } from "../apis";
 import { addTokenCredential, authLogin, logoutTokenCredential } from "../services";
 import { AuthContext } from "./AuthContext";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { getPokemons } from "../apis";
 
 
 export interface INITIAL_STATE {
@@ -28,21 +30,63 @@ interface Props {
 export const AuthProvider = ({ children }: Props) => {
   const navigate = useNavigate();
   const [state, setState] = useState(initialState);
+
+  let offset = 0;
+const lista:any = [];
+
   const fetchPokemons = async () => {
-    try {
-      const data = await getPokemons();
-      const promise = data.results.map(async (pokemon: any) => {
-        return await getPokemonInfo(pokemon.url);
-      });
-      const results = await Promise.all(promise);
+    const pokeData = await getPokemons(lista, offset)
+        .then((response) => response.results);
+    pokeData.map(async(pokeInfo: any) => {
+      const pokemon = await axios.get(pokeInfo.url)
+        .then((response) => response.data);
+      let imgId = pokemon.id;
+      if (pokemon.id < 10) {
+        imgId = "00" + pokemon.id;
+      }
+      if (pokemon.id > 9 && pokemon.id < 100) {
+        imgId = "0" + pokemon.id;
+      }
+      pokemon.imageUrl = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imgId}.png`;
+      lista.push(pokemon);
       setState({
         ...state,
-        pokemons: results,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+        pokemons: lista
+      })
+    });
   };
+  const handleScroll = () => {
+    window.onscroll = () => {
+      const scrollTop = Math.ceil(document.documentElement.scrollTop);
+      const innerHeight = window.innerHeight;
+      const offsetHeight = document.documentElement.offsetHeight;
+      const bottomOfWindow = scrollTop + innerHeight === offsetHeight;
+      if (bottomOfWindow) {
+        offset += 10;
+        fetchPokemons();
+      }
+    };
+  };
+ const getPokemonsWithData = () => {
+  fetchPokemons();
+    window.addEventListener("scroll", handleScroll);
+  };
+ 
+  // const fetchPokemons = async () => {
+  //   try {
+  //     const data = await getPokemons();
+  //     const promise = data.results.map(async (pokemon: any) => {
+  //       return await getPokemonInfo(pokemon.url);
+  //     });
+  //     const results = await Promise.all(promise);
+  //     setState({
+  //       ...state,
+  //       pokemons: results,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const loginSubmit = (values: any) => {
     authLogin(values)
       .then((response) => {
@@ -70,7 +114,8 @@ export const AuthProvider = ({ children }: Props) => {
     navigate('login');
   }
   useEffect(() => {
-    fetchPokemons();
+    // fetchPokemons();
+    getPokemonsWithData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

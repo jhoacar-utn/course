@@ -1,0 +1,31 @@
+.card_pokemon{
+    padding: 4px;
+    box-sizing: border-box;
+    background-color: #611405;
+    overflow: hidden;
+    height: 150px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 14px #611405;
+    transition: 0.5s;
+}
+
+.card_pokemon:hover{
+    animation: pokeCardAnimation 0.5s ease-out;
+}
+@keyframes pokeCardAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    25% {
+      transform: rotate(3deg);
+    }
+  
+    75% {
+      transform: rotate(-3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }

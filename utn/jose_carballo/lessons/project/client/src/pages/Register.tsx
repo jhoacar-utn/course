@@ -11,20 +11,16 @@ import "./styles.scss";
 import { MySelect } from "../components/MySelect";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { getPokemon } from "../apis";
 import { CardPokemon } from "../components/CardPokemon";
-import { CardImage } from "../components/CardImage";
-import { images } from "../assets/utils";
 
 export const Register = () => {
   const { pokemons } = useContext(AuthContext);
   const [search,setSearch] = useState({} as any);
 const [valor, setValor] = useState();
-
+let pokemonSelect = pokemons.filter( (poke:any) => poke.name === valor)
 useEffect(() => {
-  
- valor && getPokemon(valor).then(resp => setSearch(resp))
-},[valor])
+valor && setSearch(pokemonSelect[0])
+},[valor, pokemonSelect])
   return (
     <div className="container_register">
       <Formik
@@ -56,12 +52,11 @@ useEffect(() => {
                     <MySelect key={name} label={label} name={name} onChange={handleChange}>
                       <option value="">Seleccione un avatar</option>
                       {pokemons?.map((pokemon: any, index: any) => {
-                        
                         return (
                           <option
                             key={index}
                           >
-                            {pokemon.data.name}
+                            {pokemon.name}
                           </option>
                         );
                       })}
@@ -77,7 +72,8 @@ useEffect(() => {
           )
         }}
       </Formik>
-        {!valor ?  <CardImage image={images.Pokemons} name="pokemons"/> : <CardPokemon {...search} />}
+        {/* {!valor ?  <CardImage image={images.Pokebola} name="pokemons"/> : <CardPokemon {...search} />} */}
+        <CardPokemon {...search} />
     </div>
   );
 };

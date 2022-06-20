@@ -2,25 +2,26 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { sx_card_pokemon } from "../assets/const";
+import { sx_card_pokemon, sx_img_card } from "../assets/const";
+import { images } from "../assets/utils";
 
 export const CardPokemon = (props: any) => {
   return (
     <div>
       
       <Card sx={sx_card_pokemon}>
-      <h1>Pokemon</h1>
+      <h1>Yo Te Elijo!!</h1>
         <CardMedia
           component="img"
-          height="200"
-          image={props?.data?.sprites?.front_default}
-          alt={props?.data?.name}
+          sx={sx_img_card}
+          image={props?.imageUrl || images.Pokebola}
+          alt={props?.name}
         />
         <CardContent>
           <Typography gutterBottom>
-            {props?.data?.name}
+            {props?.name}
           </Typography>
-          <textarea name="textarea" value={props?.data?.sprites?.front_default} rows={3} cols={30} readOnly/>
+          <textarea name="textarea" value={props?.imageUrl} rows={3} cols={30} readOnly/>
         </CardContent>
       </Card>
     </div>
