@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 import { Form, Formik } from "formik";
 import dataRegister from "../data/dataRegister.json";
-import { createAvatar } from "../services";
 import {
   initialValues,
   validationSchema,
@@ -14,7 +13,7 @@ import { AuthContext } from "../context/AuthContext";
 import { CardPokemon } from "../components/CardPokemon";
 
 export const Register = () => {
-  const { pokemons } = useContext(AuthContext);
+  const { pokemons, handleCreate } = useContext(AuthContext);
   const [search,setSearch] = useState({} as any);
 const [valor, setValor] = useState();
 let pokemonSelect = pokemons.filter( (poke:any) => poke.name === valor)
@@ -27,7 +26,7 @@ valor && setSearch(pokemonSelect[0])
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          createAvatar(values);
+          handleCreate(values);
           
         }}
       >
@@ -65,7 +64,7 @@ valor && setSearch(pokemonSelect[0])
                 }
                 throw new Error(`El type: ${type}, no es soportado`);
               })}
-              <Button variant="contained" type="submit">
+              <Button variant="contained" type="submit" sx={{backgroundColor: '#0895e2'}}>
                 Registrar
               </Button>
             </Form>

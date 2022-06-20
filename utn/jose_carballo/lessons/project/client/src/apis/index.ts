@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const URL_BASE =
   process.env.REACT_APP_POKEAPI_URL || "https://pokeapi.co/api/v2/pokemon";
@@ -9,6 +10,7 @@ export const getPokemonInfo = async (url: any) => {
     return response;
   } catch (error) {
     console.log(error, "Hubo un error en la consulta");
+    toast.success("Hubo un error en la consulta");
   }
 };
 export const getPokemon = async (name: any) => {
@@ -17,14 +19,16 @@ export const getPokemon = async (name: any) => {
     return pokemon;
   } catch (error) {
     console.log(error, "Hubo un error en la consulta");
+    toast.success("Hubo un error en la consulta");
   }
 };
 
 export const getPokemons = async (lista: any, offset: any) => {
   try {
-    const { data } = await axios(`${URL_BASE}?limit=${lista.length ? 10 : 20}&offset=${offset}`);
+    const { data } = await axios(`${URL_BASE}?limit=${lista.length ? 20 : 40}&offset=${offset}`);
     return data;
   } catch (error) {
     console.log(error, "Hubo un error en la consulta");
+    toast.success("Hubo un error en la consulta");
   }
 };

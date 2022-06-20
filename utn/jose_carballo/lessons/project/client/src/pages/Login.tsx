@@ -46,7 +46,7 @@ const handleSubmit = (obj:any) => {
               }
               throw new Error(`El type: ${type}, no es soportado`);
             })}
-            <Button variant="contained" type="submit">
+            <Button variant="contained" type="submit" sx={{backgroundColor: '#0895e2'}}>
               Iniciar sesión
             </Button>
           </Form>

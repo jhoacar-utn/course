@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 // import { getPokemonInfo, getPokemons } from "../apis";
-import { addTokenCredential, authLogin, logoutTokenCredential } from "../services";
+import { addTokenCredential, authLogin, createAvatar, logoutTokenCredential } from "../services";
 import { AuthContext } from "./AuthContext";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -72,21 +72,6 @@ const lista:any = [];
     window.addEventListener("scroll", handleScroll);
   };
  
-  // const fetchPokemons = async () => {
-  //   try {
-  //     const data = await getPokemons();
-  //     const promise = data.results.map(async (pokemon: any) => {
-  //       return await getPokemonInfo(pokemon.url);
-  //     });
-  //     const results = await Promise.all(promise);
-  //     setState({
-  //       ...state,
-  //       pokemons: results,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const loginSubmit = (values: any) => {
     authLogin(values)
       .then((response) => {
@@ -105,16 +90,20 @@ const lista:any = [];
         toast.error("Hubo un error en las credenciales");
       });
   };
+  const handleCreate = (values: any) => {
+    createAvatar(values);
+    navigate('login');
+    toast.success("Creado Satisfactoriamente");
+  }
   const handleLogout = () => {
     logoutTokenCredential();
     setState({
       ...state,
       isLogin: false
     })
-    navigate('login');
+    navigate('/');
   }
   useEffect(() => {
-    // fetchPokemons();
     getPokemonsWithData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -124,7 +113,8 @@ const lista:any = [];
         ...state,
         setState,
         loginSubmit,
-        handleLogout
+        handleLogout,
+        handleCreate
       }}
     >
       {children}

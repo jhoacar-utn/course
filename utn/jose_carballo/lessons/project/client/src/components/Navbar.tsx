@@ -33,7 +33,7 @@ const handleProfiler = (page:string) => {
 }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{boxShadow:'none'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
