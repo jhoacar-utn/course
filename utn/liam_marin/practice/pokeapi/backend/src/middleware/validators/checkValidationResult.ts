@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from "express";
 
 import { validationResult } from "express-validator";
 
-export function checkValidationResult(
+function checkValidationResult(
   req: Request,
   res: Response,
   next: NextFunction
@@ -16,3 +16,5 @@ export function checkValidationResult(
       .json({ message: "Malformed request.", errors: errors.array() });
   }
 }
+
+export default checkValidationResult;
