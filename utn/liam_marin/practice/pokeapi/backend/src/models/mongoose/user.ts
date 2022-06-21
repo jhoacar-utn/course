@@ -1,13 +1,13 @@
 import type { Model, Document } from "mongoose";
 import type { BaseUser, UserInstance, UserModel } from "../types/user";
 
-import { Schema } from "mongoose";
-import connection from "./connection";
+import mongoose from "mongoose";
+import connection from "./connection.js";
 
 interface MongoUserInstance extends UserInstance, Document {}
 interface MongoUserModel extends UserModel, Model<MongoUserInstance> {}
 
-const schema = new Schema<MongoUserInstance>(
+const schema = new mongoose.Schema<MongoUserInstance>(
   {
     username: { type: String, required: true, unique: true },
     displayname: { type: String },

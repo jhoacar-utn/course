@@ -2,7 +2,7 @@ import type { InferAttributes, InferCreationAttributes } from "sequelize";
 import type { BaseUser, UserInstance } from "../types/user";
 
 import { DataTypes, Model } from "sequelize";
-import sequelize from "./connection";
+import sequelize from "./connection.js";
 
 class User
   extends Model<InferAttributes<User>, InferCreationAttributes<User>>

@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 
 import jsonwebtoken from "jsonwebtoken";
-import config from "../config/token";
+import config from "../config/token.js";
 
 function checkToken(req: Request, res: Response, next: NextFunction) {
   const token = req.header("Authorization");

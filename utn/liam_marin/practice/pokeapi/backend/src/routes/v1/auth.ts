@@ -2,10 +2,10 @@ import { Router } from "express";
 import {
   loginController,
   registerController,
-} from "../../controllers/authController";
-import checkValidationResult from "../../middleware/validators/checkValidationResult";
-import registerValidator from "../../middleware/validators/registerValidator";
-import loginValidator from "../../middleware/validators/loginValidator";
+} from "../../controllers/authController.js";
+import checkValidationResult from "../../middleware/validators/checkValidationResult.js";
+import registerValidator from "../../middleware/validators/registerValidator.js";
+import loginValidator from "../../middleware/validators/loginValidator.js";
 
 const router = Router();
 

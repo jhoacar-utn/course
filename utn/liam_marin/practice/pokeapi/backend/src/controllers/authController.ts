@@ -2,9 +2,9 @@ import type { Request, Response } from "express";
 
 import bcrypt from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
-import bcryptConfig from "../config/bcrypt";
-import tokenConfig from "../config/token";
-import User from "../models/user";
+import bcryptConfig from "../config/bcrypt.js";
+import tokenConfig from "../config/token.js";
+import User from "../models/user.js";
 
 export async function registerController(req: Request, res: Response) {
   const { username, displayname, email, password, avatarId } = req.body;

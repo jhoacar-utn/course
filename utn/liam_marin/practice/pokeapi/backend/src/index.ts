@@ -1,6 +1,6 @@
 import express from "express";
-import config from "./config/express";
-import routes from "./routes";
+import config from "./config/express.js";
+import routes from "./routes/index.js";
 
 const app = express();
 
