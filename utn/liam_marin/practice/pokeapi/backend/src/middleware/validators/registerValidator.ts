@@ -29,7 +29,7 @@ const registerValidator = [
     .withMessage("Password field is missing.")
     .isLength({ min: 8, max: 72 })
     .withMessage("Password must be between 8 and 72 characters."),
-  body("avatar")
+  body("avatarId")
     .exists({ checkNull: true })
     .withMessage("Avatar ID field is missing.")
     .isInt({ min: 1, max: 151 })
