@@ -57,7 +57,7 @@ export async function loginController(req: Request, res: Response) {
 
       res
         .status(201)
-        .json({ message: "Account created.", body: { token: encoded } });
+        .json({ message: "Login successful.", body: { token: encoded } });
     }
   );
 }
