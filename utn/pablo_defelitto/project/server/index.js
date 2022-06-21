@@ -1,15 +1,19 @@
 require("dotenv").config();
 const express = require("express");
-
+const cookieSession = require('cookie-session')
 const cors = require("cors");
-const routerApi = require("./routes/api");
 const handleStartServer = require("./helpers/handleStartServer");
+const {nameCookie,expireInCookie,cookieSecretKey} = require("./config/config");
+
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cookieSession({name: nameCookie,keys:[cookieSecretKey], maxAge: expireInCookie}));
+
 app.use(cors());
 
+const routerApi = require("./routes/api");
 app.use("/api/v1",routerApi);
 
 

@@ -22,3 +22,4 @@ module.exports = {
     getHashedPassword,
     comparePassword
 }
+
