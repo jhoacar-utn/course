@@ -11,6 +11,6 @@ WORKDIR /usr/src/app
 RUN chown node:node .
 USER node
 COPY --chown=node:node package*.json ./
-RUN npm install --production
+RUN npm install --omit=dev
 COPY --from=builder --chown=node:node /usr/src/app/dist dist
 CMD npm start
