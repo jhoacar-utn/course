@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  backend:
+    build: "backend"
+    expose:
+      - 4000
+    environment:
+      EXPRESS_PORT: "4000"
+      EXPRESS_ROOT: "/"
+      NODE_ENV: "production"
+      TOKEN_SECRETKEY:

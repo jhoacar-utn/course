@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    environment:
+      DB_CONNECTION: "mongodb"
+      DB_URI: "mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@database:27017"
+
+  database:
+    image: mongo
+    expose:
+      - 27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_PASSWORD}"
