@@ -1,5 +1,4 @@
 import { body } from "express-validator";
-import { checkValidationResult } from "./checkValidationResult";
 
 const registerValidator = [
   body("name")
@@ -16,7 +15,6 @@ const registerValidator = [
     .isInt({ min: 1, max: 151 })
     .withMessage("Avatar ID must be between 1 and 151.")
     .toInt(),
-  checkValidationResult,
 ];
 
 export default registerValidator;
