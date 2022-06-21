@@ -8,7 +8,7 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   declare name: string;
   declare email: string;
   declare password: string;
-  declare avatarId: number;
+  declare avatar: number;
 
   static createUser(data: BaseUser): UserInstance {
     return this.build(data);
@@ -23,14 +23,14 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
     return user === null;
   }
 
-  static async checkAvatarAvailable(avatarId: number): Promise<boolean> {
-    const user = await this.findOne({ where: { avatarId } });
+  static async checkAvatarAvailable(avatar: number): Promise<boolean> {
+    const user = await this.findOne({ where: { avatar } });
     return user === null;
   }
 
   static async getAvatars(): Promise<number[]> {
-    const users = await this.findAll({ attributes: ["avatarId"] });
-    return users.map((user) => user.avatarId);
+    const users = await this.findAll({ attributes: ["avatar"] });
+    return users.map((user) => user.avatar);
   }
 
   async saveUser() {
@@ -47,7 +47,7 @@ User.init(
     name: { type: DataTypes.STRING(64), allowNull: false },
     email: { type: DataTypes.STRING(255), allowNull: false, unique: true },
     password: { type: DataTypes.STRING(64), allowNull: false },
-    avatarId: { type: DataTypes.SMALLINT, allowNull: false, unique: true },
+    avatar: { type: DataTypes.SMALLINT, allowNull: false, unique: true },
   },
   { tableName: "users", modelName: "User", sequelize }
 );

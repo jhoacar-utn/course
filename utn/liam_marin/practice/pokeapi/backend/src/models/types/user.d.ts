@@ -2,7 +2,7 @@ export interface BaseUser {
   name: string;
   email: string;
   password: string;
-  avatarId: number;
+  avatar: number;
 }
 
 export interface UserMethods {
@@ -16,6 +16,6 @@ export interface UserModel {
   createUser(data: BaseUser): UserInstance;
   findUser(email: string): Promise<UserInstance | null>;
   checkEmailAvailable(email: string): Promise<boolean>;
-  checkAvatarAvailable(avatarId: number): Promise<boolean>;
+  checkAvatarAvailable(avatar: number): Promise<boolean>;
   getAvatars(): Promise<number[]>;
 }

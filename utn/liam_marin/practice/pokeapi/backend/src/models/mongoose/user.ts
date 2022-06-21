@@ -12,7 +12,7 @@ const schema = new Schema<MongoUserInstance>(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    avatarId: { type: Number, required: true, unique: true },
+    avatar: { type: Number, required: true, unique: true },
   },
   {
     methods: {
@@ -39,13 +39,13 @@ const schema = new Schema<MongoUserInstance>(
         return user === null;
       },
 
-      async checkAvatarAvailable(avatarId: number): Promise<boolean> {
-        const user = await this.exists({ avatarId }).exec();
+      async checkAvatarAvailable(avatar: number): Promise<boolean> {
+        const user = await this.exists({ avatar }).exec();
         return user === null;
       },
 
       async getAvatars(): Promise<number[]> {
-        return this.distinct("avatarId").exec();
+        return this.distinct("avatar").exec();
       },
     },
   }
