@@ -4,18 +4,31 @@ import type { BaseUser, UserInstance } from "../types/user";
 import { DataTypes, Model } from "sequelize";
 import sequelize from "./connection";
 
-class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
-  declare name: string;
+class User
+  extends Model<InferAttributes<User>, InferCreationAttributes<User>>
+  implements UserInstance
+{
+  declare username: string;
+  declare displayname?: string;
   declare email: string;
   declare password: string;
-  declare avatar: number;
+  declare avatarId: number;
 
   static createUser(data: BaseUser): UserInstance {
     return this.build(data);
   }
 
-  static async findUser(email: string): Promise<UserInstance | null> {
+  static async findByUsername(username: string): Promise<UserInstance | null> {
+    return this.findOne({ where: { username } });
+  }
+
+  static async findByEmail(email: string): Promise<UserInstance | null> {
     return this.findOne({ where: { email } });
+  }
+
+  static async checkUsernameAvailable(username: string): Promise<boolean> {
+    const user = await this.findOne({ where: { username } });
+    return user === null;
   }
 
   static async checkEmailAvailable(email: string): Promise<boolean> {
@@ -23,14 +36,14 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
     return user === null;
   }
 
-  static async checkAvatarAvailable(avatar: number): Promise<boolean> {
-    const user = await this.findOne({ where: { avatar } });
+  static async checkAvatarAvailable(avatarId: number): Promise<boolean> {
+    const user = await this.findOne({ where: { avatarId } });
     return user === null;
   }
 
   static async getAvatars(): Promise<number[]> {
-    const users = await this.findAll({ attributes: ["avatar"] });
-    return users.map((user) => user.avatar);
+    const users = await this.findAll({ attributes: ["avatarId"] });
+    return users.map((user) => user.avatarId);
   }
 
   async saveUser() {
@@ -44,10 +57,11 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
 
 User.init(
   {
-    name: { type: DataTypes.STRING(64), allowNull: false },
-    email: { type: DataTypes.STRING(255), allowNull: false, unique: true },
-    password: { type: DataTypes.STRING(64), allowNull: false },
-    avatar: { type: DataTypes.SMALLINT, allowNull: false, unique: true },
+    username: { type: DataTypes.STRING(32), allowNull: false, unique: true },
+    displayname: { type: DataTypes.STRING(32), allowNull: true },
+    email: { type: DataTypes.STRING(254), allowNull: false, unique: true },
+    password: { type: DataTypes.STRING(255), allowNull: false },
+    avatarId: { type: DataTypes.SMALLINT, allowNull: false, unique: true },
   },
   { tableName: "users", modelName: "User", sequelize }
 );

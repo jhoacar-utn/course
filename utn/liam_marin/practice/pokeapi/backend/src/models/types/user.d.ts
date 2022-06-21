@@ -1,8 +1,9 @@
 export interface BaseUser {
-  name: string;
+  username: string;
+  displayname?: string;
   email: string;
   password: string;
-  avatar: number;
+  avatarId: number;
 }
 
 export interface UserMethods {
@@ -10,12 +11,14 @@ export interface UserMethods {
   deleteUser(): Promise<void>;
 }
 
-export interface UserInstance extends BaseUser, UserMethods {}
+type UserInstance = BaseUser & UserMethods;
 
 export interface UserModel {
   createUser(data: BaseUser): UserInstance;
-  findUser(email: string): Promise<UserInstance | null>;
+  findByUsername(username: string): Promise<UserInstance | null>;
+  findByEmail(email: string): Promise<UserInstance | null>;
+  checkUsernameAvailable(username: string): Promise<boolean>;
   checkEmailAvailable(email: string): Promise<boolean>;
-  checkAvatarAvailable(avatar: number): Promise<boolean>;
+  checkAvatarAvailable(avatarId: number): Promise<boolean>;
   getAvatars(): Promise<number[]>;
 }

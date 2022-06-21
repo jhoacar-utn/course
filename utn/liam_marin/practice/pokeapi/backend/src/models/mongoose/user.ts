@@ -9,10 +9,11 @@ interface MongoUserModel extends UserModel, Model<MongoUserInstance> {}
 
 const schema = new Schema<MongoUserInstance>(
   {
-    name: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
+    displayname: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    avatar: { type: Number, required: true, unique: true },
+    avatarId: { type: Number, required: true, unique: true },
   },
   {
     methods: {
@@ -30,8 +31,17 @@ const schema = new Schema<MongoUserInstance>(
         return new this(data);
       },
 
-      async findUser(email: string): Promise<UserInstance | null> {
+      async findByUsername(username: string): Promise<UserInstance | null> {
+        return this.findOne({ username }).exec();
+      },
+
+      async findByEmail(email: string): Promise<UserInstance | null> {
         return this.findOne({ email }).exec();
+      },
+
+      async checkUsernameAvailable(username: string): Promise<boolean> {
+        const user = await this.exists({ username }).exec();
+        return user === null;
       },
 
       async checkEmailAvailable(email: string): Promise<boolean> {
@@ -39,13 +49,13 @@ const schema = new Schema<MongoUserInstance>(
         return user === null;
       },
 
-      async checkAvatarAvailable(avatar: number): Promise<boolean> {
-        const user = await this.exists({ avatar }).exec();
+      async checkAvatarAvailable(avatarId: number): Promise<boolean> {
+        const user = await this.exists({ avatarId }).exec();
         return user === null;
       },
 
       async getAvatars(): Promise<number[]> {
-        return this.distinct("avatar").exec();
+        return this.distinct("avatarId").exec();
       },
     },
   }
