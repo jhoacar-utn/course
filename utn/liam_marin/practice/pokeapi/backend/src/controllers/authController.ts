@@ -7,21 +7,27 @@ import tokenConfig from "../config/token";
 import User from "../models/user";
 
 export async function registerController(req: Request, res: Response) {
-  const { name, email, password, avatarId } = req.body;
+  const { username, displayname, email, password, avatarId } = req.body;
+
+  if (!(await User.checkUsernameAvailable(username))) {
+    res.status(400).json({ message: "Username is already in use." });
+    return;
+  }
 
   if (!(await User.checkEmailAvailable(email))) {
-    res.status(400).json({ error: "E-mail address is already in use." });
+    res.status(400).json({ message: "E-mail address is already in use." });
     return;
   }
 
   if (!(await User.checkAvatarAvailable(avatarId))) {
-    res.status(400).json({ error: "Avatar is already in use." });
+    res.status(400).json({ message: "Avatar is already in use." });
     return;
   }
 
   const hashedPassword = await bcrypt.hash(password, bcryptConfig.saltCost);
   const user = User.createUser({
-    name,
+    username,
+    displayname,
     email,
     password: hashedPassword,
     avatarId,
@@ -33,14 +39,25 @@ export async function registerController(req: Request, res: Response) {
 export async function loginController(req: Request, res: Response) {
   const { email, password } = req.body;
 
-  const user = await User.findUser(email);
+  const user = await User.findByEmail(email);
   if (user === null || !(await bcrypt.compare(password, user.password))) {
-    res.status(400).json({ error: "E-mail or password are incorrect." });
+    res.status(400).json({ message: "E-mail or password are incorrect." });
     return;
   }
 
-  res.status(201).json({
-    message: "Logged in successfully.",
-    body: { token: jsonwebtoken.sign({ email }, tokenConfig.secret) },
-  });
+  jsonwebtoken.sign(
+    { username: user.username, email: user.email },
+    tokenConfig.secret,
+    { algorithm: "HS256" },
+    (err, encoded) => {
+      if (err || encoded === undefined) {
+        res.status(500).json({ message: "Failed to sign token." });
+        return;
+      }
+
+      res
+        .status(201)
+        .json({ message: "Account created.", body: { token: encoded } });
+    }
+  );
 }
