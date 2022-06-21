@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
+  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
   "compilerOptions": {
     "rootDir": "./src",
     "baseUrl": "./src",
