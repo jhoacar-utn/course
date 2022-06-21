@@ -3,8 +3,8 @@ version: '3.8'
 services:
   backend:
     build: "backend"
-    expose:
-      - 4000
+    ports:
+      - "4000:4000"
     environment:
       EXPRESS_PORT: "4000"
       EXPRESS_ROOT: "/"
