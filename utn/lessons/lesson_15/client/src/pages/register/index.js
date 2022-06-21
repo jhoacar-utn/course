@@ -1,17 +1,32 @@
 import { Button, Card, CardContent, FormControl, FormHelperText, Input, InputLabel, MenuItem, Select, Typography } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { AuthorizationContext } from "../../context/authorization";
 import { getPokemons } from "../../services/api";
+import { changeAvatarAndImage, changeEmail, changeName, changePassword } from "./actions";
+import { reducerFunction } from "./reducer";
 import styles from "./styles.module.css";
+
+/*
+
+ REDUX:
+
+ store -> Es el lugar donde se almacena toda la informacion, es decir, un objeto global
+
+ actions -> Son aquellas funciones que seran las encargadas de recibir la informacion para actualizar
+    
+ reducers -> Son aquellas funciones que reciben la informacion de los actions y cambian el store
+
+ */
+
 
 function Register() {
 
     const [avatars, setAvatars] = useState([]);
     const { isLoggedIn } = useContext(AuthorizationContext);
 
-    const [registerState, setRegisterState] = useState({
+    const [registerState, setRegisterState] = useReducer(reducerFunction, {
         name: "",
         email: "",
         password: "",
@@ -45,43 +60,47 @@ function Register() {
 
     const handleChangeEmail = (event) => {
 
-        setRegisterState({
-            ...registerState, // El spread operator coloca en una linea todos los atributos del objeto
-            // name:"", email: "", ....
-            email: event.target.value,
-        })
+        setRegisterState(changeEmail(event.target.value));
+        // setRegisterState({
+        //     ...registerState, // El spread operator coloca en una linea todos los atributos del objeto
+        //     // name:"", email: "", ....
+        //     email: event.target.value,
+        // })
     }
 
     const handleChangePassword = (event) => {
 
-        setRegisterState({
-            ...registerState,
-            password: event.target.value
-        })
+        setRegisterState(changePassword(event.target.value));
+        // setRegisterState({
+        //     ...registerState,
+        //     password: event.target.value
+        // })
 
     }
 
     const handleChangeName = (event) => {
 
-        setRegisterState({
-            ...registerState,
-            name: event.target.value,
-        })
+        setRegisterState(changeName(event.target.value));
+        // setRegisterState({
+        //     ...registerState,
+        //     name: event.target.value,
+        // })
     }
 
     const handleChangeAvatar = (event) => {
 
         const newAvatar = event.target.value;
-        const avatarObject = avatars.find((element)=>{
-            return element.name == newAvatar;
+        const avatarObject = avatars.find((element) => {
+            return element.name === newAvatar;
         });
         const newImage = avatarObject.image;
 
-        setRegisterState({
-            ...registerState,
-            avatar: newAvatar,
-            image: newImage,
-        })
+        setRegisterState(changeAvatarAndImage(newAvatar, newImage));
+        // setRegisterState({
+        //     ...registerState,
+        //     avatar: newAvatar,
+        //     image: newImage,
+        // })
     }
 
 
@@ -130,9 +149,9 @@ function Register() {
                                     label="User Avatar"
                                     onChange={handleChangeAvatar}
                                 >
-                                    {avatars.map(element=>{
+                                    {avatars.map(element => {
                                         return (
-                                            <MenuItem sx={{textTransform:'capitalize'}} value={element.name}>
+                                            <MenuItem sx={{ textTransform: 'capitalize' }} value={element.name}>
                                                 <Typography component="span">{element.name}</Typography>
                                                 <img src={element.image} alt={element.name} width={50} height={50} />
                                             </MenuItem>
