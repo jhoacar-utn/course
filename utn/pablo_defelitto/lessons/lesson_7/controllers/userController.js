@@ -13,6 +13,7 @@ const postUser = async (req,res,next)=>{
     
     try{
 
+
         const userData = req.body;
 
         console.log(userData);

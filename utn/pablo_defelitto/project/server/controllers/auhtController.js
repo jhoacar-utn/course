@@ -31,6 +31,7 @@ const handleLogin = async (req,res,next)=>{
 
         setCookie(req,token);
 
+        console.log(token);
         return res.json({message:"Logueado"});
     
     }catch(error)
