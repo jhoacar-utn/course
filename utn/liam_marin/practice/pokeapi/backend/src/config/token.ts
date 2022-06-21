@@ -1,5 +1,5 @@
 const config = (() => {
-  const secret = process.env.TOKEN_SECRETKEY;
+  const secret = process.env["TOKEN_SECRETKEY"];
 
   if (!secret) {
     throw new Error("TOKEN_SECRETKEY is unset");

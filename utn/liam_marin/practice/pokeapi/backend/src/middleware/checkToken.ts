@@ -18,7 +18,7 @@ function checkToken(req: Request, res: Response, next: NextFunction) {
       if (err || decoded === undefined || typeof decoded === "string") {
         res.status(400).json({ message: "Invalid Authorization header." });
       } else {
-        res.locals.token = decoded;
+        res.locals["token"] = decoded;
         next();
       }
     }

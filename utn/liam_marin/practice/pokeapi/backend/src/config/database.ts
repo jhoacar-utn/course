@@ -4,8 +4,8 @@ interface DatabaseConfig {
 }
 
 const config: DatabaseConfig = (() => {
-  let connection = process.env.DB_CONNECTION || "mongodb";
-  let uri = process.env.DB_URI;
+  let connection = process.env["DB_CONNECTION"] || "mongodb";
+  let uri = process.env["DB_URI"];
 
   if (!(connection === "mongodb" || connection === "mysql")) {
     throw new Error("DB_CONNECTION must be 'mongodb' or 'mysql'");
