@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "PokeAPI backend service.",
   "main": "./dist/index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "dev": "concurrently -ki -n nodemon,tsc -c green,cyan \"npm:nodemon\" \"npm:tsc-watch\"",
