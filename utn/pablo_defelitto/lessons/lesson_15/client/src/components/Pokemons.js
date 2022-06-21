@@ -6,15 +6,27 @@ function ComponentePokemons() {
 
     useEffect(() => {
 
-        getPokemons().then(result=>{
-            console.log(result);
+        getPokemons().then(result => {
+
+            setPokemons(result);
+
+            console.log(result)
         })
 
     }, []);
 
     return (
+
         <div style={{ marginTop: '100px' }}>
-            Pokemones
+            Pokemones:
+            <ul>
+                {pokemons.map((element) =>
+                    <li>
+                        <span>{element.name}</span>
+                        <img src={element.image} alt={element.name}></img>
+                    </li>
+                )}
+            </ul>
         </div>
     )
 }
