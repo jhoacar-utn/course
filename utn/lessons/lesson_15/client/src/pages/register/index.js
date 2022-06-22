@@ -3,6 +3,7 @@ import { useContext, useEffect, useReducer, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { AuthorizationContext } from "../../context/authorization";
+import { AppContext } from "../../context/store";
 import { getPokemons } from "../../services/api";
 import { changeAvatarAndImage, changeEmail, changeName, changePassword } from "./actions";
 import { reducerFunction } from "./reducer";
@@ -24,7 +25,7 @@ import styles from "./styles.module.css";
 function Register() {
 
     const [avatars, setAvatars] = useState([]);
-    const { isLoggedIn } = useContext(AuthorizationContext);
+    const { isLoggedIn } = useContext(AppContext);
 
     const [registerState, setRegisterState] = useReducer(reducerFunction, {
         name: "",
