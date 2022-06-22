@@ -1,10 +1,10 @@
 require("dotenv").config();
-const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session');clearImmediate
 const express = require("express");
 
 const cors = require("cors");
 const handleStartServer = require("./helpers/handleStartServer");
-const {nameCookie,expireInCookie,cookieSecretKey} = require("./config/config");
+const {nameCookie,expireInCookie,cookieSecretKey} = require("./config/hash");
 
 const app = express();
 
