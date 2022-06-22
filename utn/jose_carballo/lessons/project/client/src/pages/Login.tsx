@@ -9,6 +9,7 @@ import { CustomInputText } from "../components/CustomInputText";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { getTypeInput } from "../services";
 import "./styles.scss";
 
 
@@ -33,7 +34,7 @@ const handleSubmit = (obj:any) => {
           <Form className="form_container" noValidate autoComplete="off">
              <h1 className="title_login">Inicia Sesión</h1>
             {dataLogin.map(({ type, name, placeholder, label }) => {
-              if (type === "input" || type === "password" || type === "email") {
+              if (getTypeInput(type, "email","password")) {
                 return (
                   <CustomInputText
                     key={name}

@@ -6,17 +6,19 @@ import {
   validationSchema,
 } from "../validations/validationSchemaRegister";
 import { CustomInputText } from "../components/CustomInputText";
-import "./styles.scss";
 import { MySelect } from "../components/MySelect";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { CardPokemon } from "../components/CardPokemon";
+import { getTypeInput } from "../services";
+import "./styles.scss";
 
 export const Register = () => {
-  const { pokemons, handleCreate } = useContext(AuthContext);
-  const [search,setSearch] = useState({} as any);
+const { pokemons, handleCreate } = useContext(AuthContext);
+const [search,setSearch] = useState({} as any);
 const [valor, setValor] = useState();
-let pokemonSelect = pokemons.filter( (poke:any) => poke.name === valor)
+let pokemonSelect = pokemons.filter( (poke:any) => poke.name === valor);
+
 useEffect(() => {
 valor && setSearch(pokemonSelect[0])
 },[valor, pokemonSelect])
@@ -27,16 +29,15 @@ valor && setSearch(pokemonSelect[0])
         validationSchema={validationSchema}
         onSubmit={(values) => {
           handleCreate(values);
-          
         }}
       >
         {({ values, handleChange }) => {
-         pokemons && setValor(values.avatar)
+         values?.avatar && setValor(values.avatar)
           return(
             <Form className="form_container" noValidate autoComplete="off">
               <h1 className="title_login">Registro de usuario</h1>
               {dataRegister.map(({ type, name, placeholder, label }) => {
-                if (type === "input" || type === "password" || type === "email") {
+                if (getTypeInput(type, "input","password","email")) {
                   return (
                     <CustomInputText
                       key={name}
@@ -46,7 +47,7 @@ valor && setSearch(pokemonSelect[0])
                       placeholder={placeholder}
                     />
                   );
-                } else if (type === "select") {
+                } else if (getTypeInput(type,"select")) {
                   return (
                     <MySelect key={name} label={label} name={name} onChange={handleChange}>
                       <option value="">Seleccione un avatar</option>
@@ -71,7 +72,6 @@ valor && setSearch(pokemonSelect[0])
           )
         }}
       </Formik>
-        {/* {!valor ?  <CardImage image={images.Pokebola} name="pokemons"/> : <CardPokemon {...search} />} */}
         <CardPokemon {...search} />
     </div>
   );

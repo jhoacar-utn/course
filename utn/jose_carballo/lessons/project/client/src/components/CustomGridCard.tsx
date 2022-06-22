@@ -4,7 +4,6 @@ import { CustomCard } from "./CustomCard";
 
 export const CustomGridCard = () => {
     const {pokemons} = useContext(AuthContext);
-    console.log(pokemons)
   return (
     <div className="cards">
         { pokemons?.map( (pokemon: any, index: number) => {

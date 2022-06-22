@@ -1,4 +1,4 @@
-import { ErrorMessage } from 'formik';
+import { ErrorMessage, useField } from 'formik';
 
 interface Props {
     label: string;
@@ -9,11 +9,12 @@ interface Props {
 
 
 export const MySelect = ( { label, ...props }: Props ) => {
+    const [ field ] = useField(props)
 
 
     return (
         <>
-            <select className='select' { ...props } onChange={props.onChange} />
+            <select className='select' { ...props } {...field} />
             <ErrorMessage name={ props.name } component="span" className="text_error" />
         </>
     )

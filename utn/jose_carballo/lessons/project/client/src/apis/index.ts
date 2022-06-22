@@ -25,7 +25,7 @@ export const getPokemon = async (name: any) => {
 
 export const getPokemons = async (lista: any, offset: any) => {
   try {
-    const { data } = await axios(`${URL_BASE}?limit=${lista.length ? 20 : 40}&offset=${offset}`);
+    const { data } = await axios(`${URL_BASE}?limit=${lista.length ? 10 : 20}&offset=${offset}`);
     return data;
   } catch (error) {
     console.log(error, "Hubo un error en la consulta");

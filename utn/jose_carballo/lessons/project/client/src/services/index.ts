@@ -31,10 +31,12 @@ export const sendProfiler = async(token:any) =>{
 }
 export const addTokenCredential = (token:any) => localStorage.setItem('token',token);
 
-
 export const getTokenCredencial = () => localStorage.getItem('token');
 
 export const logoutTokenCredential = () => localStorage.removeItem("token");
   
-
+export const getTypeInput = (_type:String, input?:String, password?:String, email?:String, select?:String, number?:any) => {
+    return _type === input || _type === password || _type === email || _type === select || _type === number
+};
+    
 
