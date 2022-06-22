@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel");
+const { userModel } = require("../models");         
 const {comparePassword} = require("../helpers/handlePassword");
 const {getJsonWebToken} = require("../helpers/handleJWT");
 const { setCookie } = require("../helpers/handleCookie");
@@ -9,7 +9,7 @@ const handleLogin = async (req,res,next)=>{
 
         const {email, password} = req.body;
 
-        const user = await userModel.findOne({ where: { email } });
+        const user = await userModel.customFindOne( { email } );
 
         if(!user){
             res.status(401);

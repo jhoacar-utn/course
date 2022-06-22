@@ -1,5 +1,5 @@
 const sequelize = require("./connection");
-require("../../models/userModel");
+require("../../models")
 
 const initDatabase = async () => {
     try {
