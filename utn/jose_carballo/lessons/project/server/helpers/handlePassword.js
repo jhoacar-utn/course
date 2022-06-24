@@ -10,9 +10,5 @@ exports.getHashedPassword = async (plainPassword)=>{
     return hashedPassword;
 }
 
-exports.comparePassword = async (plainPassword, hashedPassword) =>{
-    
-    const result = await bcrypt.compare(plainPassword, hashedPassword);
+exports.comparePassword = (plainPassword, hashedPassword) => bcrypt.compareSync(plainPassword, hashedPassword);
 
-    return result;
-}

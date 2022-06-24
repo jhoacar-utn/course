@@ -4,11 +4,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { sx_card_pokemon, sx_img_card } from "../assets/const";
 import { images } from "../assets/utils";
+import './cardStyles.scss';
 
 export const CardPokemon = (props: any) => {
   return (
-    <div>
-      
+    
       <Card sx={sx_card_pokemon}>
       <h1>Yo Te Elijo!!</h1>
         <CardMedia
@@ -24,6 +24,5 @@ export const CardPokemon = (props: any) => {
           <textarea name="textarea" value={props?.imageUrl} rows={3} cols={30} readOnly/>
         </CardContent>
       </Card>
-    </div>
   );
 };

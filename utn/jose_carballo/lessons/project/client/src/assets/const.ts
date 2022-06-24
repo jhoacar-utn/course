@@ -22,7 +22,7 @@ export const sx_stiles_desktop = {
 
 export const sx_card_pokemon = {
   backgroundColor:'#f8fcf7d4',
-  margin: 2,
+  margin: 'auto',
   minWidth: 250,
   maxWidth: 300,
   height: 'auto',

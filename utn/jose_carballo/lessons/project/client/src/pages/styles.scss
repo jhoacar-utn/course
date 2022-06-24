@@ -11,6 +11,7 @@
     background-color: #f8fcf7d4;
     width: 50%;
     min-height: 300px;
+    min-width: 260px;
     margin: auto;
     height: auto;
     padding: 10px;
@@ -18,6 +19,12 @@
     input{
       background-color: #bfc2be;
     }
+    @media (max-width: 600px) {
+        width: 90%;
+        margin-top: 70px;
+        min-height: 300px;
+    }
+
 }
 .title_login{
   color: #ffcb05;
@@ -132,4 +139,10 @@
 @keyframes borderPokebola {
   from {box-shadow: #ed5565 4px 4px 30px;}
   to { box-shadow: #ed5565 2px 2px 10px;}
+}
+
+.conten_card_pokemon{
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
 }

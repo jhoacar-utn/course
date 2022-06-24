@@ -3,7 +3,11 @@ import axios from 'axios';
 const url = process.env.REACT_APP_API_URL;
 
 export const createAvatar = (objeto:any) => {
-    return  axios.post(`${url}/auth/register`,objeto)
+    try {
+        return  axios.post(`${url}/auth/register`,objeto);
+    } catch (error) {
+        throw new Error(`Ocurrio un error, ${error}`)
+    }
 }
 
 export const getAvatarBD = async() => {

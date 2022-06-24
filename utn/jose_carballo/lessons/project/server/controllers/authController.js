@@ -11,7 +11,7 @@ exports.authLogin = async (req, res, next) => {
       res.status(401);
       return res.json({ error: "User not registered" });
     }
-    const isAuthorized = comparePassword(password, user.password);
+    const isAuthorized = comparePassword(password, user.dataValues.password);
     if (!isAuthorized) {
       return res.status(401).json({ error: "Credenciales incorrectas" });
     }

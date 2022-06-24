@@ -91,9 +91,14 @@ const lista:any = [];
       });
   };
   const handleCreate = (values: any) => {
-    createAvatar(values);
-    navigate('login');
-    toast.success("Creado Satisfactoriamente");
+    createAvatar(values).then((resp) => {
+      console.log(resp)
+      navigate('login');
+      toast.success("Creado Satisfactoriamente");
+    })
+    .catch(({response}) => {
+      toast.error(`${response.data.error}`);
+    })
   }
   const handleLogout = () => {
     logoutTokenCredential();
