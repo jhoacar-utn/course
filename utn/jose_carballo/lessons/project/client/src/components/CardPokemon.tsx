@@ -18,10 +18,11 @@ export const CardPokemon = (props: any) => {
           alt={props?.name}
         />
         <CardContent>
-          <Typography gutterBottom>
+          <Typography gutterBottom sx={{textTransform: "uppercase", fontWeight: "bold"}}>
             {props?.name}
           </Typography>
           <textarea name="textarea" value={props?.imageUrl} rows={3} cols={30} readOnly/>
+        <span>Copiar dirección de la imagen!</span>
         </CardContent>
       </Card>
   );
