@@ -1,0 +1,1 @@
+Esta clase se agregaron modelos de sequelize, de mongoose y se hizo un despliegue a heroku
