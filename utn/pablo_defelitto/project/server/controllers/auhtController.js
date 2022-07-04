@@ -32,7 +32,10 @@ const handleLogin = async (req,res,next)=>{
         setCookie(req,token);
 
         console.log(token);
-        return res.json({message:"Logueado satisfactoriamente"});
+        return res.json({message: "user login succesfully",
+        body: {
+            token
+        }});
     
     }catch(error)
     {
