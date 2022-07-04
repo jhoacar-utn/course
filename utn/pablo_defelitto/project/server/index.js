@@ -15,7 +15,10 @@ app.use(cookieSession({name: nameCookie,keys:[cookieSecretKey], maxAge: expireIn
 app.use(cors());
 
 const routerApi = require("./routes/api");
+const web = require("./routes/web");
+
 app.use("/api/v1",routerApi);
+app.use("/",web);
 
 
 const PORT =process.env.PORT || 4000;

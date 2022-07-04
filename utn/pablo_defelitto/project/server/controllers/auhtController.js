@@ -20,7 +20,7 @@ const handleLogin = async (req,res,next)=>{
 
         if(!isAuthorized){
             res.status(401);
-            return res.json({error:"User not authorized"});
+            return res.json({error:"Credenciales incorrectas"});
         }
 
         const payload = {
@@ -32,7 +32,7 @@ const handleLogin = async (req,res,next)=>{
         setCookie(req,token);
 
         console.log(token);
-        return res.json({message:"Logueado"});
+        return res.json({message:"Logueado satisfactoriamente"});
     
     }catch(error)
     {
