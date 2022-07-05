@@ -1,0 +1,8 @@
+<div *ngIf="pokemons">
+    <ul>
+        <li *ngFor="let pokemon of pokemons; let i=index;" >
+            {{i}} )  {{ pokemon.name }}
+            <img src="{{ pokemon.image }}" width="30" height="30">
+        </li>
+    </ul>
+</div>

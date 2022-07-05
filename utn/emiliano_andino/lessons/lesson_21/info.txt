@@ -1,0 +1,2 @@
+Todo el codigo de esta clase se trabajo en un repositorio nuevo,
+repasando todos los temas y conceptos del frontend y backend
