@@ -12,7 +12,7 @@
     "start": "node -r dotenv/config ./build/server.js",
     "watch": "concurrently -ki -c green,magenta,cyan \"npm:watch-build\" \"npm:watch-frontend\" \"npm:watch-src\"",
     "watch-backend": "concurrently -ki -c green,cyan \"npm:watch-build\" \"npm:watch-src\"",
-    "watch-build": "nodemon -r dotenv/config ./build/server.js",
+    "watch-build": "nodemon -r dotenv/config --watch build ./build/server.js",
     "watch-frontend": "npm start --prefix frontend",
     "watch-src": "tsc -w"
   },
