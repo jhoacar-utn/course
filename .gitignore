@@ -1,7 +1,7 @@
 *
 !.gitignore
 !README.md
-
+.DS_Store 
 !/utn
 
 # First Case
