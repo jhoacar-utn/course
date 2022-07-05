@@ -1,0 +1,6 @@
+/**/node_modules/
+/**/build/
+
+/*.env
+/frontend/*.env*.local
+!/frontend/*.env
