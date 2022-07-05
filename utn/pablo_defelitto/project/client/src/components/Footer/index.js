@@ -10,7 +10,7 @@ function Footer() {
                 minHeight: "5vh",
                 textAlign: "center"
             }}>
-                <h4>Estudiante - Pablo Defelitto</h4>
+                <h4>Hecho por Jhoan</h4>
             </AppBar>
         </Box>
     );

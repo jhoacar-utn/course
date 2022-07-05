@@ -6,10 +6,12 @@ import { toast } from 'react-hot-toast';
 import Layout from "../components/Layout";
 import { handleLogin } from "../services/authorization";
 import { AuthorizationContext } from "../context/authorization";
+import { AppContext } from "../context/store";
+import { changeLoggedIn } from "../redux/actions/globalActions";
 
 function Login() {
 
-    const{isLoggedIn, setIsLoggedIn} = useContext(AuthorizationContext);
+    const { isLoggedIn, dispatch } = useContext(AppContext);
 
     // console.log(useContext(AuthorizationContext));
 
@@ -34,13 +36,14 @@ function Login() {
 
         handleLogin(email, password)
             .then((response) => {
-                setIsLoggedIn(true);
+                // setIsLoggedIn(true);
+                dispatch(changeLoggedIn(true));
                 toast.success("Logged successfully");
             })
             .catch((error) => {
                 console.log(error);
                 setHasErrorLogin(true);
-                setErrorMessageLogin(error);
+                // setErrorMessageLogin(error);
                 toast.error("An error has ocurred in the login");
             })
     }
@@ -91,8 +94,8 @@ function Login() {
                             </Box>
                             {hasErrorLogin &&
                                 <Typography variant="contained" color="red" sx={{
-                                        textTransform:"capitalize"
-                                    }}>
+                                    textTransform: "capitalize"
+                                }}>
                                     {errorMessageLogin}
                                 </Typography>
                             }

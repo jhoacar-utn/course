@@ -13,20 +13,24 @@ import { useContext } from 'react';
 import { AuthorizationContext } from '../../context/authorization';
 import { saveToken } from '../../services/authorization';
 import { ThemeContext } from '../../context/theme';
+import { AppContext } from '../../context/store';
+import { changeDarkMode, changeLoggedIn } from '../../redux/actions/globalActions';
 
 function NavBar() {
 
-    const { isLoggedIn, setIsLoggedIn } = useContext(AuthorizationContext);
-
-    const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+    // const { isLoggedIn, setIsLoggedIn } = useContext(AuthorizationContext);
+    
+    const { darkTheme, isLoggedIn , dispatch } = useContext(AppContext);
 
     const handleLogout = () => {
-        setIsLoggedIn(false);
+        // setIsLoggedIn(false);
+        dispatch(changeLoggedIn(false));
         saveToken("");
     }
 
     const handleChangeTheme = () =>{
-        setDarkTheme(!darkTheme);
+        // setDarkTheme(!darkTheme);
+        dispatch(changeDarkMode(!darkTheme));
     }
 
     return (
