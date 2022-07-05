@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import Layout from "../components/Layout";
 import { AppContext } from "../context/store";
-import {  Card, CardContent, FormControl,  Input, Typography   } from "@mui/material";
-
-import { Navigate } from "react-router-dom";
+import {  Card, CardContent, FormControl,   Typography   } from "@mui/material";
 import { useEffect } from "react";
 import { getToken } from "../services/authorization";
 import {getUser} from "../services/apiServer"

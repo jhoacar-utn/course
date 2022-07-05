@@ -34,8 +34,6 @@ function App() {
 
   return (
     <AppContext.Provider value={store}>
-      {/* <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-        <AuthorizationContext.Provider value={{ isLoggedIn, setIsLoggedIn }}> */}
           <ThemeProvider theme={theme}>
             <BrowserRouter>
               <Routes>
@@ -49,8 +47,6 @@ function App() {
               </Routes>
             </BrowserRouter>
           </ThemeProvider>
-        {/* </AuthorizationContext.Provider>
-      </ThemeContext.Provider> */}
     </AppContext.Provider>
   );
 }

@@ -62,11 +62,9 @@ export const handleRegister = async (name, email, password, avatar, image) => {
 
 export const saveToken = (token)=>{
     localStorage.setItem('token',token);
-    console.log(token)
 }
 
 export const getToken = ()=>{
     return localStorage.getItem('token');
-    console.log(localStorage.getItem('token'));
 }
 

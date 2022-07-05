@@ -18,8 +18,6 @@ import { CHANGE_AVATAR_AND_IMAGE, CHANGE_EMAIL, CHANGE_NAME, CHANGE_PASSWORD } f
 */
 export const reducerFunction = (state, action) => {
 
-    // console.log(action);
-
     switch (action.type) {
         case CHANGE_NAME:
             // state.name = action.payload; // Ya no es una funcion pura

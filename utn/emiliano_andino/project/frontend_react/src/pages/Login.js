@@ -12,8 +12,6 @@ function Login() {
 
     const { isLoggedIn, dispatch } = useContext(AppContext);
 
-    // console.log(useContext(AuthorizationContext));
-
     const [hasErrorLogin, setHasErrorLogin] = useState(false);
     const [errorMessageLogin] = useState("");
 
