@@ -7,9 +7,13 @@ import expressConfig from "../config/express.js";
 const router = Router();
 
 router.use("/api", cors(), express.json(), apiRouter);
-router.use(express.static(expressConfig.frontendDir));
-router.get("*", (_req, res) => {
-  res.sendFile(path.resolve(expressConfig.frontendDir, "index.html"));
-});
+
+if (expressConfig.frontendDir) {
+  const frontendDir = expressConfig.frontendDir;
+  router.use(express.static(frontendDir));
+  router.get("*", (_req, res) => {
+    res.sendFile(path.resolve(frontendDir, "index.html"));
+  });
+}
 
 export default router;

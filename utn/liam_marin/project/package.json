@@ -8,10 +8,12 @@
   "scripts": {
     "build": "npm run build-frontend && npm run build-backend",
     "build-backend": "tsc",
-    "build-frontend": "cd frontend && npm run build",
+    "build-frontend": "npm run build --prefix frontend",
     "start": "node -r dotenv/config ./build/server.js",
-    "watch": "concurrently -ki -c green,cyan \"npm:watch-build\" \"npm:watch-src\"",
+    "watch": "concurrently -ki -c green,magenta,cyan \"npm:watch-build\" \"npm:watch-frontend\" \"npm:watch-src\"",
+    "watch-backend": "concurrently -ki -c green,cyan \"npm:watch-build\" \"npm:watch-src\"",
     "watch-build": "nodemon -r dotenv/config ./build/server.js",
+    "watch-frontend": "npm start --prefix frontend",
     "watch-src": "tsc -w"
   },
   "author": "Liam Marin <liam.marin03926@protonmail.com>",
