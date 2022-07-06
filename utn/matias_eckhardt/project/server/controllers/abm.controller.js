@@ -32,7 +32,8 @@ const userData = await User.findOne({userMail: decodedToken.email})
 abmCtrl.usedAvatars = async (req, res) => {
   const data = await User.find();
   const avatars = data.map(({userAvatar, userImage}) => ({userAvatar, userImage}));
-  res.json(avatars);
+  const message = { message: "This are the existing avatars in the db", body: avatars}
+  res.json(message);
  };
 
 

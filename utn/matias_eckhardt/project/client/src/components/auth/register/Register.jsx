@@ -36,9 +36,10 @@ function Register() {
 
         const fetchingData = async () => {
             try {
-                const listAvatars = await fetch("/api/v1/auth/user/avatars")
+                const listAvatars = await fetch("/api/v1/user/avatar")
                 const avatars = await listAvatars.json();
-                const pokes = avatars.map(({userAvatar, userImage}) => ({name: userAvatar, image: userImage}));
+                console.log(avatars);
+                const pokes = avatars.body.map(({userAvatar, userImage}) => ({name: userAvatar, image: userImage}));
 
                 const result = await getPokemons();
     

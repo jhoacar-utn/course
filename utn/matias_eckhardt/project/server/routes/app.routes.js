@@ -5,13 +5,15 @@ const authCtrl = require("../controllers/auth.controller");
 const { authMiddleware } = require("../middlewares/authMiddleware");
 
 
-router.get("/auth/users", abmCtrl.listUsers);
-router.post("/auth/register", abmCtrl.createUser);
-router.get("/auth/user/avatars", abmCtrl.usedAvatars)
-router.get("/auth/user/:profile", abmCtrl.loguedUser);
-
-
+// authorization routes
 router.post("/auth/login", authCtrl.handleLogin);
+router.post("/auth/register", abmCtrl.createUser);
+
+// users routes
+router.get("/users", abmCtrl.listUsers);
+router.get("/user/avatar", abmCtrl.usedAvatars)
+router.get("/user/:profile", abmCtrl.loguedUser);
+
 
 
 
