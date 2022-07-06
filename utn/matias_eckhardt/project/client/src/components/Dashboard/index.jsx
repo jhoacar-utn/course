@@ -17,8 +17,8 @@ const getUserData = async function(res, req){
 
     const token = JSON.stringify(localStorage.token);
     const response = await fetch("/api/v1/user/profile?token=" + token);
-    const objeto = await response.json();
-        setUser(objeto);
+    const objeto = await response.json()
+        setUser(objeto.body);
 
      }
 return (

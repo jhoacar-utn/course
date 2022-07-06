@@ -17,14 +17,16 @@ abmCtrl.listUsers = async (req, res) => {
 
 
 abmCtrl.loguedUser = async (req, res) => {
- const  userToken  = req.query.token
+  try{
 
+const  userToken  = req.query.token
 const decodedToken = Decode(userToken);
-
 const userData = await User.findOne({userMail: decodedToken.email})
 
-
-  res.json(userData);
+  return res.status(201).json({ message: "User profile with all the data", body: userData  });
+} catch (error) {
+  return res.status(498).json({ error: "Token incorrecto"  });
+}
 };
 
 
