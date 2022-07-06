@@ -111,15 +111,15 @@ display: block;
         background-color: #1DAFA5;
         width: 600px;
         height: 10vh;
-        padding-top: 1.3vw;
+        padding-top: 3.3vw;
         border-radius: 20px;
         font-size: 30px;
-        left: 50%;
+        left: 30%;
         right: 50%;
     }
 
     .botonLogin{
-
+        left: 30%;
         width: 150px;
         margin-right: 20px;
 
@@ -127,4 +127,9 @@ display: block;
     font-style: normal;
     
     }
+
+.welcomeImage{
+    left: 43%;
+    margin-top: -6%;
+}
   }

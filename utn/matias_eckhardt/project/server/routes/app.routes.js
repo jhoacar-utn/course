@@ -12,7 +12,7 @@ router.post("/auth/register", abmCtrl.createUser);
 // users routes
 router.get("/users", abmCtrl.listUsers);
 router.get("/user/avatar", abmCtrl.usedAvatars)
-router.get("/user/:profile", abmCtrl.loguedUser);
+router.get("/user/profile", abmCtrl.loguedUser);
 
 
 
