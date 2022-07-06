@@ -1,15 +1,15 @@
 
 ------  Dont forget to: --------
 
-run firest:
+run first:
 
-npm i  (install node_modules)
 
+in client folder:
 
 npm run build (create the production build)
 
 
-and then  run in server 
+and then  in server folder:
 
-
+npm i  (install node_modules)
 npm start / npm run dev
