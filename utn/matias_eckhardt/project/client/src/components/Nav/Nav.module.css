@@ -75,3 +75,11 @@ font-style: normal;
     color: #E3E4E5;
 }
 
+@media (max-width: 450px) {
+
+.boton{
+
+    display: none;
+}
+ 
+  }
