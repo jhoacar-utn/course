@@ -48,7 +48,7 @@ abmCtrl.createUser = async (req, res, next) => {
 
     return res.status(201).json({ message: "User created Succesfully", body: userData  });
   } catch (error) {
-    return res.status(409).json({ message: "User already registered, try with another email"  });
+    return res.status(409).json({ message: "User already registered, try with another email", error  });
   }
 };
 

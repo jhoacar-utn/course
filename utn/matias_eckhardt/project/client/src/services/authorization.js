@@ -46,10 +46,10 @@ export const handleRegister = async (userName, userMail, userPassword, userAvata
 
     const reg = await response.json();
 
-    if(reg.error)
-        throw reg.error
-console.log(reg.error.message)
-    return  reg.message
+    if(reg.error) 
+        throw reg.error.message
+
+    return  reg.message;
 }
 
 export const saveToken = (token)=>{

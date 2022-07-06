@@ -96,12 +96,12 @@ function Register() {
     
             handleRegister(name, email, password, avatar, image)
                 .then((response) => {
+                    console.log(response);
                     dispatch(changeRegisteredIn(true));
                     toast.success("User created Succesfully");
                         navigate('/login');
-                })
-                .catch((error) => {
-
+                        
+                }).catch((error) => {
                     setHasErrorLogin(true);
                     toast.error("email already registered");
                 })
