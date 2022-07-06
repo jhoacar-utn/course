@@ -1,0 +1,67 @@
+Sistema Decimal: 10 digitos -> [0,1,2,3,...,9]
+
+    - 3625 => 5 + 20 + 600 + 3000 => 5*1 + 2*10 + 6*100 + 3*1000 
+
+    - 3625 => 5*(10^0) + 2*(10^1) + 6*(10^2) + 3*(10^3)
+
+Sistema Octal: 8 digitos -> [0,...,7]
+
+    - 3625 => 5*(8^0) + 2*(8^1) + 6*(8^2) + 3*(8^3)
+
+Sistema Hexadecimal: 16 digitos -> [0,...,9,A,B,...,F]
+
+    - 3625 => 5*(16^0) + 2*(16^1) + 6*(16^2) + 3*(16^3)
+
+Sistema Binario: 2 digitos -> [0,1]
+
+    - 1011 => 1*(2^0) + 1*(2^1) + 0*(2^2) + 1*(2^3) => 1 + 2 + 0 + 8 => 11
+
+    Bytes: son grupos de 8 bits.
+
+    1101 1001 => 8 bits => 1 Byte
+
+    1 KiloByte => 1024 Byte
+
+Direcciones IP:
+    
+    - Las direcciones IP son 32 bits en representacion del numero donde esta ubicado
+
+    - minimo numero de ip => 0000 0000 0000 0000 0000 0000 0000 0000
+    - maximo numero de ip => 1111 1111 1111 1111 1111 1111 1111 1111
+    
+    - representacion de la direccion ip en punto decimal:
+
+            - 01000010 00010010 01000010 00010010 
+            - 66 . 18 . 66 . 18
+
+            - 11111111 11111111 11111111 11111111
+            - 255 . 255 . 255 . 255
+
+    - ¿Cuantas ips hay disponibles entonces en el mundo? -> 2^32 -> 4.294.967.296
+    - El estandar para la division entre ip publica y privadas es RFC1928 (https://netbeez.net/blog/rfc1918/):
+
+        - Ip privadas o locales comienzan con los siguientes prefijos:
+
+            10.x.x.x
+            172.x.x.x
+            192.168.x.x
+
+            10.0.0.0 – 10.255.255.255  (10/8 prefix)
+            172.16.0.0 – 172.31.255.255  (172.16/12 prefix)
+            192.168.0.0 – 192.168.255.255 (192.168/16 prefix)
+            127.0.0.1 - 127.255.255.255 -> localhost (127.0.0.1/8)
+
+    - Ip publicas: son las direcciones en la red global o internet
+
+
+    - Ip privadas o locales: son las direcciones para comunicarme en la red local con el router
+
+        - Para pertenecer a la red del router, se validaran las credenciales bajo un servicio
+        del servidor del router, configurado en el puerto 53, que estaria usando un kernel de linux
+
+        - Para conectarme a internet debe realizar una conexion mi router al router del IPS 
+        (Internet Service Provider) (Fibertel, Telecentro, ...)
+        
+
+
+
