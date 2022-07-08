@@ -1,3 +1,0 @@
-Ctrl+C -> mata un proceso en ejecucion
-
-cd nombre_de_carpeta -> es para moverme entre carpetas

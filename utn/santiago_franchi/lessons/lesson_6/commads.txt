@@ -1,4 +1,0 @@
-// API REST -> Viaja la informacion en JSON
-
-// API SOAP -> Viaja la informacion en XML
- 
