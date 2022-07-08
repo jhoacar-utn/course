@@ -1,0 +1,39 @@
+SSH (Secure Shell) -> Es un servicio de comunicacion segura y encriptada para ejecutar 
+                    comandos en otras computadoras
+
+Comandos Basicos en Linux:
+
+    - cd
+    - ls
+    - mkdir -> crea directorios
+    - rm -> eliminar archivos ( -r, elimina directorios y subdirectorios recursivamente)
+    - touch -> crear un archivo nuevo
+    - ...
+
+        -> Para instalar paquetes en el servidor con Ubuntu
+
+            - apt update -> actualizar paquetes
+            - apt install -> instalar paquetes
+            - apt remove -> eliminar paquetes
+
+    Si se quiere hostear con una maquina virtual el servidor
+
+    - Se deberia instalar algunos paquetes correspondientes al servicio, ejemplo:
+
+        - git
+        - node (En caso de un proyecto node, o los distintos compiladores o interpretes que se necesiten del proyecto)
+
+    Crear un archivo con las variables de entorno en el servidor configurando el puerto y las credenciales a la base de datos
+    Luego se ejecutara el comando o las configuraciones a realizar -> 'npm run build && npm start ...'
+
+    Al estar ejecutando la aplicacion en algun puerto en especifico, por ejemplo el 3000, este servicio se esta ejecutando
+    pero la unica forma que tenga acceso personas en el exterior es atraves de un FIREWALL
+
+    Para conocer los puertos abiertos o cerrados de una IP o dominio, hay una herramienta
+    o comando que se llama:
+
+        - nmap
+
+
+
+

@@ -1,0 +1,10 @@
+DNS (Domain Name Server): Es un servicio que resuelve un nombre de dominio hacia una ip.
+
+El comando para revisar las ip de un dominio es:
+
+    - nslookup:  El comando necesita el nombre del dominio
+
+La forma de configurar un dominio (básico) es usando dos 'records':
+
+    A -> la direccion IP a la que va a ser asignada
+    CNAME -> el alias de algun dominio previamente registrado

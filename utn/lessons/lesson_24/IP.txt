@@ -63,5 +63,56 @@ Direcciones IP:
         (Internet Service Provider) (Fibertel, Telecentro, ...)
         
 
+Comando para ver el estado de la red:
+
+    - ipconfig -> Windows
+    - ifconfig -> Linux o Mac
+
+Clases de subred dependiendo de la mascara:
+
+    - Clase A: 10.0.0.0 a 10.255.255.255.
+    - Clase B: 172.16.0.0 a 172.31.255.255.
+    - Clase C: 192.168.0.0 a 192.168.255.255.
+
+Datos Locales:
+
+    - Dirección IPv4. . . . . . . . . . . . . . : 192.168.0.13
+    - Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+    - Puerta de enlace . . . . . . . . . . . . .: 192.168.0.1
+
+Representacion de Direccion IP y Mascara de Red abreviada:
+
+     255    .   255  .  255 .      0
+    11111111 11111111 11111111 00000000 => 
+
+    -- Bits de Red ---  ---- Bits de Host --
+
+    Bits de Red = 24
+    Bits de Host = 8
+
+    - La representacion es la siguiente: DIRECCION_IP/BITS_DE_RED
+
+    - 192.168.0.13/24
+
+El protocolo NAT (Network Address Translation) es el encargado de traducir las comunicaciones de
+direcciones IP privadas a IP publicas y asi garantizar la comunicacion correcta entre los dispositivos
+
+
+Direcciones MAC: 
+
+    - Es una direccion unica en el mundo y esta directamente relacionada al dispositivo de conexion, por ejemplo:
+
+        - Wifi
+        - Bluetooth
+        - ...
+
+
+
+
+
+
+
+
+
 
 
