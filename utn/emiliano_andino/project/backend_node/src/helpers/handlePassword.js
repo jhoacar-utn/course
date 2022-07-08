@@ -11,6 +11,13 @@ const getHashedPassword = async (plainPassword)=>{
 }
 
 const comparePassword = async (plainPassword, hashedPassword) =>{
+    
+    /*
+        No deberias controlar los errores aca
+        porque ya lo haria el controlador, entonces
+        fijate que solo sea este metodo el encargado
+        de comunicarse con bcrypt
+    */
     try{
         const result = await bcrypt.compare(plainPassword, hashedPassword);
         return result;

@@ -20,6 +20,13 @@ const loginUser = async (req, res, next) => {
             email: user.email,
             name: user.name
         }
+        /*
+            Fijate del token que estas generando
+            tienes un payload con {email, name } unicamente
+            es decir, que cuando se decodifique este
+            jsonwebtoken solo se obtendra un objeto
+            con estos dos campos!!!
+         */
         const token = getJsonWebToken(payload);
         //setCookie(req, token);
         return res.status(200).json({
@@ -38,6 +45,13 @@ const registerUser = async (req, res, next) => {
     try {
         const userData = req.body;
         const {email} = userData;
+        /**
+            Deberias hacer una validacion del body de la request,
+            es una mala practica confiarte de todo lo que venga
+            desde el cliente del frontend, porque puede añadir campos
+            de mas o campos de menos, entonces tu como backend
+            debes perseveras la solides en tus sistemas.
+         */
         console.log(userData)
         if (await userModel.customFindOne( { email}  )) {
             res.status(400);
@@ -98,6 +112,13 @@ const getProfile = async (req,res,next)=>{
             res.status(400);
             return res.json({ error: "Token incorrecto" });
         }
+        /*
+        Esta payload data deberia ser la misma que genero con el token
+        por lo tanto aca la propiedad { password } sera undefined
+        esto debido a que tu generaste previamente un jsonwebtoken
+        con solo los campos { name, email }, por lo tanto aca
+        nunca va a estar autorizado         
+        */
         const {email, password} = getPayloadData(token);
         const user = await userModel.customFindOne( { email } );
 
