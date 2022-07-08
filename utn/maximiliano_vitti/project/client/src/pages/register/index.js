@@ -70,10 +70,63 @@ function Register() {
 
         handleRegister(data)
             .then((response) => {
+                /*
+                Aca no entiendo el porque utilizas un metodo llamado redirect,
+                este metodo capaz lo entiendas por como trabajamos en el backend
+                pero resulta que en react para hacer esta redireccion no se hace
+                de la misma manera, ademas trata de interpretar lo que estaria
+                pasando, fijate que la variable 'response' sera el contenido 
+                que devolvera cuando se resuelva la promesa de handleRegister,
+                seria nada mas y nada menos lo que devuelve la funcion cuando se
+                ha completado, que si vamos al codigo seria el 'return jsonData.message;'
+                entonces es un 'string' y un 'string' no tiene el metodo .redirect
+
+
+                Para hacer este tema de redirect to login hay que hacerlo como
+                hicimos el redirect hacia el dashboard.
+                
+                Crearemos un estado interno aca que se llame:
+                    
+                    - const [isRegistered, setIsRegistered] = useState(false);
+
+                Y aca seria donde lo asignamos a 'true', ( setIsRegistered(true) )
+                de modo que cuando vayamos a volver a renderizar este componente 
+                de registro, tengamos algo como esto:
+
+                     <>
+                        {isRegistered && <Navigate to="/login" replace={true} />}
+                        <Layout>
+                            ...
+                        </Layout>
+                    </>
+
+                
+                Esto evidenteme verifica la variable y como se hizo a 'true'
+                renderiza una navegacion para ir hacia el '/login', hay otras
+                maneras pero esta fue la que vimos en clase
+                */
+
                 toast.success("User registered successfully");
                 response.redirect('/login')
             })
             .catch((error) => {
+                /**
+                Aca luego de haber algun error en el registro mostrara un error
+                por el toast pero que pasara si por ejemplo
+                el error es un objeto o cualquier cosa que venga por
+                el metodo catch, es decir, cualquier cosa podria atrapar
+
+                Lo recomendable seria directamente colocarle en el toast
+                lo unico que puedo colocarle que seria algo que se pueda
+                renderizar en react, puede ser un 'string' o un 'jsx'
+
+                Lo que te aconsejo es que muestres por consola el error
+                y por el toast un string que diga por ejemplo 'user not registered'
+
+                    console.log(error);
+                    toast.error('User not registered');
+
+                 */
                 //console.log(error);
                 toast.error(error);
             })
