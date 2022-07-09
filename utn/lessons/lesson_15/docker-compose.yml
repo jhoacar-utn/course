@@ -1,0 +1,18 @@
+version: "2"
+services:
+  myapp:
+    image: "my-nodejs-app"
+    # working_dir: /app
+    volumes:
+    # Compartir carpetas especificandolo de la siguiente manera
+    #     carpeta host : carpeta contenedor
+      - ./:/app
+    # Cambiamos 'expose' por 'ports'
+    # PORTS funciona como los volumenes que habilitan o abren puertos
+    # en el host apuntando al contenedor
+    #      puerto del host : puerto del contenedor    
+    ports:
+      -  80:5000
+    # command sera el comando que se ejecuta cuando inicia correctamente
+    # el contenedor
+    command: "npm install-all && npm start"

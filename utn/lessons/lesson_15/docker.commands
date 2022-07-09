@@ -1,0 +1,15 @@
+# Este construye una imagen usando el Dockerfile que se encuentra en la carpeta actual, eso es porque se paso el '.'
+$ docker build -t my-nodejs-app .
+
+# Luego de construida la imagen lo que sigue es ejecutarla
+# Hacemos uso del comando 'docker run' y le especificamos las distintas configuracion al levantarse
+
+    -i -> consola interactiva
+    -t -> tty
+
+    --rm -> luego de ejecutado este contenedor que se elimine
+    --name -> especificamos el nombre del contenedor
+
+# Luego le decimos el nombre de la imagen y si queremos en el ultimo parametro algun comando que queramos ejecutar
+
+$ docker run -it --rm --name my-running-app my-nodejs-app npm run build && npm start
