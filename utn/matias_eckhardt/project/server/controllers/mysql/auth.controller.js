@@ -1,13 +1,15 @@
 const authCtrl = {};
-const User = require("../models/User");
-const { comparePassword, getHashedPassword } = require("../helpers/handlePassword");
-const { getJsonWebToken } = require("../helpers/handleJWT");
-const { setCookie } = require("../helpers/handleCookie");
+const User = require("../../config/models/mysql/userModel");
+const {
+  comparePassword,
+  getHashedPassword,
+} = require("../../helpers/handlePassword");
+const { getJsonWebToken } = require("../../helpers/handleJWT");
+const { setCookie } = require("../../helpers/handleCookie");
 
 authCtrl.handleLogin = async (req, res, next) => {
   try {
-
-    req.session.login = req.body
+    req.session.login = req.body;
 
     const { userMail, userPassword } = req.body;
     const user = await User.findOne({ userMail });
@@ -19,7 +21,6 @@ authCtrl.handleLogin = async (req, res, next) => {
 
     const isAuthorized = await comparePassword(userPassword, user.userPassword);
 
-
     if (!isAuthorized) {
       res.status(401);
       return res.json({ error: "User not authorized : Wrong Credentials" });
@@ -30,15 +31,12 @@ authCtrl.handleLogin = async (req, res, next) => {
       name: user.userName,
     };
 
-
     const token = getJsonWebToken(payload);
-
 
     setCookie(req, token);
 
     res.status(201);
-    return res.json({message: "Logged In Successfully", body: token})
-
+    return res.json({ message: "Logged In Successfully", body: token });
   } catch (error) {
     console.log(error);
     res.status(500);
