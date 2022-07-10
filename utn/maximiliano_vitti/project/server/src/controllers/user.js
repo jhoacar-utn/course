@@ -25,20 +25,22 @@ const getDatabaseAvatars = async (req, res,next) => {
 
 }
 
-const getProfile = async (req, res, next) => {
+const getUserData = async (req, res) => {
 
-    const { email } = req.body;
-    
     try{
 
-        console.log(email);
+        const {UserData} =  req.query;
+        
+        console.log(UserData);
 
-        const profile = await User.customFindOne({ email });
+        //const profile = await User.customFindOne({ email :email });
+
+        //console.log(profile);
 
         return res.json({
             message: "Perfil del Usuario logueado",
-            body: {profile}
-            });
+            body: {UserData} 
+        });
     
 
     } catch (error) {
@@ -51,5 +53,5 @@ const getProfile = async (req, res, next) => {
 }
 
 module.exports = {
-    getDatabaseAvatars, getProfile
+    getDatabaseAvatars, getUserData
 }

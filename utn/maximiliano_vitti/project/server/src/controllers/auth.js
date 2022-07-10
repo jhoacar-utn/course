@@ -37,7 +37,7 @@ const handleLogin = async (req, res) => {
             body: { token }
             });
     
-        /*res.redirect("/dashboard")}; */
+
 
     } catch (error) {
         console.log(error);

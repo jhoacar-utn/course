@@ -26,9 +26,9 @@ const USER_API_URL = API_URL + "/user";
     
 */
 
-export const getUser = async function(){
+export const getUserData = async function(){
 
-    const token = getToken();
+    const token = getToken(); //aca me trae undefined con la funcion getToken entonces nunca lo envia como corresponde
 
     console.log(token);
 

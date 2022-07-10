@@ -1,10 +1,9 @@
 const express = require("express");
-
-const { getDatabaseAvatars, getProfile } = require("../../controllers/user");
+const { getDatabaseAvatars, getUserData } = require("../../controllers/user");
 
 const router = express.Router();
 
 router.get("/avatar",getDatabaseAvatars);
-router.get("/profile",getProfile);
+router.get("/profile",getUserData);
 
 module.exports = router;
