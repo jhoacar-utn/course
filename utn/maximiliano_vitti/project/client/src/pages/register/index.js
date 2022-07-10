@@ -26,7 +26,7 @@ import { handleRegister } from '../../services/authorization';
 function Register() {
 
     const [avatars, setAvatars] = useState([]);
-    const { isLoggedIn } = useContext(AppContext);
+    const [isRegistered, setIsRegistered] = useState(false)
 
     const [registerState, setRegisterState] = useReducer(reducerFunction, {
         name: "",
@@ -70,6 +70,8 @@ function Register() {
 
         handleRegister(data)
             .then((response) => {
+
+                setIsRegistered(true);
                 /*
                 Aca no entiendo el porque utilizas un metodo llamado redirect,
                 este metodo capaz lo entiendas por como trabajamos en el backend
@@ -103,11 +105,10 @@ function Register() {
                 
                 Esto evidenteme verifica la variable y como se hizo a 'true'
                 renderiza una navegacion para ir hacia el '/login', hay otras
-                maneras pero esta fue la que vimos en clase
+                maneras pero esta fue la que vimos en clase   --PERFECTO ME ANDUVO OK!!!
                 */
 
                 toast.success("User registered successfully");
-                response.redirect('/login')
             })
             .catch((error) => {
                 /**
@@ -124,11 +125,11 @@ function Register() {
                 y por el toast un string que diga por ejemplo 'user not registered'
 
                     console.log(error);
-                    toast.error('User not registered');
+                    toast.error('User not registered'); --OK Cambiado--
 
                  */
-                //console.log(error);
-                toast.error(error);
+                console.log(error);
+                toast.error('User not registered');
             })
 
     }
@@ -181,7 +182,7 @@ function Register() {
 
     return (
         <>
-            {isLoggedIn && <Navigate to="/dashboard" replace={true} />}
+            {isRegistered && <Navigate to="/login" replace={true} />}
             <Layout>
                 <Card sx={{
                     minHeight: 400,

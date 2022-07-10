@@ -18,6 +18,7 @@ function UserData() {
         const fetchingData = async () => {
             try {
                 const result = await getUser();
+                console.log(result);
                 setuserState(result) 
             }
             catch (error) {
@@ -36,7 +37,9 @@ function UserData() {
         {isLoggedIn}
             <div className="container">
                 <div>Nombre: {name}</div>
+                <div> </div>
                 <div>mail: {email}</div>
+                <div> </div>
                 <div><img src={image} alt={avatar} width={100} height={100} /></div>
             </div>
         </>

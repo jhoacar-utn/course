@@ -1,15 +1,18 @@
 const { User } = require("../models");
 
-const getAvatars = async (req, res,next) => {
+const getDatabaseAvatars = async (req, res,next) => {
         
     try{
+
         const avatars = await User.customFindAll();
 
         console.log(avatars);
 
+        //me trae un array del tipo  body	"[{\"avatar\":\"wartortle\"},{\"avatar\":\"wartortle\"},{\"avatar\":\"squirtle\"}]"
+        //no se como solucinarlo para que quede " body ":[" Avatar 1", " Avatar 2",...]
         return res.json({
             message: "Lista de Avatars en la base de datos",
-            body: { avatars }
+            body: JSON.stringify(avatars)
             });
     
 
@@ -23,19 +26,18 @@ const getAvatars = async (req, res,next) => {
 }
 
 const getProfile = async (req, res, next) => {
+
+    const { email } = req.body;
     
     try{
 
-        const userData = req.body;
+        console.log(email);
 
-        const profile = await User.customFindOne({ email : userData.email });
-
-        //aca me devuelve error cuando quiero traer los datos del usuario logueado de la base de datos
-        //donde le especifico que busque por el email... aparece siempre  error	{}
+        const profile = await User.customFindOne({ email });
 
         return res.json({
             message: "Perfil del Usuario logueado",
-            body: { profile }
+            body: {profile}
             });
     
 
@@ -49,5 +51,5 @@ const getProfile = async (req, res, next) => {
 }
 
 module.exports = {
-    getAvatars, getProfile
+    getDatabaseAvatars, getProfile
 }

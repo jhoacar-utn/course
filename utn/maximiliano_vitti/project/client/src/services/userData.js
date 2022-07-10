@@ -1,5 +1,7 @@
+import { getToken } from "./authorization";
+
 const API_URL = process.env.REACT_APP_API_URL || "/api/v1";
-const API_AUTH_URL = API_URL + "/user/profile";
+const USER_API_URL = API_URL + "/user";
 
 //esto no lo pude terminar al no funcionarme la ruta /user/profile
 
@@ -9,11 +11,11 @@ const API_AUTH_URL = API_URL + "/user/profile";
     con metodo POST y tu backend solo lo tiene habilitado por verbo GET,
     eso en primer lugar, en segundo lugar lo que debes enviar seria
     un token, no el name y email, el token lo deberias extraer del
-    localStorage de la manera como se guardo.
+    localStorage de la manera como se guardo. -- OK corregido --
 
     Fijate que tenes definida una funcion que esta authorization.js
     para getToken(), entonces lo que debes hacer es usarla,
-    esta function getUser no deberia recibir ningun parametro!
+    esta function getUser no deberia recibir ningun parametro! ---- OK agregado --
 
     El metodo fetch seria de la siguiente manera
 
@@ -24,18 +26,13 @@ const API_AUTH_URL = API_URL + "/user/profile";
     
 */
 
-export const getUser = async function(name, email){
+export const getUser = async function(){
 
-    const data = {name, email}
+    const token = getToken();
 
-    const response = await fetch(API_AUTH_URL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    })
+    console.log(token);
+
+    const response = await fetch(USER_API_URL+"/profile?token="+token);
     
     const jsonData = await response.json();
 
