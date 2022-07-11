@@ -3,11 +3,12 @@ import UserData from "../components/UserData";
 
 function Dashboard (){
 
-    return (
+     return (
         <Layout>
             <UserData></UserData>
         </Layout>
-    )
+    ) 
+
 }
 
 export default Dashboard;

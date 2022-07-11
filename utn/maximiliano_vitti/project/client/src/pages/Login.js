@@ -46,7 +46,7 @@ function Login() {
                 toast.error(error);
             })
     }
-
+    
     return (
         <>
             {isLoggedIn && <Navigate to="/dashboard" replace={true} />}

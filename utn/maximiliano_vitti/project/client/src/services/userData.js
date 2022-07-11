@@ -1,5 +1,3 @@
-import { getToken } from "./authorization";
-
 const API_URL = process.env.REACT_APP_API_URL || "/api/v1";
 const USER_API_URL = API_URL + "/user";
 
@@ -28,9 +26,7 @@ const USER_API_URL = API_URL + "/user";
 
 export const getUserData = async function(){
 
-    const token = getToken(); //aca me trae undefined con la funcion getToken entonces nunca lo envia como corresponde
-
-    console.log(token);
+    const token =  localStorage.getItem('token');
 
     const response = await fetch(USER_API_URL+"/profile?token="+token);
     
@@ -39,5 +35,5 @@ export const getUserData = async function(){
     if(jsonData.error)
         throw jsonData.error;
 
-    return jsonData.message;
+    return jsonData.body;
 }

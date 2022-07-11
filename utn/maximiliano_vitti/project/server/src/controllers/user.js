@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const { getPayloadData } = require("../helpers/handleJWT");
 
 const getDatabaseAvatars = async (req, res,next) => {
         
@@ -29,19 +30,30 @@ const getUserData = async (req, res) => {
 
     try{
 
-        const {UserData} =  req.query;
-        
-        console.log(UserData);
+        const {token} =  req.query;
 
-        //const profile = await User.customFindOne({ email :email });
+        if (token) {
 
-        //console.log(profile);
+            const email  = getPayloadData(token)
 
-        return res.json({
-            message: "Perfil del Usuario logueado",
-            body: {UserData} 
-        });
-    
+            //console.log(email);
+
+            const userData = await User.customFindOne({ email: email });
+
+            console.log(userData);
+
+            return res.json({
+                message: "Perfil del Usuario logueado",
+                body: {userData}
+            });
+
+        }
+        else{
+            throw "token is not valid";
+        }
+
+        //console.log(token);
+
 
     } catch (error) {
         console.log(error);

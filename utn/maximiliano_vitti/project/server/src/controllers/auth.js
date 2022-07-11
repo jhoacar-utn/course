@@ -34,7 +34,7 @@ const handleLogin = async (req, res) => {
         res.status(201);
         return res.json({
             message: "User login succesfully",
-            body: { token }
+            body: { token } //, user: {name : user.name, email: user.email, image: user.image, avatar: user.avatar }
             });
     
 

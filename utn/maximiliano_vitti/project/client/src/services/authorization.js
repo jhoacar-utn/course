@@ -58,6 +58,6 @@ export const saveToken = (token) => {
 }
 
 export const getToken = () => {
-    //console.log(localStorage.getItem('token'))
-    return localStorage.getItem('token');
+    localStorage.getItem('token');
+    
 }
