@@ -1,0 +1,30 @@
+body{
+    min-width: 200px;
+}
+.navbar{
+    min-height: 10vh;
+    max-height: 10vh;
+}
+.active{
+    font-weight: bolder;
+}
+
+.brand-img{
+    width: 30px;
+}
+main{
+    min-height: 80vh;
+}
+
+.card-img-bottom{
+    max-height: 180px;
+    margin: 10px auto;
+}
+.card-img{
+    max-height: 10%;
+}
+
+.vertical{
+    min-width: 48vw;
+}
+
