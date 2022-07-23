@@ -1,9 +1,0 @@
-/node_modules
-/dist
-.env
-/storage/*
-!/storage/.gitkeep
-!/storage/default.png
-!/storage/index.js
-googleCredentials.json
-amazonCredentials.json
